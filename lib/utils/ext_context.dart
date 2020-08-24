@@ -23,8 +23,8 @@ extension ContextExtensions on BuildContext {
         ));
   }
 
-  goToNoAnimation(Widget widget) {
-    Navigator.push(
+  goToReplacePageRoute(Widget widget) {
+    Navigator.pushReplacement(
         this,
         PageRouteBuilder(
             transitionDuration: Duration(milliseconds: 1500),

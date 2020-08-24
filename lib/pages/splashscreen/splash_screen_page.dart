@@ -21,7 +21,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   void initState() {
     super.initState();
     Future.delayed(Duration(seconds: 3), () {
-      context.goToNoAnimation(LoginPage());
+      context.goToReplacePageRoute(LoginPage());
     });
   }
 
