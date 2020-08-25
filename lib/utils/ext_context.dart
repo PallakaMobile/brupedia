@@ -27,7 +27,7 @@ extension ContextExtensions on BuildContext {
     Navigator.pushReplacement(
         this,
         PageRouteBuilder(
-            transitionDuration: Duration(milliseconds: 1500),
+            transitionDuration: Duration(milliseconds: 1000),
             pageBuilder: (_, __, ___) => widget));
   }
 

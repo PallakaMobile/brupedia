@@ -13,6 +13,7 @@ class Dimens {
   static const double height50 = 342;
   static const double height40 = 274;
   static const double height30 = 206;
+  static const double header = 150;
 }
 
 widthInPercent(double percent, BuildContext context) {

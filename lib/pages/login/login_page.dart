@@ -1,12 +1,14 @@
+import 'package:brupedia/blocs/blocs.dart';
+import 'package:brupedia/pages/main/main_page.dart';
 import 'package:brupedia/resources/dimens.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/resources/styles.dart';
 import 'package:brupedia/utils/utils.dart';
-import 'package:brupedia/widgets/button_link.dart';
 import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -161,7 +163,10 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Button(
                 title: Strings.login,
-                onPressed: () {},
+                onPressed: () {
+                  context.goToReplacePageRoute(BlocProvider(
+                      create: (context) => NavDrawerBloc(), child: MainPage()));
+                },
               ),
               SizedBox(
                 height: dp16(context),
@@ -194,7 +199,7 @@ class _LoginPageState extends State<LoginPage> {
       // false = user must tap button, true = tap outside dialog
       builder: (BuildContext dialogContext) {
         return CupertinoDialogAction(
-            //this right here
+          //this right here
             textStyle: TextStyles.text,
             isDestructiveAction: false,
             isDefaultAction: true,

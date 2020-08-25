@@ -12,4 +12,7 @@ class Strings {
   static const String clickHere = "Klik Disini.";
   static const String registerDialog =
       "Silakan hubungi Admin BRUPEDIA PLTU Barru OMU, ";
+  static const String mainMenu = "Menu Utama";
+  static const String about = "Tentang";
+  static const String exit = "Keluar";
 }
