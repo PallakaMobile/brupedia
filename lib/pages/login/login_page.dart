@@ -1,10 +1,14 @@
 import 'package:brupedia/resources/dimens.dart';
 import 'package:brupedia/resources/resources.dart';
+import 'package:brupedia/resources/styles.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/button_link.dart';
 import 'package:brupedia/widgets/widgets.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 
 ///*********************************************
 /// Created by ukietux on 24/08/20 with ♥
@@ -12,6 +16,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 /// github : https://www.github.com/ukieTux <(’_’<)
 ///*********************************************
 /// © 2020 | All Right Reserved
+
+enum Category { REGISTER, FORGOT }
+
 class LoginPage extends StatefulWidget {
   LoginPage({Key key}) : super(key: key);
 
@@ -142,8 +149,10 @@ class _LoginPageState extends State<LoginPage> {
                       child: Text(Strings.rememberUser)),
                   Spacer(),
                   ButtonLink(
-                    title: Strings.passwordForgot,
-                    onPressed: () {},
+                    title: Strings.passwordForgotAsk,
+                    onPressed: () {
+                      _showDialog(Category.FORGOT);
+                    },
                   )
                 ],
               ),
@@ -163,7 +172,9 @@ class _LoginPageState extends State<LoginPage> {
               ),
               ButtonLink(
                 title: Strings.register,
-                onPressed: () {},
+                onPressed: () {
+                  _showDialog(Category.REGISTER);
+                },
               ),
               SizedBox(
                 height: dp30(context),
@@ -173,6 +184,84 @@ class _LoginPageState extends State<LoginPage> {
           ],
         ),
       ),
+    );
+  }
+
+  _showDialog(Category _category) {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: true,
+      // false = user must tap button, true = tap outside dialog
+      builder: (BuildContext dialogContext) {
+        return CupertinoDialogAction(
+            //this right here
+            textStyle: TextStyles.text,
+            isDestructiveAction: false,
+            isDefaultAction: true,
+            child: Container(
+              decoration: BoxDecorations.white,
+              height: Dimens.height50,
+              width: widthInPercent(90, context),
+              child: Column(children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      _category == Category.REGISTER
+                          ? Strings.register
+                          : Strings.passwordForgot,
+                      style: TextStyles.textBold.copyWith(
+                        fontSize: Dimens.fontLarge2,
+                      ),
+                    ).padding(edgeInsets: EdgeInsets.only(left: dp16(context))),
+                    FlatButton(
+                        splashColor: Palette.colorHint,
+                        shape: CircleBorder(),
+                        child: Icon(
+                          Icons.close,
+                          color: Palette.colorPrimary,
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        }),
+                  ],
+                ),
+                Divider(
+                  thickness: 1,
+                ),
+                SvgPicture.asset(
+                  _category == Category.REGISTER
+                      ? "images/ic_register.svg"
+                      : "images/ic_forgot_password.svg",
+                  width: double.infinity,
+                  height: Dimens.height30,
+                ),
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        style: TextStyles.text,
+                        text: Strings.registerDialog,
+                      ),
+                      TextSpan(
+                        style: TextStyles.primaryBold,
+                        text: Strings.clickHere,
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () async {
+                            if (_category == Category.REGISTER) {
+                              context.logs("taps register");
+                            } else {
+                              context.logs("taps forgotPassword");
+                            }
+                          },
+                      ),
+                    ],
+                  ),
+                ).padding(edgeInsets: EdgeInsets.all(dp16(context))),
+              ]),
+            ));
+      },
     );
   }
 }
