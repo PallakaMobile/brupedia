@@ -1,19 +1,21 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Dimens {
-  static const double fontSmall = 12.0;
-  static const double fontSmall1 = 10.0;
-  static const double fontNormal = 14.0;
-  static const double fontLarge = 16.0;
-  static const double fontLarge1 = 18.0;
-  static const double fontLarge2 = 20.0;
-  static const double fontLarge3 = 26.0;
-  static const double fontLarge4 = 32.0;
-  static const double height8 = 55;
-  static const double height50 = 342;
-  static const double height40 = 274;
-  static const double height30 = 206;
-  static const double header = 150;
+  static double fontSmall = 12.sp;
+  static double fontSmall1 = 10.0.sp;
+  static double fontNormal = 14.0.sp;
+  static double fontLarge = 16.0.sp;
+  static double fontLarge1 = 18.0.sp;
+  static double fontLarge2 = 20.0.sp;
+  static double fontLarge3 = 26.0.sp;
+  static double fontLarge4 = 32.0.sp;
+  static double height8 = 55.h;
+  static double height50 = 380.h;
+  static double height40 = 274.h;
+  static double height35 = 200.h;
+  static double height30 = 177.h;
+  static double header = 150.h;
 }
 
 widthInPercent(double percent, BuildContext context) {

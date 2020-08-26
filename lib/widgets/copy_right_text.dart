@@ -21,13 +21,16 @@ class CopyRightText extends StatelessWidget {
       children: [
         Text(
           "Copyright © 2020",
-          style: TextStyle(color: color ?? Palette.colorText),
+          style: TextStyle(
+              color: color ?? Palette.colorText, fontSize: Dimens.fontSmall),
         ),
         SizedBox(width: dp8(context),),
         Text(
           "PLTU Barru OMU",
           style: TextStyle(
-              fontWeight: FontWeight.bold, color: color ?? Palette.colorText),
+              fontWeight: FontWeight.bold,
+              color: color ?? Palette.colorText,
+              fontSize: Dimens.fontSmall),
         )
       ],
     );

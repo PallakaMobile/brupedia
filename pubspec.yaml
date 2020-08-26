@@ -33,9 +33,10 @@ dependencies:
   dio: 3.0.9
   shared_preferences: ^0.5.10
   get_it: ^4.0.4
-  flutter_bloc: ^6.0.1
+  flutter_bloc: ^6.0.2
   intl: ^0.16.1
   flutter_flexible_toast: ^0.1.4
+  flutter_screenutil: ^2.3.1
 
 dev_dependencies:
   flutter_test:

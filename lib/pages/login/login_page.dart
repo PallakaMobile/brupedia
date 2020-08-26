@@ -42,6 +42,8 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       appBar: null,
       body: ScrollViews(
+        isPadding: false,
+        isCopyRightShow: false,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -95,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Text(
                   Strings.login,
                   style:
-                      TextStyles.textBold.copyWith(fontSize: Dimens.fontLarge1),
+                  TextStyles.textBold.copyWith(fontSize: Dimens.fontLarge1),
                   textAlign: TextAlign.start,
                 ),
               ),
@@ -207,64 +209,81 @@ class _LoginPageState extends State<LoginPage> {
               decoration: BoxDecorations.white,
               height: Dimens.height50,
               width: widthInPercent(90, context),
-              child: Column(children: [
-                Row(
+              child: Column(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      _category == Category.REGISTER
-                          ? Strings.register
-                          : Strings.passwordForgot,
-                      style: TextStyles.textBold.copyWith(
-                        fontSize: Dimens.fontLarge2,
-                      ),
-                    ).padding(edgeInsets: EdgeInsets.only(left: dp16(context))),
-                    FlatButton(
-                        splashColor: Palette.colorHint,
-                        shape: CircleBorder(),
-                        child: Icon(
-                          Icons.close,
-                          color: Palette.colorPrimary,
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          _category == Category.REGISTER
+                              ? Strings.register
+                              : Strings.passwordForgot,
+                          style: TextStyles.textBold.copyWith(
+                            fontSize: Dimens.fontLarge2,
+                          ),
+                        ).padding(
+                          edgeInsets: EdgeInsets.only(
+                            left: dp16(context),
+                            top: dp8(context),
+                          ),
                         ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        }),
-                  ],
-                ),
-                Divider(
-                  thickness: 1,
-                ),
-                SvgPicture.asset(
-                  _category == Category.REGISTER
-                      ? "images/ic_register.svg"
-                      : "images/ic_forgot_password.svg",
-                  width: double.infinity,
-                  height: Dimens.height30,
-                ),
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        style: TextStyles.text,
-                        text: Strings.registerDialog,
+                        FlatButton(
+                            splashColor: Palette.colorHint,
+                            shape: CircleBorder(),
+                            child: Icon(
+                              Icons.close,
+                              color: Palette.colorPrimary,
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            }),
+                      ],
+                    ),
+                    Divider(
+                      thickness: 1,
+                    ),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          SvgPicture.asset(
+                            _category == Category.REGISTER
+                                ? "images/ic_register.svg"
+                                : "images/ic_forgot_password.svg",
+                            width: double.infinity,
+                            height: Dimens.height35,
+                          ),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  style: TextStyles.text,
+                                  text: Strings.registerDialog,
+                                ),
+                                TextSpan(
+                                  style: TextStyles.primaryBold,
+                                  text: Strings.clickHere,
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () async {
+                                      if (_category == Category.REGISTER) {
+                                        context.logs("taps register");
+                                      } else {
+                                        context.logs("taps forgotPassword");
+                                      }
+                                    },
+                                ),
+                              ],
+                            ),
+                          ).padding(edgeInsets: EdgeInsets.all(dp16(context))),
+                        ],
                       ),
-                      TextSpan(
-                        style: TextStyles.primaryBold,
-                        text: Strings.clickHere,
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () async {
-                            if (_category == Category.REGISTER) {
-                              context.logs("taps register");
-                            } else {
-                              context.logs("taps forgotPassword");
-                            }
-                          },
-                      ),
-                    ],
-                  ),
-                ).padding(edgeInsets: EdgeInsets.all(dp16(context))),
-              ]),
+                    )
+                  ]),
             ));
       },
     );

@@ -1,36 +1,45 @@
+import 'package:brupedia/resources/resources.dart';
 import 'package:flutter/material.dart';
 
 import 'colors.dart';
 
 class TextStyles {
-  static const TextStyle primaryBold = TextStyle(
+  static TextStyle primaryBold = TextStyle(
+    fontSize: Dimens.fontNormal,
     fontWeight: FontWeight.bold,
     color: Palette.colorPrimary,
   );
-  static const TextStyle primaryBoldDark = TextStyle(
+  static TextStyle primaryBoldDark = TextStyle(
+    fontSize: Dimens.fontNormal,
     fontWeight: FontWeight.bold,
     color: Palette.colorPrimaryDark,
   );
-  static const TextStyle primary = TextStyle(
+  static TextStyle primary = TextStyle(
+    fontSize: Dimens.fontNormal,
     color: Palette.colorPrimary,
   );
 
-  static const TextStyle white = TextStyle(
+  static TextStyle white = TextStyle(
+    fontSize: Dimens.fontNormal,
     color: Colors.white,
   );
-  static const TextStyle whiteBold = TextStyle(
+  static TextStyle whiteBold = TextStyle(
     fontWeight: FontWeight.bold,
+    fontSize: Dimens.fontNormal,
     color: Colors.white,
   );
-  static const TextStyle text = TextStyle(
+  static TextStyle text = TextStyle(
+    fontSize: Dimens.fontNormal,
     color: Palette.colorText,
   );
 
-  static const TextStyle textBold = TextStyle(
+  static TextStyle textBold = TextStyle(
     color: Palette.colorText,
+    fontSize: Dimens.fontNormal,
     fontWeight: FontWeight.bold,
   );
-  static const TextStyle textAlt = TextStyle(
+  static TextStyle textAlt = TextStyle(
+    fontSize: Dimens.fontNormal,
     color: Palette.colorTextAlt,
   );
 }

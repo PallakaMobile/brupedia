@@ -3,6 +3,7 @@ import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/copy_right_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 ///*********************************************
@@ -27,6 +28,12 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(
+      context,
+      width: 375,
+      height: 812,
+      allowFontScaling: false,
+    );
     return Scaffold(
       backgroundColor: Palette.colorPrimary,
       appBar: null,

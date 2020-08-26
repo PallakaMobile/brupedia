@@ -15,4 +15,24 @@ class Strings {
   static const String mainMenu = "Menu Utama";
   static const String about = "Tentang";
   static const String exit = "Keluar";
+
+  static const String job = "Job";
+  static const String description = "Description";
+  static const String knowledge = "Knowledge";
+  static const String sop = "SOP & IK";
+  static const String permasalahan = "Permasalahan";
+  static const String andTroubleShooting = "& Troubleshooting";
+
+  static const String programBrupedia = "Program BRUPEDIA";
+  static const String askProgramBrupedia = "Apa itu Program BRUPEDIA";
+  static const String ansProgramBrupedia =
+      "Program BRUPEDIA adalah program budaya unggul korporat yang menyetujui dan berkomitmen untuk diimplementasikan dari Manajamen PT. Indonesia Power PLTU Barru OMU.";
+  static const String latarBelakang = "Latar Belakang";
+  static const String latarBelakangDesc =
+      """1. Tuntutan Stakeholder untuk performance optimal.
+2. Belum adanya database yang berisi materi pembelajaran job knowledge.""";
+  static const String strategy = "Strategi";
+  static const String strategyDesc =
+      """1. Pemanfaatan secara optimal aplikasi knowledge capture dan youtube sebagai saluran media yang berisi database job knowledge .
+2. IK & SOP bisa diakses kapan saja.""";
 }

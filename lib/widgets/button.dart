@@ -1,6 +1,7 @@
 import 'package:brupedia/resources/resources.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 ///*********************************************
 /// Created by ukieTux on 23/04/2020 with ♥
@@ -30,7 +31,7 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width ?? widthInPercent(100, context),
-      height: height ?? 45,
+      height: height ?? 40.w,
       decoration: BoxDecorations.button,
       child: FlatButton(
           onPressed: onPressed,
