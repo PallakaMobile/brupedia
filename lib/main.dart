@@ -18,8 +18,6 @@ void main() {
   runApp(MyApp());
 }
 
-final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

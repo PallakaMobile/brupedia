@@ -1,6 +1,5 @@
 import 'package:brupedia/blocs/blocs.dart';
 import 'package:brupedia/data/models/helper/DataSelected.dart';
-import 'package:brupedia/main.dart';
 import 'package:brupedia/resources/dimens.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/widgets/copy_right_text.dart';
@@ -25,6 +24,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   List<DataSelected> _dataMenus;
   NavDrawerBloc _drawerBloc;
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -39,7 +39,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffoldKey,
+      key: _scaffoldKey,
       appBar: AppBar(
         brightness: Brightness.light,
         backgroundColor: Colors.white,
@@ -61,7 +61,7 @@ class _MainPageState extends State<MainPage> {
               color: Palette.colorPrimary,
             ),
             onPressed: () {
-              scaffoldKey.currentState.openEndDrawer();
+              _scaffoldKey.currentState.openEndDrawer();
             },
           )
         ],
@@ -144,7 +144,7 @@ class _MainPageState extends State<MainPage> {
                         FlatButton(
                           onPressed: () {
                             //hide navigation drawer
-                            scaffoldKey.currentState.openDrawer();
+                            _scaffoldKey.currentState.openDrawer();
                           },
                           shape: CircleBorder(),
                           child: Icon(
@@ -177,7 +177,7 @@ class _MainPageState extends State<MainPage> {
                                     _drawerBloc.add(NavigationEvents.AboutPage);
 
                                   //hide navigation drawer
-                                  scaffoldKey.currentState.openDrawer();
+                                  _scaffoldKey.currentState.openDrawer();
                                 });
                               },
                               child: Column(
