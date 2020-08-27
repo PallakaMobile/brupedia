@@ -19,18 +19,19 @@ class AboutPage extends StatefulWidget with NavigationStates {
 class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
-    return ScrollViews(
+    return Parent(
+        appBar: null,
         child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          Strings.about,
-          style: TextStyles.textBold,
-        ),
-        Text(
-          Strings.programBrupedia,
-          style: TextStyles.text,
-        ),
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              Strings.about,
+              style: TextStyles.textBold,
+            ),
+            Text(
+              Strings.programBrupedia,
+              style: TextStyles.text,
+            ),
         SizedBox(
           height: dp28(context),
         ),

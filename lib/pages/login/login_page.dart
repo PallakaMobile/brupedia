@@ -39,157 +39,155 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Parent(
       appBar: null,
-      body: ScrollViews(
-        isPadding: false,
-        isCopyRightShow: false,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              color: Palette.colorPrimary,
-              height: heightInPercent(50, context),
-              child: Stack(
-                children: [
-                  Positioned(
-                    bottom: -10,
+      isPadding: false,
+      isCopyRightShow: false,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            color: Palette.colorPrimary,
+            height: heightInPercent(50, context),
+            child: Stack(
+              children: [
+                Positioned(
+                  bottom: -10,
+                  left: 0,
+                  right: 0,
+                  child: SvgPicture.asset(
+                    "images/ic_splash_bottom.svg",
+                    width: widthInPercent(100, context),
+                  ),
+                ),
+                Positioned(
+                    top: dp30(context),
                     left: 0,
                     right: 0,
-                    child: SvgPicture.asset(
-                      "images/ic_splash_bottom.svg",
-                      width: widthInPercent(100, context),
-                    ),
-                  ),
-                  Positioned(
-                      top: dp30(context),
-                      left: 0,
-                      right: 0,
-                      child: Center(
-                        child: Hero(
-                          tag: "pln",
-                          child: Image.asset(
-                            "images/ic_pln.png",
-                            width: widthInPercent(30, context),
-                          ),
+                    child: Center(
+                      child: Hero(
+                        tag: "pln",
+                        child: Image.asset(
+                          "images/ic_pln.png",
+                          width: widthInPercent(30, context),
                         ),
-                      )),
-                  Positioned(
-                      left: 0,
-                      right: 0,
-                      top: 0,
-                      bottom: 0,
-                      child: Center(
-                        child: Hero(
-                          tag: "logo",
-                          child: Image.asset(
-                            "images/ic_brupedia_white.png",
-                            width: widthInPercent(70, context),
-                          ),
+                      ),
+                    )),
+                Positioned(
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 0,
+                    child: Center(
+                      child: Hero(
+                        tag: "logo",
+                        child: Image.asset(
+                          "images/ic_brupedia_white.png",
+                          width: widthInPercent(70, context),
                         ),
-                      )),
-                ],
+                      ),
+                    )),
+              ],
+            ),
+          ),
+          Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                Strings.login,
+                style:
+                    TextStyles.textBold.copyWith(fontSize: Dimens.fontLarge1),
+                textAlign: TextAlign.start,
               ),
             ),
-            Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  Strings.login,
-                  style:
-                  TextStyles.textBold.copyWith(fontSize: Dimens.fontLarge1),
-                  textAlign: TextAlign.start,
+            SizedBox(
+              height: dp12(context),
+            ),
+            TextF(
+              hint: Strings.userName,
+              textInputAction: TextInputAction.next,
+              controller: _conUsername,
+              curFocusNode: _fnUserName,
+              nextFocusNode: _fnPassword,
+            ),
+            SizedBox(
+              height: dp8(context),
+            ),
+            TextF(
+              obscureText: _isHidePassword,
+              maxLine: 1,
+              hint: Strings.password,
+              textInputAction: TextInputAction.done,
+              controller: _conPassword,
+              curFocusNode: _fnPassword,
+              suffixIcon: IconButton(
+                icon: Icon(
+                  !_isHidePassword ? Icons.visibility_off : Icons.visibility,
+                  color: Palette.colorPrimary,
                 ),
+                onPressed: () {
+                  setState(() {
+                    _isHidePassword = !_isHidePassword;
+                  });
+                },
               ),
-              SizedBox(
-                height: dp12(context),
-              ),
-              TextF(
-                hint: Strings.userName,
-                textInputAction: TextInputAction.next,
-                controller: _conUsername,
-                curFocusNode: _fnUserName,
-                nextFocusNode: _fnPassword,
-              ),
-              SizedBox(
-                height: dp8(context),
-              ),
-              TextF(
-                obscureText: _isHidePassword,
-                maxLine: 1,
-                hint: Strings.password,
-                textInputAction: TextInputAction.done,
-                controller: _conPassword,
-                curFocusNode: _fnPassword,
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    !_isHidePassword ? Icons.visibility_off : Icons.visibility,
-                    color: Palette.colorPrimary,
-                  ),
-                  onPressed: () {
+            ),
+            Row(
+              children: [
+                Checkbox(
+                  visualDensity: VisualDensity.adaptivePlatformDensity,
+                  value: _isRemember,
+                  onChanged: (val) {
                     setState(() {
-                      _isHidePassword = !_isHidePassword;
+                      _isRemember = val;
                     });
                   },
                 ),
-              ),
-              Row(
-                children: [
-                  Checkbox(
-                    visualDensity: VisualDensity.adaptivePlatformDensity,
-                    value: _isRemember,
-                    onChanged: (val) {
+                GestureDetector(
+                    onTap: () {
                       setState(() {
-                        _isRemember = val;
+                        _isRemember = !_isRemember;
                       });
                     },
-                  ),
-                  GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _isRemember = !_isRemember;
-                        });
-                      },
-                      child: Text(Strings.rememberUser)),
-                  Spacer(),
-                  ButtonLink(
-                    title: Strings.passwordForgotAsk,
-                    onPressed: () {
-                      _showDialog(Category.FORGOT);
-                    },
-                  )
-                ],
-              ),
-              SizedBox(
-                height: dp16(context),
-              ),
-              Button(
-                title: Strings.login,
-                onPressed: () {
-                  context.goToReplacePageRoute(BlocProvider(
-                      create: (context) => NavDrawerBloc(), child: MainPage()));
-                },
-              ),
-              SizedBox(
-                height: dp16(context),
-              ),
-              Text(
-                Strings.registerTitle,
-                textAlign: TextAlign.center,
-              ),
-              ButtonLink(
-                title: Strings.register,
-                onPressed: () {
-                  _showDialog(Category.REGISTER);
-                },
-              ),
-              SizedBox(
-                height: dp30(context),
-              ),
-              CopyRightText()
-            ]).padding(edgeInsets: EdgeInsets.all(dp16(context)))
-          ],
-        ),
+                    child: Text(Strings.rememberUser)),
+                Spacer(),
+                ButtonLink(
+                  title: Strings.passwordForgotAsk,
+                  onPressed: () {
+                    _showDialog(Category.FORGOT);
+                  },
+                )
+              ],
+            ),
+            SizedBox(
+              height: dp16(context),
+            ),
+            Button(
+              title: Strings.login,
+              onPressed: () {
+                context.goToReplacePageRoute(BlocProvider(
+                    create: (context) => NavDrawerBloc(), child: MainPage()));
+              },
+            ),
+            SizedBox(
+              height: dp16(context),
+            ),
+            Text(
+              Strings.registerTitle,
+              textAlign: TextAlign.center,
+            ),
+            ButtonLink(
+              title: Strings.register,
+              onPressed: () {
+                _showDialog(Category.REGISTER);
+              },
+            ),
+            SizedBox(
+              height: dp30(context),
+            ),
+            CopyRightText()
+          ]).padding(edgeInsets: EdgeInsets.all(dp16(context)))
+        ],
       ),
     );
   }

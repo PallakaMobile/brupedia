@@ -4,7 +4,7 @@ import 'package:brupedia/pages/jobdesc/job_desc_page.dart';
 import 'package:brupedia/resources/dimens.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
-import 'package:brupedia/widgets/scroll_views.dart';
+import 'package:brupedia/widgets/parent.dart';
 import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +24,8 @@ class HomePage extends StatefulWidget with NavigationStates {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return ScrollViews(
+    return Parent(
+      appBar: null,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
