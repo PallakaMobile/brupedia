@@ -17,6 +17,7 @@ class Strings {
   static const String exit = "Keluar";
 
   static const String job = "Job";
+  static const String jobDescription = "Job Description";
   static const String description = "Description";
   static const String knowledge = "Knowledge";
   static const String sop = "SOP & IK";
@@ -35,4 +36,6 @@ class Strings {
   static const String strategyDesc =
       """1. Pemanfaatan secara optimal aplikasi knowledge capture dan youtube sebagai saluran media yang berisi database job knowledge .
 2. IK & SOP bisa diakses kapan saja.""";
+  static const String bidang = "Bidang";
+  static const String enjinering = "Enjinering";
 }
