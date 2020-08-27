@@ -16,6 +16,7 @@ class Dimens {
   static double height35 = 200.h;
   static double height30 = 177.h;
   static double header = 150.h;
+  static double searchLabel = 60.h;
 }
 
 widthInPercent(double percent, BuildContext context) {

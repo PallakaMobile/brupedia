@@ -38,4 +38,5 @@ class Strings {
 2. IK & SOP bisa diakses kapan saja.""";
   static const String bidang = "Bidang";
   static const String enjinering = "Enjinering";
+  static const String search = "Cari";
 }
