@@ -1,7 +1,9 @@
 import 'package:brupedia/blocs/navdrawer/navdrawer_bloc.dart';
 import 'package:brupedia/data/models/helper/DataProfile.dart';
+import 'package:brupedia/pages/jobdesc/job_desc_page.dart';
 import 'package:brupedia/resources/dimens.dart';
 import 'package:brupedia/resources/resources.dart';
+import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/scroll_views.dart';
 import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +57,9 @@ class _HomePageState extends State<HomePage> {
               childAspectRatio: 2 / 1.5,
               children: [
                 MenuCard(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.goTo(JobDescPage());
+                    },
                     imagePath: "images/ic_job_desc.svg",
                     title: Strings.job,
                     subTitle: Strings.description,

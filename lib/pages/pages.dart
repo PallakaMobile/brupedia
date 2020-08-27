@@ -1,3 +1,4 @@
+export 'jobdesc/job_desc_page.dart';
 export 'login/login_page.dart';
 export 'main/about/about_page.dart';
 export 'main/home/home_page.dart';

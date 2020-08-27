@@ -1,5 +1,6 @@
 import 'package:brupedia/blocs/blocs.dart';
 import 'package:brupedia/data/models/helper/DataSelected.dart';
+import 'package:brupedia/main.dart';
 import 'package:brupedia/resources/dimens.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/widgets/copy_right_text.dart';
@@ -22,7 +23,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   List<DataSelected> _dataMenus;
   NavDrawerBloc _drawerBloc;
 
@@ -39,7 +39,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
+      key: scaffoldKey,
       appBar: AppBar(
         brightness: Brightness.light,
         backgroundColor: Colors.white,
@@ -61,7 +61,7 @@ class _MainPageState extends State<MainPage> {
               color: Palette.colorPrimary,
             ),
             onPressed: () {
-              _scaffoldKey.currentState.openEndDrawer();
+              scaffoldKey.currentState.openEndDrawer();
             },
           )
         ],
@@ -144,7 +144,7 @@ class _MainPageState extends State<MainPage> {
                         FlatButton(
                           onPressed: () {
                             //hide navigation drawer
-                            _scaffoldKey.currentState.openDrawer();
+                            scaffoldKey.currentState.openDrawer();
                           },
                           shape: CircleBorder(),
                           child: Icon(
@@ -177,7 +177,7 @@ class _MainPageState extends State<MainPage> {
                                     _drawerBloc.add(NavigationEvents.AboutPage);
 
                                   //hide navigation drawer
-                                  _scaffoldKey.currentState.openDrawer();
+                                  scaffoldKey.currentState.openDrawer();
                                 });
                               },
                               child: Column(

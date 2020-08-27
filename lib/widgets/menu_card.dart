@@ -52,33 +52,40 @@ class MenuCard extends StatelessWidget {
         break;
     }
 
-    return Container(
-      padding: EdgeInsets.all(dp14(context)),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30), color: _bgColor),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SvgPicture.asset(
-            imagePath,
-            height: 42.h,
-          ),
-          SizedBox(
-            height: dp14(context),
-          ),
-          Text(
-            title,
-            style: TextStyle(color: _textColor, fontSize: Dimens.fontNormal),
-          ),
-          Text(
-            subTitle,
-            style: TextStyle(
-              color: _textColor,
-              fontSize: Dimens.fontSmall,
+    return FlatButton(
+      splashColor: Palette.colorHint,
+      padding: EdgeInsets.zero,
+      onPressed: onPressed,
+      color: _bgColor,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+      child: Container(
+        width: double.infinity,
+        padding: EdgeInsets.all(dp14(context)),
+        color: Colors.transparent,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SvgPicture.asset(
+              imagePath,
+              height: 42.h,
             ),
-          )
-        ],
+            SizedBox(
+              height: dp14(context),
+            ),
+            Text(
+              title,
+              style: TextStyle(color: _textColor, fontSize: Dimens.fontNormal),
+            ),
+            Text(
+              subTitle,
+              style: TextStyle(
+                color: _textColor,
+                fontSize: Dimens.fontSmall,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
