@@ -13,12 +13,14 @@ class ScrollViews extends StatefulWidget {
   final Widget child;
   final bool isCopyRightShow;
   final bool isPadding;
+  final bool isScroll;
 
   const ScrollViews({
     Key key,
     this.child,
     this.isCopyRightShow = true,
     this.isPadding = true,
+    this.isScroll = true,
   }) : super(key: key);
 
   @override
@@ -29,15 +31,23 @@ class _ScrollViewsState extends State<ScrollViews> {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      fit: StackFit.expand,
       children: [
+        widget.isScroll
+            ? Container()
+            : widget.child.padding(
+                edgeInsets: EdgeInsets.all(
+                  widget.isPadding ? dp16(context) : 0,
+                ),
+              ),
         SingleChildScrollView(
           physics: BouncingScrollPhysics(),
-          child: widget.child.padding(
-            edgeInsets: EdgeInsets.all(
-              widget.isPadding ? dp16(context) : 0,
-            ),
-          ),
+          child: widget.isScroll
+              ? widget.child.padding(
+                  edgeInsets: EdgeInsets.all(
+                    widget.isPadding ? dp16(context) : 0,
+                  ),
+                )
+              : Container(),
         ),
         Visibility(
           visible: widget.isCopyRightShow,
