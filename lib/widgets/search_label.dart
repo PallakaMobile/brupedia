@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 /// github : https://www.github.com/ukieTux <(’_’<)
 ///*********************************************
 /// © 2020 | All Right Reserved
-class SearchLabel extends StatefulWidget {
+class SearchLabel<T> extends StatefulWidget {
   SearchLabel({
     Key key,
     @required this.label,
@@ -21,7 +21,7 @@ class SearchLabel extends StatefulWidget {
   _SearchLabelState createState() => _SearchLabelState();
 }
 
-class _SearchLabelState extends State<SearchLabel> {
+class _SearchLabelState<T> extends State<SearchLabel> {
   bool _isSearch = false;
 
   @override
@@ -123,6 +123,7 @@ class _SearchLabelState extends State<SearchLabel> {
             onPressed: () {
               setState(() {
                 _isSearch = !_isSearch;
+                if (!_isSearch) widget.onChanged("");
               });
             },
           ),

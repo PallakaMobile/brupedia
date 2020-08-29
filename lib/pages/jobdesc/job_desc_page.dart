@@ -1,4 +1,5 @@
 import 'package:brupedia/data/models/helper/DataProfile.dart';
+import 'package:brupedia/pages/jobdesc/list/job_desc_list_page.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';
@@ -18,7 +19,6 @@ class JobDescPage extends StatefulWidget {
 }
 
 class _JobDescPageState extends State<JobDescPage> {
-  bool _isSearch = false;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +61,9 @@ class _JobDescPageState extends State<JobDescPage> {
                   childAspectRatio: 2 / 1.5,
                   children: [
                     MenuCard(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.goTo(JobDescListPage());
+                        },
                         imagePath: "images/ic_job_desc_alt.svg",
                         title: Strings.bidang,
                         subTitle: Strings.description,

@@ -39,4 +39,5 @@ class Strings {
   static const String bidang = "Bidang";
   static const String enjinering = "Enjinering";
   static const String search = "Cari";
+  static const String dataKosong = "Data Kosong";
 }
