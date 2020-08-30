@@ -1,7 +1,7 @@
 import 'package:brupedia/data/models/helper/DataSelected.dart';
-import 'package:brupedia/pages/jobknowledge/list/all/job_knowledge_list_all.dart';
-import 'package:brupedia/pages/jobknowledge/list/documents/job_knowledge_list_documents.dart';
-import 'package:brupedia/pages/jobknowledge/list/videos/job_knowledge_list_videos.dart';
+import 'package:brupedia/pages/sop/list/all/sop_list_all.dart';
+import 'package:brupedia/pages/sop/list/documents/sop_list_documents.dart';
+import 'package:brupedia/pages/sop/list/videos/sop_list_videos.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/custom_tab.dart';
@@ -14,14 +14,14 @@ import 'package:flutter/material.dart';
 /// github : https://www.github.com/ukieTux <(’_’<)
 ///*********************************************
 /// © 2020 | All Right Reserved
-class JobKnowledgeListPage extends StatefulWidget {
-  JobKnowledgeListPage({Key key}) : super(key: key);
+class SopListPage extends StatefulWidget {
+  SopListPage({Key key}) : super(key: key);
 
   @override
-  _JobKnowledgeListPageState createState() => _JobKnowledgeListPageState();
+  _SopListPageState createState() => _SopListPageState();
 }
 
-class _JobKnowledgeListPageState extends State<JobKnowledgeListPage> {
+class _SopListPageState extends State<SopListPage> {
   var _listLabel = List<DataSelected>();
   var _listFragment = List<Widget>();
 
@@ -39,9 +39,9 @@ class _JobKnowledgeListPageState extends State<JobKnowledgeListPage> {
         isSelected: false,
         icon: "images/ic_list_document.svg"));
     _listFragment = [
-      JobKnowledgeListAll(),
-      JobKnowledgeListVideos(),
-      JobKnowledgeListDocuments(),
+      SopListAll(),
+      SopListVideos(),
+      SopListDocuments(),
     ];
   }
 
@@ -56,8 +56,8 @@ class _JobKnowledgeListPageState extends State<JobKnowledgeListPage> {
         children: [
           CustomTab(
             listData: _listLabel,
-            selectedColor: Palette.textJobKnowledge,
-            unSelectedColor: Palette.bgJobKnowledge,
+            selectedColor: Palette.textSop,
+            unSelectedColor: Palette.bgSop,
             selected: (int) {
               context.logs("selected $int");
               _pageController.jumpToPage(int);

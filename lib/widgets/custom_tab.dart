@@ -57,8 +57,8 @@ class _CustomTabState extends State<CustomTab> {
                     }
                   },
                   color: _isSelected
-                      ? Palette.textJobKnowledge
-                      : Palette.bgJobKnowledge,
+                      ? widget.selectedColor
+                      : widget.unSelectedColor,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -67,7 +67,7 @@ class _CustomTabState extends State<CustomTab> {
                         height: dp16(context),
                         color: _isSelected
                             ? Colors.white
-                            : Palette.textJobKnowledge,
+                            : widget.selectedColor,
                       ),
                       SizedBox(
                         width: dp8(context),
@@ -78,7 +78,7 @@ class _CustomTabState extends State<CustomTab> {
                             fontSize: Dimens.fontSmall,
                             color: _isSelected
                                 ? Colors.white
-                                : Palette.textJobKnowledge),
+                                : widget.selectedColor),
                       )
                     ],
                   ),

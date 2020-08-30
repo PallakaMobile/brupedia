@@ -8,16 +8,14 @@ import 'package:flutter/material.dart';
 /// github : https://www.github.com/ukieTux <(’_’<)
 ///*********************************************
 /// © 2020 | All Right Reserved
-class JobKnowledgeListVideosDetail extends StatefulWidget {
-  JobKnowledgeListVideosDetail({Key key}) : super(key: key);
+class SopListVideosDetail extends StatefulWidget {
+  SopListVideosDetail({Key key}) : super(key: key);
 
   @override
-  _JobKnowledgeListVideosDetailState createState() =>
-      _JobKnowledgeListVideosDetailState();
+  _SopListVideosDetailState createState() => _SopListVideosDetailState();
 }
 
-class _JobKnowledgeListVideosDetailState
-    extends State<JobKnowledgeListVideosDetail> {
+class _SopListVideosDetailState extends State<SopListVideosDetail> {
   @override
   Widget build(BuildContext context) {
     return Parent(

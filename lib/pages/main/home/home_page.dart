@@ -2,6 +2,7 @@ import 'package:brupedia/blocs/navdrawer/navdrawer_bloc.dart';
 import 'package:brupedia/data/models/helper/DataProfile.dart';
 import 'package:brupedia/pages/jobdesc/job_desc_page.dart';
 import 'package:brupedia/pages/jobknowledge/job_knowledge_page.dart';
+import 'package:brupedia/pages/sop/sop_page.dart';
 import 'package:brupedia/resources/dimens.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
@@ -67,7 +68,9 @@ class _HomePageState extends State<HomePage> {
                     subTitle: Strings.description,
                     type: TypeMenu.JOB_DESC),
                 MenuCard(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.goTo(SopPage());
+                    },
                     imagePath: "images/ic_sop.svg",
                     title: Strings.sop,
                     subTitle: "",
