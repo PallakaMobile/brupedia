@@ -1,5 +1,5 @@
 import 'package:brupedia/data/models/helper/DataProfile.dart';
-import 'package:brupedia/pages/jobdesc/list/job_desc_list_page.dart';
+import 'package:brupedia/pages/jobdesc/listjabatan/job_desc_list_jabatan_page.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';
@@ -62,7 +62,7 @@ class _JobDescPageState extends State<JobDescPage> {
                   children: [
                     MenuCard(
                         onPressed: () {
-                          context.goTo(JobDescListPage());
+                          context.goTo(JobDescListJabatanPage());
                         },
                         imagePath: "images/ic_job_desc_alt.svg",
                         title: Strings.bidang,

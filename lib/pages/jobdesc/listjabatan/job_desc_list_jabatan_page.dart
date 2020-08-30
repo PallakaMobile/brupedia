@@ -1,5 +1,5 @@
-import 'package:brupedia/data/models/helper/DataProfile.dart';
-import 'package:brupedia/data/models/helper/DataSelected.dart';
+import 'package:brupedia/data/models/models.dart';
+import 'package:brupedia/pages/jobdesc/detail/job_desc_detail_jabatan.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';
@@ -12,14 +12,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 /// github : https://www.github.com/ukieTux <(’_’<)
 ///*********************************************
 /// © 2020 | All Right Reserved
-class JobDescListPage extends StatefulWidget {
-  JobDescListPage({Key key}) : super(key: key);
+class JobDescListJabatanPage extends StatefulWidget {
+  JobDescListJabatanPage({Key key}) : super(key: key);
 
   @override
-  _JobDescListPageState createState() => _JobDescListPageState();
+  _JobDescListJabatanPageState createState() => _JobDescListJabatanPageState();
 }
 
-class _JobDescListPageState extends State<JobDescListPage> {
+class _JobDescListJabatanPageState extends State<JobDescListJabatanPage> {
   var _listDataSelected = List<DataSelected>();
   var _listDataSelectedFilter = List<DataSelected>();
 
@@ -27,7 +27,7 @@ class _JobDescListPageState extends State<JobDescListPage> {
   void initState() {
     super.initState();
     for (int i = 0; i < 10; i++) {
-      _listDataSelected.add(DataSelected("Staff ${i + 1}", false));
+      _listDataSelected.add(DataSelected(title: "Staff ${i + 1}"));
     }
     _listDataSelectedFilter = _listDataSelected;
   }
@@ -81,27 +81,32 @@ class _JobDescListPageState extends State<JobDescListPage> {
                         shrinkWrap: true,
                         itemCount: _listDataSelectedFilter.length,
                         itemBuilder: (context, index) {
-                          return Row(
-                            children: [
-                              CircleAvatar(
-                                backgroundColor: Palette.bgJobKnowledge,
-                                child: SvgPicture.asset(
-                                  "images/ic_bidang_enjiniring.svg",
+                          return InkWell(
+                            onTap: () {
+                              context.goTo(JobDescDetailJabatanPage());
+                            },
+                            child: Row(
+                              children: [
+                                CircleAvatar(
+                                  backgroundColor: Palette.bgJobDesc,
+                                  child: SvgPicture.asset(
+                                    "images/ic_job_desc_list.svg",
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                width: dp4(context),
-                              ),
-                              Text(
-                                _listDataSelectedFilter[index].title,
-                                style: TextStyles.text,
-                              ),
-                              Spacer(),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                size: dp16(context),
-                              )
-                            ],
+                                SizedBox(
+                                  width: dp4(context),
+                                ),
+                                Text(
+                                  _listDataSelectedFilter[index].title,
+                                  style: TextStyles.text,
+                                ),
+                                Spacer(),
+                                Icon(
+                                  Icons.arrow_forward_ios,
+                                  size: dp16(context),
+                                )
+                              ],
+                            ),
                           ).padding(
                               edgeInsets:
                                   EdgeInsets.symmetric(vertical: dp8(context)));
