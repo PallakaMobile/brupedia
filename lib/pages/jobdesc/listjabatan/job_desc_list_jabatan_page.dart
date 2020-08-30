@@ -1,5 +1,5 @@
 import 'package:brupedia/data/models/models.dart';
-import 'package:brupedia/pages/jobdesc/detail/job_desc_detail_jabatan.dart';
+import 'package:brupedia/pages/jobdesc/jobdesc.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';

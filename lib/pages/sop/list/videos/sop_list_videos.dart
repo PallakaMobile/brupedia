@@ -1,5 +1,5 @@
 import 'package:brupedia/data/models/models.dart';
-import 'package:brupedia/pages/sop/list/videos/sop_list_videos_detail.dart';
+import 'package:brupedia/pages/sop/sop.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';

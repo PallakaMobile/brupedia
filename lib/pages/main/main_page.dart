@@ -2,7 +2,7 @@ import 'package:brupedia/blocs/blocs.dart';
 import 'package:brupedia/data/models/helper/DataSelected.dart';
 import 'package:brupedia/resources/dimens.dart';
 import 'package:brupedia/resources/resources.dart';
-import 'package:brupedia/widgets/copy_right_text.dart';
+import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

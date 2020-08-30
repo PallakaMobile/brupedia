@@ -63,49 +63,49 @@ class _JobKnowledgePageState extends State<JobKnowledgePage> {
                         onPressed: () {
                           context.goTo(JobKnowledgeListJabatanPage());
                         },
-                        imagePath: "images/ic_job_knowledge.svg",
+                        imagePath: "images/ic_job_knowledge_alt.svg",
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.JOB_KNOW),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_job_knowledge.svg",
+                        imagePath: "images/ic_job_knowledge_alt.svg",
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.JOB_KNOW),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_job_knowledge.svg",
+                        imagePath: "images/ic_job_knowledge_alt.svg",
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.JOB_KNOW),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_job_knowledge.svg",
+                        imagePath: "images/ic_job_knowledge_alt.svg",
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.JOB_KNOW),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_job_knowledge.svg",
+                        imagePath: "images/ic_job_knowledge_alt.svg",
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.JOB_DESC),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_job_knowledge.svg",
+                        imagePath: "images/ic_job_knowledge_alt.svg",
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.JOB_KNOW),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_job_knowledge.svg",
+                        imagePath: "images/ic_job_knowledge_alt.svg",
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.JOB_KNOW),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_job_knowledge.svg",
+                        imagePath: "images/ic_job_knowledge_alt.svg",
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.JOB_KNOW)

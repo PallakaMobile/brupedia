@@ -19,6 +19,7 @@ class Palette {
   static const Color textSop = Color(0xff5C61DF);
   static const Color textJobKnowledge = Color(0xff0D9596);
   static const Color textTrouble = Color(0xffFFA216);
+  static const Color bgListTroubleshooting = Color(0xff34395E);
 }
 
 ThemeData themeDefault = ThemeData(

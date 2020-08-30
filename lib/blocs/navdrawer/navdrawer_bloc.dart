@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:brupedia/pages/pages.dart';
+import 'package:brupedia/pages/main/about/about_page.dart';
+import 'package:brupedia/pages/main/home/home_page.dart';
 
 enum NavigationEvents {
   HomePage,

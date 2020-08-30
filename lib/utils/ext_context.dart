@@ -1,5 +1,6 @@
 import 'package:brupedia/blocs/navdrawer/navdrawer_bloc.dart';
-import 'package:brupedia/pages/pages.dart';
+import 'package:brupedia/pages/main/home/home_page.dart';
+import 'package:brupedia/pages/main/main_page.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

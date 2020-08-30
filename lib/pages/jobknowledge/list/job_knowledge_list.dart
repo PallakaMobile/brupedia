@@ -1,10 +1,7 @@
 import 'package:brupedia/data/models/helper/DataSelected.dart';
-import 'package:brupedia/pages/jobknowledge/list/all/job_knowledge_list_all.dart';
-import 'package:brupedia/pages/jobknowledge/list/documents/job_knowledge_list_documents.dart';
-import 'package:brupedia/pages/jobknowledge/list/videos/job_knowledge_list_videos.dart';
+import 'package:brupedia/pages/jobknowledge/jobknowledge.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
-import 'package:brupedia/widgets/custom_tab.dart';
 import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 

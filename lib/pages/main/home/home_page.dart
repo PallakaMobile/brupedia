@@ -1,12 +1,11 @@
 import 'package:brupedia/blocs/navdrawer/navdrawer_bloc.dart';
-import 'package:brupedia/data/models/helper/DataProfile.dart';
-import 'package:brupedia/pages/jobdesc/job_desc_page.dart';
-import 'package:brupedia/pages/jobknowledge/job_knowledge_page.dart';
-import 'package:brupedia/pages/sop/sop_page.dart';
-import 'package:brupedia/resources/dimens.dart';
+import 'package:brupedia/data/models/models.dart';
+import 'package:brupedia/pages/jobdesc/jobdesc.dart';
+import 'package:brupedia/pages/jobknowledge/jobknowledge.dart';
+import 'package:brupedia/pages/sop/sop.dart';
+import 'package:brupedia/pages/troubleshooting/troubleshooting.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
-import 'package:brupedia/widgets/parent.dart';
 import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -84,7 +83,9 @@ class _HomePageState extends State<HomePage> {
                     subTitle: Strings.knowledge,
                     type: TypeMenu.JOB_KNOW),
                 MenuCard(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.goTo(TroubleshootingPage());
+                    },
                     imagePath: "images/ic_permasalahan.svg",
                     title: Strings.permasalahan,
                     subTitle: Strings.andTroubleShooting,

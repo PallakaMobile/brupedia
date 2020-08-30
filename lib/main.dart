@@ -1,5 +1,5 @@
 import 'package:brupedia/di/di.dart';
-import 'package:brupedia/pages/pages.dart';
+import 'package:brupedia/pages/splashscreen/splash_screen_page.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

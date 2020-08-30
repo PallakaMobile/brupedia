@@ -1,6 +1,5 @@
 import 'package:brupedia/data/models/models.dart';
-import 'package:brupedia/pages/jobknowledge/list/documents/job_knowledge_list_documents_detail.dart';
-import 'package:brupedia/pages/sop/list/documents/sop_list_documents_detail.dart';
+import 'package:brupedia/pages/sop/sop.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';

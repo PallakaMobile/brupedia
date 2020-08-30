@@ -1,10 +1,7 @@
 import 'package:brupedia/data/models/helper/DataSelected.dart';
-import 'package:brupedia/pages/sop/list/all/sop_list_all.dart';
-import 'package:brupedia/pages/sop/list/documents/sop_list_documents.dart';
-import 'package:brupedia/pages/sop/list/videos/sop_list_videos.dart';
+import 'package:brupedia/pages/sop/sop.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
-import 'package:brupedia/widgets/custom_tab.dart';
 import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 

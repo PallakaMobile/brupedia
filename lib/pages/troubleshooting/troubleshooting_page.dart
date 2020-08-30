@@ -1,5 +1,5 @@
-import 'package:brupedia/data/models/models.dart';
-import 'package:brupedia/pages/sop/sop.dart';
+import 'package:brupedia/data/models/helper/DataProfile.dart';
+import 'package:brupedia/pages/troubleshooting/list/troubleshooting_list_page.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';
@@ -11,14 +11,14 @@ import 'package:flutter/material.dart';
 /// github : https://www.github.com/ukieTux <(’_’<)
 ///*********************************************
 /// © 2020 | All Right Reserved
-class SopPage extends StatefulWidget {
-  SopPage({Key key}) : super(key: key);
+class TroubleshootingPage extends StatefulWidget {
+  TroubleshootingPage({Key key}) : super(key: key);
 
   @override
-  _SopPageState createState() => _SopPageState();
+  _TroubleshootingPageState createState() => _TroubleshootingPageState();
 }
 
-class _SopPageState extends State<SopPage> {
+class _TroubleshootingPageState extends State<TroubleshootingPage> {
   @override
   Widget build(BuildContext context) {
     return Parent(
@@ -40,7 +40,7 @@ class _SopPageState extends State<SopPage> {
             height: dp16(context),
           ),
           SearchLabel(
-            label: Strings.sop,
+            label: Strings.permasalahan + " " + Strings.andTroubleShooting,
             onChanged: (value) {
               context.logs(value);
             },
@@ -61,54 +61,54 @@ class _SopPageState extends State<SopPage> {
                   children: [
                     MenuCard(
                         onPressed: () {
-                          context.goTo(SopListPage());
+                          context.goTo(TroubleshootingListPage());
                         },
-                        imagePath: "images/ic_sop_alt.svg",
+                        imagePath: "images/ic_permasalahan_alt.svg",
                         title: Strings.bidang,
                         subTitle: Strings.description,
-                        type: TypeMenu.SOP),
+                        type: TypeMenu.TROUBLE),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_sop_alt.svg",
+                        imagePath: "images/ic_permasalahan_alt.svg",
                         title: Strings.bidang,
                         subTitle: Strings.description,
-                        type: TypeMenu.SOP),
+                        type: TypeMenu.TROUBLE),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_sop_alt.svg",
+                        imagePath: "images/ic_permasalahan_alt.svg",
                         title: Strings.bidang,
                         subTitle: Strings.description,
-                        type: TypeMenu.SOP),
+                        type: TypeMenu.TROUBLE),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_sop_alt.svg",
+                        imagePath: "images/ic_permasalahan_alt.svg",
                         title: Strings.bidang,
                         subTitle: Strings.description,
-                        type: TypeMenu.SOP),
+                        type: TypeMenu.TROUBLE),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_sop_alt.svg",
+                        imagePath: "images/ic_permasalahan_alt.svg",
                         title: Strings.bidang,
                         subTitle: Strings.description,
-                        type: TypeMenu.SOP),
+                        type: TypeMenu.TROUBLE),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_sop_alt.svg",
+                        imagePath: "images/ic_permasalahan_alt.svg",
                         title: Strings.bidang,
                         subTitle: Strings.description,
-                        type: TypeMenu.SOP),
+                        type: TypeMenu.TROUBLE),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_sop_alt.svg",
+                        imagePath: "images/ic_permasalahan_alt.svg",
                         title: Strings.bidang,
                         subTitle: Strings.description,
-                        type: TypeMenu.SOP),
+                        type: TypeMenu.TROUBLE),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_sop_alt.svg",
+                        imagePath: "images/ic_permasalahan_alt.svg",
                         title: Strings.bidang,
                         subTitle: Strings.description,
-                        type: TypeMenu.SOP)
+                        type: TypeMenu.TROUBLE)
                   ],
                 ),
               ),
