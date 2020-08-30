@@ -31,8 +31,8 @@ class _MainPageState extends State<MainPage> {
     super.initState();
     _drawerBloc = BlocProvider.of<NavDrawerBloc>(context);
     _dataMenus = [
-      DataSelected(Strings.mainMenu, true), // set main menu as default selected
-      DataSelected(Strings.about, false)
+      DataSelected(title: Strings.mainMenu, isSelected: true),
+      DataSelected(title: Strings.about, isSelected: false)
     ];
   }
 

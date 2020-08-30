@@ -18,6 +18,7 @@ class Strings {
 
   static const String job = "Job";
   static const String jobDescription = "Job Description";
+  static const String jobKnowledge = "Job Knowledge";
   static const String description = "Description";
   static const String knowledge = "Knowledge";
   static const String sop = "SOP & IK";
