@@ -36,43 +36,46 @@ class _ParentState extends State<Parent> {
       resizeToAvoidBottomInset: false,
       appBar: widget.appBar,
       body: GestureDetector(
-        onTap: (){
+        onTap: () {
           FocusScope.of(context).requestFocus(new FocusNode());
         },
-        child: Stack(
-          children: [
-            widget.isScroll
-                ? Container()
-                : widget.child.padding(
-                    edgeInsets: EdgeInsets.all(
-                      widget.isPadding ? dp16(context) : 0,
-                    ),
-                  ),
-            SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
-              child: widget.isScroll
-                  ? widget.child.padding(
+        child: AnimatedContainer(
+          duration: Duration(milliseconds: 300),
+          child: Stack(
+            children: [
+              widget.isScroll
+                  ? Container()
+                  : widget.child.padding(
                       edgeInsets: EdgeInsets.all(
                         widget.isPadding ? dp16(context) : 0,
                       ),
-                    )
-                  : Container(),
-            ),
-            Visibility(
-              visible: widget.isCopyRightShow,
-              child: Positioned(
-                left: 0,
-                right: 0,
-                bottom: 0,
-                child: Container(
-                    padding:
-                        EdgeInsets.only(bottom: dp16(context), top: dp4(context)),
-                    width: widthInPercent(100, context),
-                    color: Colors.white,
-                    child: CopyRightText()),
+                    ),
+              SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
+                child: widget.isScroll
+                    ? widget.child.padding(
+                        edgeInsets: EdgeInsets.all(
+                          widget.isPadding ? dp16(context) : 0,
+                        ),
+                      )
+                    : Container(),
               ),
-            )
-          ],
+              Visibility(
+                visible: widget.isCopyRightShow,
+                child: Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  child: Container(
+                      padding: EdgeInsets.only(
+                          bottom: dp16(context), top: dp4(context)),
+                      width: widthInPercent(100, context),
+                      color: Colors.white,
+                      child: CopyRightText()),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -29,6 +29,7 @@ extension StringExtension on String {
         radius: 30,
         elevation: 10,
         imageSize: 20,
+        fontSize: Dimens.fontNormal,
         textColor: Colors.white,
         backgroundColor: Colors.redAccent,
         timeInSeconds: 2);
@@ -43,8 +44,9 @@ extension StringExtension on String {
         radius: 30,
         elevation: 10,
         imageSize: 20,
+        fontSize: Dimens.fontNormal,
         textColor: Colors.white,
-        backgroundColor: Palette.colorPrimary,
+        backgroundColor: Colors.green,
         timeInSeconds: 2);
   }
 
@@ -57,8 +59,8 @@ extension StringExtension on String {
         radius: 30,
         elevation: 10,
         imageSize: 20,
-        textColor: Colors.white,
-        backgroundColor: Palette.colorPrimary,
+        fontSize: Dimens.fontNormal,
+        textColor: Palette.colorHint,
         timeInSeconds: 2);
   }
 }

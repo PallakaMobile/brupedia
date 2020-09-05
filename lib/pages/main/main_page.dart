@@ -47,12 +47,9 @@ class _MainPageState extends State<MainPage> {
         centerTitle: true,
         leadingWidth: 0,
         automaticallyImplyLeading: false,
-        title: Hero(
-          tag: "logo",
-          child: Image.asset(
-            "images/ic_brupedia_color.png",
-            height: dp30(context),
-          ),
+        title: Image.asset(
+          "images/ic_brupedia_color.png",
+          height: dp30(context),
         ),
         actions: [
           IconButton(

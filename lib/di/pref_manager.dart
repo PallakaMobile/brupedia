@@ -2,18 +2,40 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class PrefManager {
   String kIsLogin = "isLogin";
+  String kToken = "token";
+  String kText = "text";
+  String kColor = "color";
+  String kIcon = "icon";
 
   SharedPreferences preferences;
 
   PrefManager(this.preferences);
 
   //for Bloc.Bloc.login
-  setIsLogin(bool value) {
-    preferences.setBool("isLogin", value);
-  }
+  Future<bool> setIsLogin(bool value) async =>
+      await preferences.setBool(kIsLogin, value);
 
-  bool getIsLogin() =>
-      preferences.containsKey(kIsLogin) ? preferences.getBool(kIsLogin) : false;
+  bool getIsLogin() => preferences.getBool(kIsLogin) ?? false;
+
+  Future<bool> setToken(String value) async =>
+      await preferences.setString(kToken, value);
+
+  String getToken() => preferences.getString(kToken) ?? null;
+
+  Future<bool> setTexts(String value) async =>
+      await preferences.setString(kText, value);
+
+  String getText() => preferences.getString(kText) ?? null;
+
+  Future<bool> setColors(String value) async =>
+      await preferences.setString(kColor, value);
+
+  String getColor() => preferences.getString(kColor) ?? null;
+
+  Future<bool> setIcons(String value) async =>
+      await preferences.setString(kIcon, value);
+
+  String getIcon() => preferences.getString(kIcon) ?? null;
 
   logout() => preferences.clear();
 }

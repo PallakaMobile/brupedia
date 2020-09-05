@@ -1,42 +1,58 @@
-import 'dart:io';
-
+import 'package:brupedia/data/models/responses/dictionary_response.dart';
 import 'package:brupedia/di/di.dart';
+import 'package:dio/dio.dart';
 
 import '../sources.dart';
 
 class RestApiImpl with RestAPI {
   var _dio = sl<API>().getDio();
 
-/*@override
-  Future<LatLng> getLatLng(Map<String, String> _params) async {
-    Response _response = await _dio.get(
-        "https://maps.googleapis.com/maps/api/geocode/json?",
-        queryParameters: _params);
-    var _responseGeolocation = ResponseGeolocation.fromJson(_response.data);
-    return LatLng(_responseGeolocation.results[0].geometry.location.lat,
-        _responseGeolocation.results[0].geometry.location.lng);
-  }
+  @override
+  Future<Response> login(Map<String, String> _params) async =>
+      await _dio.post("/api/token", data: _params);
 
   @override
-  Future<ResponseDictionary> getDictionary(Map<String, String> _params) async {
+  Future<DictionaryResponse> icons() async {
     try {
-      Response _response =
-          await _dio.get("v1/app_language_keys/all", queryParameters: _params);
-      return ResponseDictionary.fromJson(_response.data);
+      Response _response = await _dio.get("/dictionaries/icon.json");
+
+      var _result = DictionaryResponse.fromJson(_response.data);
+      if (_response.statusCode == 200)
+        return _result;
+      else
+        throw (_result);
     } catch (e) {
-      return null;
+      return e;
     }
   }
 
   @override
-  Future<ResponseLogin> postLogin(Map<String, String> _params) async {
+  Future<DictionaryResponse> colors() async {
     try {
-      Response _response = await _dio.post("v1/user/login",
-          data: _params,
-          options: Options(contentType: Headers.formUrlEncodedContentType));
-      return ResponseLogin.fromJson(_response.data);
+      Response _response = await _dio.get("/dictionaries/text.json");
+
+      var _result = DictionaryResponse.fromJson(_response.data);
+      if (_response.statusCode == 200)
+        return _result;
+      else
+        throw (_result);
     } catch (e) {
-      return null;
+      return e;
     }
-  }*/
+  }
+
+  @override
+  Future<DictionaryResponse> texts() async {
+    try {
+      Response _response = await _dio.get("/dictionaries/color.json");
+
+      var _result = DictionaryResponse.fromJson(_response.data);
+      if (_response.statusCode == 200)
+        return _result;
+      else
+        throw (_result);
+    } catch (e) {
+      return e;
+    }
+  }
 }
