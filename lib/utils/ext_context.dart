@@ -1,7 +1,9 @@
 import 'package:brupedia/blocs/navdrawer/navdrawer_bloc.dart';
+import 'package:brupedia/di/di.dart';
 import 'package:brupedia/pages/main/home/home_page.dart';
 import 'package:brupedia/pages/main/main_page.dart';
 import 'package:brupedia/resources/resources.dart';
+import 'package:brupedia/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -47,11 +49,11 @@ extension ContextExtensions on BuildContext {
 
   goToClearStack(Widget widget) {
     Navigator.pushAndRemoveUntil(
-        this, MaterialPageRoute(
-        builder: (context) =>
-            BlocProvider(
-                create: (context) => NavDrawerBloc(), child: MainPage())), (
-        route) => false);
+        this,
+        MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                create: (context) => NavDrawerBloc(), child: MainPage())),
+        (route) => false);
   }
 
   appBar() {
@@ -61,22 +63,28 @@ extension ContextExtensions on BuildContext {
       elevation: 0,
       centerTitle: true,
       leading: IconButton(
-        icon: Icon(Icons.arrow_back_ios, color: Palette.colorPrimary,),
+        icon: Icon(
+          Icons.arrow_back_ios,
+          color: Palette.colorPrimary,
+        ),
         onPressed: () {
           Navigator.pop(this);
-        },),
+        },
+      ),
       automaticallyImplyLeading: true,
       title: Hero(
         tag: "logo",
-        child: Image.asset(
-          "images/ic_brupedia_color.png",
+        child: Image.network(
+          "ic_brupedia_color".toIconDictionary(),
           height: dp30(this),
         ),
       ),
       actions: [
         IconButton(
-          icon: SvgPicture.asset("images/ic_home.svg", color: Palette
-              .colorPrimary,),
+          icon: SvgPicture.network(
+            "ic_home".toIconDictionary(),
+            color: Palette.colorPrimary,
+          ),
           onPressed: () {
             goToClearStack(HomePage());
           },

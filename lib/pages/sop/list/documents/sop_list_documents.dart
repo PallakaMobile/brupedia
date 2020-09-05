@@ -16,8 +16,7 @@ class SopListDocuments extends StatefulWidget {
   SopListDocuments({Key key}) : super(key: key);
 
   @override
-  _SopListDocumentsState createState() =>
-      _SopListDocumentsState();
+  _SopListDocumentsState createState() => _SopListDocumentsState();
 }
 
 class _SopListDocumentsState extends State<SopListDocuments> {
@@ -30,7 +29,7 @@ class _SopListDocumentsState extends State<SopListDocuments> {
     for (int x = 0; x < 10; x++) {
       _listMedia.add(DataMedia(
           title: "Media ${x + 1}",
-          icon: "images/ic_list_document.svg",
+          icon: "ic_list_document".toIconDictionary(),
           type: "document"));
     }
     _listMediaFilter = _listMedia;
@@ -65,44 +64,44 @@ class _SopListDocumentsState extends State<SopListDocuments> {
             padding: EdgeInsets.only(bottom: dp24(context)),
             child: _listMediaFilter.isNotEmpty
                 ? Scrollbar(
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: _listMediaFilter.length,
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: () {
-                      context.goTo(SopListDocumentsDetail());
-                    },
-                    child: Row(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Palette.bgSop,
-                          child: SvgPicture.asset(
-                            _listMediaFilter[index].icon,
-                            height: dp16(context),
-                            color: Palette.textSop,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: _listMediaFilter.length,
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          onTap: () {
+                            context.goTo(SopListDocumentsDetail());
+                          },
+                          child: Row(
+                            children: [
+                              CircleAvatar(
+                                backgroundColor: Palette.bgSop,
+                                child: SvgPicture.network(
+                                  _listMediaFilter[index].icon,
+                                  height: dp16(context),
+                                  color: Palette.textSop,
+                                ),
+                              ),
+                              SizedBox(
+                                width: dp4(context),
+                              ),
+                              Text(
+                                _listMediaFilter[index].title,
+                                style: TextStyles.text,
+                              ),
+                              Spacer(),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                size: dp16(context),
+                              )
+                            ],
                           ),
-                        ),
-                        SizedBox(
-                          width: dp4(context),
-                        ),
-                        Text(
-                          _listMediaFilter[index].title,
-                          style: TextStyles.text,
-                        ),
-                        Spacer(),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          size: dp16(context),
-                        )
-                      ],
+                        ).padding(
+                            edgeInsets:
+                                EdgeInsets.symmetric(vertical: dp8(context)));
+                      },
                     ),
-                  ).padding(
-                      edgeInsets:
-                      EdgeInsets.symmetric(vertical: dp8(context)));
-                },
-              ),
-            )
+                  )
                 : Empty(),
           ),
         ),

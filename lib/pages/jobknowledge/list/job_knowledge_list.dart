@@ -28,13 +28,17 @@ class _JobKnowledgeListPageState extends State<JobKnowledgeListPage> {
   void initState() {
     super.initState();
     _listLabel.add(DataSelected(
-        title: "Semua", isSelected: true, icon: "images/ic_list_all.svg"));
+        title: "Semua",
+        isSelected: true,
+        icon: "ic_list_all".toIconDictionary()));
     _listLabel.add(DataSelected(
-        title: "Video", isSelected: false, icon: "images/ic_list_videos.svg"));
+        title: "Video",
+        isSelected: false,
+        icon: "ic_list_videos".toIconDictionary()));
     _listLabel.add(DataSelected(
         title: "Dokumen",
         isSelected: false,
-        icon: "images/ic_list_document.svg"));
+        icon: "ic_list_document".toIconDictionary()));
     _listFragment = [
       JobKnowledgeListAll(),
       JobKnowledgeListVideos(),

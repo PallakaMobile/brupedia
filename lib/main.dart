@@ -1,8 +1,10 @@
+import 'package:brupedia/blocs/dictionary/dictionary_bloc.dart';
 import 'package:brupedia/di/di.dart';
 import 'package:brupedia/pages/splashscreen/splash_screen_page.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   serviceLocator();
@@ -18,18 +20,7 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    super.initState();
-    initPrefManager();
-  }
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -43,7 +34,10 @@ class _MyAppState extends State<MyApp> {
       },
       title: Strings.appName,
       theme: themeDefault,
-      home: SplashScreenPage(),
+      home: BlocProvider(
+        create: (context) => DictionaryBloc(),
+        child: SplashScreenPage(),
+      ),
     );
   }
 }

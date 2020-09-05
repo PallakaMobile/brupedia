@@ -1,4 +1,7 @@
+import 'package:brupedia/data/models/responses/dictionary_response.dart';
+import 'package:brupedia/di/di.dart';
 import 'package:brupedia/resources/resources.dart';
+import 'package:brupedia/utils/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_flexible_toast/flutter_flexible_toast.dart';
 import 'package:intl/intl.dart';
@@ -62,5 +65,49 @@ extension StringExtension on String {
         fontSize: Dimens.fontNormal,
         textColor: Palette.colorHint,
         timeInSeconds: 2);
+  }
+
+  String toTextDictionary() {
+    try {
+      print(
+          "key $this : value : ${sl.get<DictionaryResponse>(instanceName: "text").data.singleWhere((element) => element.key.toLowerCase() == this.toLowerCase()).value}");
+      return sl
+          .get<DictionaryResponse>(instanceName: "text")
+          .data
+          .singleWhere(
+              (element) => element.key.toLowerCase() == this.toLowerCase())
+          .value;
+    } catch (e) {
+      return e.toString();
+    }
+  }
+
+  Color toColorDictionary() {
+    try {
+      print(
+          "key color $this : value ${sl.get<DictionaryResponse>(instanceName: "color").data.singleWhere((element) => element.key.toLowerCase() == this.toLowerCase()).value}");
+      return Color(int.parse(sl
+          .get<DictionaryResponse>(instanceName: "color")
+          .data
+          .singleWhere(
+              (element) => element.key.toLowerCase() == this.toLowerCase())
+          .value));
+    } catch (e) {
+      logs("error color $e");
+      return null;
+    }
+  }
+
+  String toIconDictionary() {
+    try {
+      return sl
+          .get<DictionaryResponse>(instanceName: "icon")
+          .data
+          .singleWhere(
+              (element) => element.key.toLowerCase() == this.toLowerCase())
+          .value;
+    } catch (e) {
+      return e.toString();
+    }
   }
 }

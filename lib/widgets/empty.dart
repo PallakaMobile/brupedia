@@ -1,4 +1,5 @@
 import 'package:brupedia/resources/resources.dart';
+import 'package:brupedia/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -21,8 +22,8 @@ class Empty extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SvgPicture.asset(
-            "images/ic_empty.svg",
+          SvgPicture.network(
+            "ic_empty".toIconDictionary(),
           ),
           Text(
             Strings.dataKosong,

@@ -123,8 +123,8 @@ class _TroubleshootingListPageState extends State<TroubleshootingListPage> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
                                         children: [
-                                          SvgPicture.asset(
-                                            "images/ic_trouble_fix.svg",
+                                          SvgPicture.network(
+                                            "ic_trouble_fix".toIconDictionary(),
                                             height: dp16(context),
                                           ),
                                           Text(

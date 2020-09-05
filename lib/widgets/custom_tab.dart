@@ -62,12 +62,11 @@ class _CustomTabState extends State<CustomTab> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SvgPicture.asset(
+                      SvgPicture.network(
                         data.icon,
                         height: dp16(context),
-                        color: _isSelected
-                            ? Colors.white
-                            : widget.selectedColor,
+                        color:
+                            _isSelected ? Colors.white : widget.selectedColor,
                       ),
                       SizedBox(
                         width: dp8(context),

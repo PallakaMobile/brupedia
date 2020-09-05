@@ -89,8 +89,8 @@ class _JobDescListJabatanPageState extends State<JobDescListJabatanPage> {
                               children: [
                                 CircleAvatar(
                                   backgroundColor: Palette.bgJobDesc,
-                                  child: SvgPicture.asset(
-                                    "images/ic_job_desc_list.svg",
+                                  child: SvgPicture.network(
+                                    "ic_job_desc_list".toIconDictionary(),
                                   ),
                                 ),
                                 SizedBox(

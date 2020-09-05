@@ -1,4 +1,5 @@
 import 'package:brupedia/data/models/helper/DataProfile.dart';
+import 'package:brupedia/di/di.dart';
 import 'package:brupedia/pages/jobdesc/jobdesc.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
@@ -19,7 +20,6 @@ class JobDescPage extends StatefulWidget {
 }
 
 class _JobDescPageState extends State<JobDescPage> {
-
   @override
   Widget build(BuildContext context) {
     return Parent(
@@ -64,49 +64,49 @@ class _JobDescPageState extends State<JobDescPage> {
                         onPressed: () {
                           context.goTo(JobDescListJabatanPage());
                         },
-                        imagePath: "images/ic_job_desc_alt.svg",
+                        imageUrl: "ic_job_desc_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.JOB_DESC),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_job_desc_alt.svg",
+                        imageUrl: "ic_job_desc_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.JOB_DESC),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_job_desc_alt.svg",
+                        imageUrl: "ic_job_desc_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.JOB_DESC),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_job_desc_alt.svg",
+                        imageUrl: "ic_job_desc_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.JOB_DESC),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_job_desc_alt.svg",
+                        imageUrl: "ic_job_desc_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.JOB_DESC),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_job_desc_alt.svg",
+                        imageUrl: "ic_job_desc_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.JOB_DESC),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_job_desc_alt.svg",
+                        imageUrl: "ic_job_desc_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.JOB_DESC),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_job_desc_alt.svg",
+                        imageUrl: "ic_job_desc_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.JOB_DESC)

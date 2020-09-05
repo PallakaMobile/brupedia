@@ -29,7 +29,7 @@ class _SopListVideosState extends State<SopListVideos> {
     for (int x = 0; x < 10; x++) {
       _listMedia.add(DataMedia(
           title: "Media ${x + 1}",
-          icon: "images/ic_list_videos.svg",
+          icon: "ic_list_videos".toIconDictionary(),
           type: "video"));
     }
     _listMediaFilter = _listMedia;
@@ -76,7 +76,7 @@ class _SopListVideosState extends State<SopListVideos> {
                             children: [
                               CircleAvatar(
                                 backgroundColor: Palette.bgSop,
-                                child: SvgPicture.asset(
+                                child: SvgPicture.network(
                                   _listMediaFilter[index].icon,
                                   height: dp16(context),
                                   color: Palette.textSop,

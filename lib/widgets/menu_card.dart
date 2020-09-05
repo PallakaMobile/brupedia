@@ -14,7 +14,7 @@ enum TypeMenu { JOB_DESC, SOP, JOB_KNOW, TROUBLE }
 
 class MenuCard extends StatelessWidget {
   final Function onPressed;
-  final String imagePath;
+  final String imageUrl;
   final String title;
   final String subTitle;
   final TypeMenu type;
@@ -22,7 +22,7 @@ class MenuCard extends StatelessWidget {
   const MenuCard({
     Key key,
     @required this.onPressed,
-    @required this.imagePath,
+    @required this.imageUrl,
     @required this.title,
     @required this.subTitle,
     @required this.type,
@@ -66,8 +66,8 @@ class MenuCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SvgPicture.asset(
-              imagePath,
+            SvgPicture.network(
+              imageUrl,
               height: 42.h,
             ),
             SizedBox(

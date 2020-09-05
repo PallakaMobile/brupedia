@@ -8,10 +8,10 @@ class API {
     return Dio(BaseOptions(
         baseUrl: BASE_URL,
         headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
-    'Authorization' : sl<PrefManager>().getToken()
-    },
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': sl<PrefManager>().getToken()
+        },
         receiveTimeout: 60000,
         connectTimeout: 60000,
         validateStatus: (int status) {

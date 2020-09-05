@@ -1,4 +1,3 @@
-import 'package:brupedia/data/models/responses/dictionary_response.dart';
 import 'package:brupedia/di/di.dart';
 import 'package:dio/dio.dart';
 
@@ -12,47 +11,11 @@ class RestApiImpl with RestAPI {
       await _dio.post("/api/token", data: _params);
 
   @override
-  Future<DictionaryResponse> icons() async {
-    try {
-      Response _response = await _dio.get("/dictionaries/icon.json");
-
-      var _result = DictionaryResponse.fromJson(_response.data);
-      if (_response.statusCode == 200)
-        return _result;
-      else
-        throw (_result);
-    } catch (e) {
-      return e;
-    }
-  }
+  Future<Response> icons() async => await _dio.get("/dictionaries/icon.json");
 
   @override
-  Future<DictionaryResponse> colors() async {
-    try {
-      Response _response = await _dio.get("/dictionaries/text.json");
-
-      var _result = DictionaryResponse.fromJson(_response.data);
-      if (_response.statusCode == 200)
-        return _result;
-      else
-        throw (_result);
-    } catch (e) {
-      return e;
-    }
-  }
+  Future<Response> colors() async => await _dio.get("/dictionaries/color.json");
 
   @override
-  Future<DictionaryResponse> texts() async {
-    try {
-      Response _response = await _dio.get("/dictionaries/color.json");
-
-      var _result = DictionaryResponse.fromJson(_response.data);
-      if (_response.statusCode == 200)
-        return _result;
-      else
-        throw (_result);
-    } catch (e) {
-      return e;
-    }
-  }
+  Future<Response> texts() async => await _dio.get("/dictionaries/text.json");
 }

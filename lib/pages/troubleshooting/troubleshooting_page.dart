@@ -63,49 +63,49 @@ class _TroubleshootingPageState extends State<TroubleshootingPage> {
                         onPressed: () {
                           context.goTo(TroubleshootingListPage());
                         },
-                        imagePath: "images/ic_permasalahan_alt.svg",
+                        imageUrl: "ic_permasalahan_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.TROUBLE),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_permasalahan_alt.svg",
+                        imageUrl: "ic_permasalahan_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.TROUBLE),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_permasalahan_alt.svg",
+                        imageUrl: "ic_permasalahan_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.TROUBLE),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_permasalahan_alt.svg",
+                        imageUrl: "ic_permasalahan_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.TROUBLE),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_permasalahan_alt.svg",
+                        imageUrl: "ic_permasalahan_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.TROUBLE),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_permasalahan_alt.svg",
+                        imageUrl: "ic_permasalahan_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.TROUBLE),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_permasalahan_alt.svg",
+                        imageUrl: "ic_permasalahan_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.TROUBLE),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_permasalahan_alt.svg",
+                        imageUrl: "ic_permasalahan_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.TROUBLE)

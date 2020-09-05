@@ -1,5 +1,6 @@
 import 'package:brupedia/data/models/helper/DataProfile.dart';
 import 'package:brupedia/resources/resources.dart';
+import 'package:brupedia/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -28,8 +29,8 @@ class UserCard extends StatelessWidget {
               left: 0,
               right: 0,
               bottom: 0,
-              child: SvgPicture.asset(
-                "images/ic_header_pattern.svg",
+              child: SvgPicture.network(
+                "ic_header_pattern".toIconDictionary(),
                 width: widthInPercent(65, context),
               ),
             ),

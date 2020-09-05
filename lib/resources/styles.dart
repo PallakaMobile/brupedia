@@ -52,19 +52,19 @@ class BoxDecorations {
       ),
       boxShadow: [BoxShadows.primary]);
 
-  static const BoxDecoration primary = BoxDecoration(
+  static BoxDecoration primary = BoxDecoration(
       gradient: Gradients.primary,
       borderRadius: BorderRadius.all(Radius.circular(15)),
       boxShadow: [BoxShadows.primary]);
 
-  static const BoxDecoration button = BoxDecoration(
+  static BoxDecoration button = BoxDecoration(
       color: Palette.colorLink,
       borderRadius: BorderRadius.all(Radius.circular(5)),
       boxShadow: [BoxShadows.primary]);
 }
 
 class Gradients {
-  static const LinearGradient primary = LinearGradient(
+  static LinearGradient primary = LinearGradient(
     // Where the linear gradient begins and ends
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,

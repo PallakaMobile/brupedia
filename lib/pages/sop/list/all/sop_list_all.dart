@@ -30,12 +30,12 @@ class _SopListAllState extends State<SopListAll> {
       if (x % 2 == 0) {
         _listMedia.add(DataMedia(
             title: "Media ${x + 1}",
-            icon: "images/ic_list_videos.svg",
+            icon: "ic_list_videos".toIconDictionary(),
             type: "video"));
       } else {
         _listMedia.add(DataMedia(
             title: "Media ${x + 1}",
-            icon: "images/ic_list_document.svg",
+            icon: "ic_list_document".toIconDictionary(),
             type: "document"));
       }
     }
@@ -87,7 +87,7 @@ class _SopListAllState extends State<SopListAll> {
                             children: [
                               CircleAvatar(
                                 backgroundColor: Palette.bgSop,
-                                child: SvgPicture.asset(
+                                child: SvgPicture.network(
                                   _listMediaFilter[index].icon,
                                   height: dp16(context),
                                   color: Palette.textSop,

@@ -1,25 +1,26 @@
+import 'package:brupedia/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class Palette {
-  static const Color colorPrimary = Color(0xff001687);
-  static const Color colorPrimaryDark = Color(0xff001687);
-  static const Color colorAccent = colorPrimary;
-  static const Color colorBackground = Colors.white;
-  static const Color colorText = Color(0xff34395E);
-  static const Color colorTextAlt = Color(0xff909090);
-  static const Color colorHint = Color(0xffFDFDFF);
-  static const Color colorLink = Color(0xff2546F2);
-
-  static const Color bgJobDesc = Color(0xffE7F6FF);
-  static const Color bgSop = Color(0xffECEFFF);
-  static const Color bgJobKnowledge = Color(0xffE7FFFD);
-  static const Color bgTrouble = Color(0xffFFF7E0);
-
-  static const Color textJobDesc = Color(0xff1154C2);
-  static const Color textSop = Color(0xff5C61DF);
-  static const Color textJobKnowledge = Color(0xff0D9596);
-  static const Color textTrouble = Color(0xffFFA216);
-  static const Color bgListTroubleshooting = Color(0xff34395E);
+  static Color colorPrimary =
+      "colorPrimary".toColorDictionary() ?? Color(0xff001687);
+  static Color colorPrimaryDark = "colorPrimaryDark".toColorDictionary();
+  static Color colorAccent = "colorAccent".toColorDictionary();
+  static Color colorBackground = "colorBackground".toColorDictionary();
+  static Color colorText = "colorText".toColorDictionary() ?? Color(0xff34395E);
+  static Color colorTextAlt = "colorTextAlt".toColorDictionary();
+  static Color colorHint = "colorHint".toColorDictionary();
+  static Color colorLink = "colorLink".toColorDictionary();
+  static Color bgJobDesc = "bgJobDesc".toColorDictionary();
+  static Color bgSop = "bgSop".toColorDictionary();
+  static Color bgJobKnowledge = "bgJobKnowledge".toColorDictionary();
+  static Color bgTrouble = "bgTrouble".toColorDictionary();
+  static Color textJobDesc = "textJobDesc".toColorDictionary();
+  static Color textSop = "textSop".toColorDictionary();
+  static Color textJobKnowledge = "textJobKnowledge".toColorDictionary();
+  static Color textTrouble = "textTrouble".toColorDictionary();
+  static Color bgListTroubleshooting =
+      "bgListTroubleshooting".toColorDictionary();
 }
 
 ThemeData themeDefault = ThemeData(

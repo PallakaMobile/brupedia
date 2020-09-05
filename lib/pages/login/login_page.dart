@@ -106,8 +106,8 @@ class _LoginPageState extends State<LoginPage> {
                     bottom: -10,
                     left: 0,
                     right: 0,
-                    child: SvgPicture.asset(
-                      "images/ic_splash_bottom.svg",
+                    child: SvgPicture.network(
+                      "ic_splash_bottom".toIconDictionary(),
                       width: widthInPercent(100, context),
                     ),
                   ),
@@ -132,8 +132,8 @@ class _LoginPageState extends State<LoginPage> {
                       child: Center(
                         child: Hero(
                           tag: "logo",
-                          child: Image.asset(
-                            "images/ic_brupedia_white.png",
+                          child: Image.network(
+                            "ic_brupedia_white".toIconDictionary(),
                             width: widthInPercent(70, context),
                           ),
                         ),
@@ -188,6 +188,7 @@ class _LoginPageState extends State<LoginPage> {
                   Checkbox(
                     visualDensity: VisualDensity.adaptivePlatformDensity,
                     value: _isRemember,
+                    activeColor: Palette.colorLink,
                     onChanged: (val) {
                       setState(() {
                         _isRemember = val;
@@ -257,7 +258,7 @@ class _LoginPageState extends State<LoginPage> {
       // false = user must tap button, true = tap outside dialog
       builder: (BuildContext dialogContext) {
         return CupertinoDialogAction(
-          //this right here
+            //this right here
             textStyle: TextStyles.text,
             isDestructiveAction: false,
             isDefaultAction: true,
@@ -307,10 +308,10 @@ class _LoginPageState extends State<LoginPage> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          SvgPicture.asset(
+                          SvgPicture.network(
                             _category == Category.REGISTER
-                                ? "images/ic_register.svg"
-                                : "images/ic_forgot_password.svg",
+                                ? "ic_register".toIconDictionary()
+                                : "ic_forgot_password".toIconDictionary(),
                             width: double.infinity,
                             height: Dimens.height35,
                           ),

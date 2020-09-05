@@ -5,5 +5,5 @@ class DataTroubleshooting {
   bool isVisible;
 
   DataTroubleshooting(
-{      this.title, this.content, this.listContent, this.isVisible=false});
+      {this.title, this.content, this.listContent, this.isVisible = false});
 }

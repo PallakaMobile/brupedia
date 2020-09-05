@@ -30,7 +30,7 @@ class _JobKnowledgeListDocumentsState extends State<JobKnowledgeListDocuments> {
     for (int x = 0; x < 10; x++) {
       _listMedia.add(DataMedia(
           title: "Media ${x + 1}",
-          icon: "images/ic_list_document.svg",
+          icon: "ic_list_document".toIconDictionary(),
           type: "document"));
     }
     _listMediaFilter = _listMedia;
@@ -77,7 +77,7 @@ class _JobKnowledgeListDocumentsState extends State<JobKnowledgeListDocuments> {
                             children: [
                               CircleAvatar(
                                 backgroundColor: Palette.bgJobKnowledge,
-                                child: SvgPicture.asset(
+                                child: SvgPicture.network(
                                   _listMediaFilter[index].icon,
                                   height: dp16(context),
                                 ),

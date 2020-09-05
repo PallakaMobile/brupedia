@@ -1,5 +1,6 @@
 import 'package:brupedia/blocs/navdrawer/navdrawer_bloc.dart';
 import 'package:brupedia/data/models/models.dart';
+import 'package:brupedia/di/di.dart';
 import 'package:brupedia/pages/jobdesc/jobdesc.dart';
 import 'package:brupedia/pages/jobknowledge/jobknowledge.dart';
 import 'package:brupedia/pages/sop/sop.dart';
@@ -62,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       context.goTo(JobDescPage());
                     },
-                    imagePath: "images/ic_job_desc.svg",
+                    imageUrl: "ic_job_desc".toIconDictionary(),
                     title: Strings.job,
                     subTitle: Strings.description,
                     type: TypeMenu.JOB_DESC),
@@ -70,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       context.goTo(SopPage());
                     },
-                    imagePath: "images/ic_sop.svg",
+                    imageUrl: "ic_sop".toIconDictionary(),
                     title: Strings.sop,
                     subTitle: "",
                     type: TypeMenu.SOP),
@@ -78,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       context.goTo(JobKnowledgePage());
                     },
-                    imagePath: "images/ic_job_knowledge.svg",
+                    imageUrl: "ic_job_knowledge".toIconDictionary(),
                     title: Strings.job,
                     subTitle: Strings.knowledge,
                     type: TypeMenu.JOB_KNOW),
@@ -86,7 +87,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       context.goTo(TroubleshootingPage());
                     },
-                    imagePath: "images/ic_permasalahan.svg",
+                    imageUrl: "ic_permasalahan".toIconDictionary(),
                     title: Strings.permasalahan,
                     subTitle: Strings.andTroubleShooting,
                     type: TypeMenu.TROUBLE)

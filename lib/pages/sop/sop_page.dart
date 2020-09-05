@@ -63,49 +63,49 @@ class _SopPageState extends State<SopPage> {
                         onPressed: () {
                           context.goTo(SopListPage());
                         },
-                        imagePath: "images/ic_sop_alt.svg",
+                        imageUrl: "ic_sop_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.SOP),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_sop_alt.svg",
+                        imageUrl: "ic_sop_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.SOP),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_sop_alt.svg",
+                        imageUrl: "ic_sop_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.SOP),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_sop_alt.svg",
+                        imageUrl: "ic_sop_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.SOP),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_sop_alt.svg",
+                        imageUrl: "ic_sop_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.SOP),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_sop_alt.svg",
+                        imageUrl: "ic_sop_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.SOP),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_sop_alt.svg",
+                        imageUrl: "ic_sop_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.SOP),
                     MenuCard(
                         onPressed: () {},
-                        imagePath: "images/ic_sop_alt.svg",
+                        imageUrl: "ic_sop_alt".toIconDictionary(),
                         title: Strings.bidang,
                         subTitle: Strings.description,
                         type: TypeMenu.SOP)

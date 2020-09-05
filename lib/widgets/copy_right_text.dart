@@ -1,5 +1,6 @@
 import 'package:brupedia/resources/colors.dart';
 import 'package:brupedia/resources/dimens.dart';
+import 'package:brupedia/resources/resources.dart';
 import 'package:flutter/material.dart';
 
 ///*********************************************
@@ -20,13 +21,15 @@ class CopyRightText extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "Copyright © 2020",
+          Strings.copyRight,
           style: TextStyle(
               color: color ?? Palette.colorText, fontSize: Dimens.fontSmall),
         ),
-        SizedBox(width: dp8(context),),
+        SizedBox(
+          width: dp8(context),
+        ),
         Text(
-          "PLTU Barru OMU",
+          Strings.namePLTU,
           style: TextStyle(
               fontWeight: FontWeight.bold,
               color: color ?? Palette.colorText,

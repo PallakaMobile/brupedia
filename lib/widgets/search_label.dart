@@ -43,17 +43,12 @@ class _SearchLabelState<T> extends State<SearchLabel> {
 
                 if (child.key == ValueKey("textF")) {
                   return ClipRect(
-                    child: SlideTransition(
-                      position: inAnimation,
-                      child: child
-                    ),
+                    child: SlideTransition(position: inAnimation, child: child),
                   );
                 } else {
                   return ClipRect(
-                    child: SlideTransition(
-                      position: outAnimation,
-                      child: child
-                    ),
+                    child:
+                        SlideTransition(position: outAnimation, child: child),
                   );
                 }
               },

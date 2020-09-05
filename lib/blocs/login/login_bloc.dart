@@ -17,8 +17,7 @@ class LoginBloc extends Bloc<LoginEvent, Resources<LoginResponse>> {
     var _loginRepo = sl<LoginRepository>();
     if (event is PostLoginEvent) {
       yield Resources.loading();
-      var _response = await _loginRepo.login(event.params);
-      yield _response;
+      yield await _loginRepo.login(event.params);
     }
   }
 }

@@ -1,7 +1,7 @@
 import 'package:brupedia/blocs/blocs.dart';
 import 'package:brupedia/data/models/helper/DataSelected.dart';
-import 'package:brupedia/resources/dimens.dart';
 import 'package:brupedia/resources/resources.dart';
+import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -47,8 +47,8 @@ class _MainPageState extends State<MainPage> {
         centerTitle: true,
         leadingWidth: 0,
         automaticallyImplyLeading: false,
-        title: Image.asset(
-          "images/ic_brupedia_color.png",
+        title: Image.network(
+          "ic_brupedia_color".toIconDictionary(),
           height: dp30(context),
         ),
         actions: [
@@ -99,8 +99,8 @@ class _MainPageState extends State<MainPage> {
                                 left: 0,
                                 right: 0,
                                 bottom: 0,
-                                child: SvgPicture.asset(
-                                  "images/ic_header_pattern.svg",
+                                child: SvgPicture.network(
+                                  "ic_header_pattern".toIconDictionary(),
                                   width: 150,
                                 ),
                               ),
