@@ -1,11 +1,7 @@
-import 'package:brupedia/blocs/navdrawer/navdrawer_bloc.dart';
-import 'package:brupedia/di/di.dart';
 import 'package:brupedia/pages/main/home/home_page.dart';
-import 'package:brupedia/pages/main/main_page.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 extension ContextExtensions on BuildContext {
@@ -50,10 +46,7 @@ extension ContextExtensions on BuildContext {
   goToClearStack(Widget widget) {
     Navigator.pushAndRemoveUntil(
         this,
-        MaterialPageRoute(
-            builder: (context) => BlocProvider(
-                create: (context) => NavDrawerBloc(), child: MainPage())),
-        (route) => false);
+        MaterialPageRoute(builder: (context) => widget), (route) => false);
   }
 
   appBar() {

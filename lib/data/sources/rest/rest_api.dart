@@ -8,4 +8,6 @@ abstract class RestAPI {
   Future<Response> colors();
 
   Future<Response> icons();
+
+  Future<Response> logout();
 }

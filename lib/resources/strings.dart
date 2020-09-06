@@ -15,6 +15,7 @@ class Strings {
   static String mainMenu = "mainMenu".toTextDictionary();
   static String about = "about".toTextDictionary();
   static String exit = "exit".toTextDictionary();
+  static String askExit = "Apakah anda ingin keluar dari Brupedia ?";
   static String job = "job".toTextDictionary();
   static String jobDescription = "jobDescription".toTextDictionary();
   static String jobKnowledge = "jobKnowledge".toTextDictionary();
@@ -30,6 +31,7 @@ class Strings {
   static String enjinering = "enjinering".toTextDictionary();
   static String search = "search".toTextDictionary();
   static String dataKosong = "dataKosong".toTextDictionary();
+  static String cancel = "Batal";
 
   static String copyRight = "Copyright © 2020";
   static String namePLTU = "PLTU Barru OMU";

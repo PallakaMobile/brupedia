@@ -33,6 +33,11 @@ class TextStyles {
     color: Palette.colorText,
   );
 
+  static TextStyle hint = TextStyle(
+    fontSize: Dimens.fontNormal,
+    color: Palette.colorHint,
+  );
+
   static TextStyle textBold = TextStyle(
     color: Palette.colorText,
     fontSize: Dimens.fontNormal,

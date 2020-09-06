@@ -67,8 +67,15 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
                 await registerDictionaryIcons();
 
                 if (sl<PrefManager>().getIsLogin())
-                  context.goToReplacePageRoute(BlocProvider(
-                      create: (context) => NavDrawerBloc(), child: MainPage()));
+                  context.goToReplacePageRoute(MultiBlocProvider(
+                    providers: [
+                      BlocProvider(create: (context) => NavDrawerBloc()),
+                      BlocProvider(create: (context) => LogoutBloc())
+                    ],
+                    child: BlocProvider(
+                        create: (context) => NavDrawerBloc(),
+                        child: MainPage()),
+                  ));
                 else
                   context.goToReplacePageRoute(BlocProvider(
                       create: (context) => LoginBloc(), child: LoginPage()));

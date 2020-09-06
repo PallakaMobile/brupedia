@@ -87,8 +87,13 @@ class _LoginPageState extends State<LoginPage> {
                 FlutterFlexibleToast.cancel();
                 LoginResponse _response = state.data;
                 _response.diagnostic.message.toToastSuccess();
-                context.goToReplacePageRoute(BlocProvider(
-                    create: (context) => NavDrawerBloc(), child: MainPage()));
+                context.goToReplacePageRoute(MultiBlocProvider(
+                  providers: [
+                    BlocProvider(create: (context) => NavDrawerBloc()),
+                    BlocProvider(create: (context) => LogoutBloc())
+                  ],
+                  child: MainPage(),
+                ));
               }
               break;
             default:
@@ -211,8 +216,6 @@ class _LoginPageState extends State<LoginPage> {
                   )
                 ],
               ),
-              Visibility(
-                  visible: !_isEnabled, child: CircularProgressIndicator()),
               SizedBox(
                 height: dp16(context),
               ),

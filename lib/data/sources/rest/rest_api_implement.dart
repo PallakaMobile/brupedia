@@ -18,4 +18,7 @@ class RestApiImpl with RestAPI {
 
   @override
   Future<Response> texts() async => await _dio.get("/dictionaries/text.json");
+
+  @override
+  Future<Response> logout() async => await _dio.post("/api/revoke");
 }

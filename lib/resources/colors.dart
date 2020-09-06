@@ -5,8 +5,10 @@ class Palette {
   static Color colorPrimary =
       "colorPrimary".toColorDictionary() ?? Color(0xff001687);
   static Color colorPrimaryDark = "colorPrimaryDark".toColorDictionary();
-  static Color colorAccent = "colorAccent".toColorDictionary();
-  static Color colorBackground = "colorBackground".toColorDictionary();
+  static Color colorAccent =
+      "colorAccent".toColorDictionary() ?? Color(0xff001687);
+  static Color colorBackground =
+      "colorBackground".toColorDictionary() ?? Color(0xffffffff);
   static Color colorText = "colorText".toColorDictionary() ?? Color(0xff34395E);
   static Color colorTextAlt = "colorTextAlt".toColorDictionary();
   static Color colorHint = "colorHint".toColorDictionary();
