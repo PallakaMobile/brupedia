@@ -84,6 +84,9 @@ class _LoginPageState extends State<LoginPage> {
                 //check isRemember ?
                 await sl<PrefManager>().setIsLogin(_isRemember);
 
+                //register user on DI
+                await registerUser();
+
                 FlutterFlexibleToast.cancel();
                 LoginResponse _response = state.data;
                 _response.diagnostic.message.toToastSuccess();

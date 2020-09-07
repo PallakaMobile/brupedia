@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:brupedia/blocs/blocs.dart';
 import 'package:brupedia/data/models/responses/diagnostic_response.dart';
 import 'package:brupedia/data/models/responses/login_response.dart';
@@ -13,8 +15,9 @@ class LoginRepository {
       var _loginResponse = LoginResponse.fromJson(_response.data);
       if (_response.statusCode == 200) {
         //save token
-       await sl<PrefManager>().setToken(
+        await sl<PrefManager>().setToken(
             "${_loginResponse.data.tokenType} ${_loginResponse.data.accessToken}");
+        await sl<PrefManager>().setUser(json.encode(_loginResponse.data.user));
         return Resources.success(data: _loginResponse);
       } else {
         return Resources.error(_loginResponse.diagnostic.message);

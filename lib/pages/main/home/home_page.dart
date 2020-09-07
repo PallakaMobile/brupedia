@@ -1,6 +1,4 @@
 import 'package:brupedia/blocs/navdrawer/navdrawer_bloc.dart';
-import 'package:brupedia/data/models/models.dart';
-import 'package:brupedia/di/di.dart';
 import 'package:brupedia/pages/jobdesc/jobdesc.dart';
 import 'package:brupedia/pages/jobknowledge/jobknowledge.dart';
 import 'package:brupedia/pages/sop/sop.dart';
@@ -31,14 +29,7 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          UserCard(
-            dataProfile: DataProfile(
-                userName: "ukieTux",
-                title: "Mobile Dev",
-                position: "SPV",
-                imageUrl:
-                    "https://avatars0.githubusercontent.com/u/1531684?s=400&u=e01e622a1c219bb04c8d69fb0cc06f14231ebbcd&v=4"),
-          ),
+          UserCard(),
           SizedBox(
             height: dp16(context),
           ),

@@ -6,7 +6,7 @@ class PrefManager {
   String kText = "text";
   String kColor = "color";
   String kIcon = "icon";
-
+  String kUser = "user";
   SharedPreferences preferences;
 
   PrefManager(this.preferences);
@@ -21,6 +21,11 @@ class PrefManager {
       await preferences.setString(kToken, value);
 
   String getToken() => preferences.getString(kToken) ?? null;
+
+  Future<bool> setUser(String value) async =>
+      await preferences.setString(kUser, value);
+
+  String getUser() => preferences.getString(kUser) ?? null;
 
   Future<bool> setTexts(String value) async =>
       await preferences.setString(kText, value);

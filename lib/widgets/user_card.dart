@@ -1,4 +1,5 @@
-import 'package:brupedia/data/models/helper/DataProfile.dart';
+import 'package:brupedia/data/models/responses/login_response.dart';
+import 'package:brupedia/di/di.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -12,12 +13,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 ///*********************************************
 /// © 2020 | All Right Reserved
 class UserCard extends StatelessWidget {
-  final DataProfile dataProfile;
-
-  const UserCard({Key key, this.dataProfile}) : super(key: key);
+  const UserCard({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var user = sl<User>();
     return Center(
       child: Container(
         width: widthInPercent(100, context),
@@ -46,23 +46,23 @@ class UserCard extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     backgroundColor: Colors.white,
-                    backgroundImage: NetworkImage(dataProfile.imageUrl),
+                    backgroundImage: NetworkImage(user.profile.avatar),
                     radius: 30.h,
                   ),
                   SizedBox(
                     height: dp8(context),
                   ),
                   Text(
-                    dataProfile.userName,
+                    user.name,
                     style: TextStyles.whiteBold
                         .copyWith(fontSize: Dimens.fontLarge1),
                   ),
                   Text(
-                    dataProfile.position,
+                    user.profile.jabatan,
                     style: TextStyles.white,
                   ),
                   Text(
-                    dataProfile.title,
+                    user.profile.bidang,
                     style: TextStyles.white.copyWith(
                       fontSize: Dimens.fontSmall,
                     ),

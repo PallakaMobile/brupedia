@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:brupedia/data/models/responses/dictionary_response.dart';
+import 'package:brupedia/data/models/responses/login_response.dart';
 import 'package:brupedia/data/repositories/login_repository.dart';
 import 'package:brupedia/data/repositories/repositories.dart';
 import 'package:brupedia/data/sources/sources.dart';
@@ -27,6 +28,13 @@ Future<void> initPrefManager() async {
   sl.registerLazySingleton<PrefManager>(() => PrefManager(_initPrefManager));
 }
 
+registerUser() async {
+  //register response to reuse
+  print("text sl :${sl<PrefManager>().getText()}");
+  User _user = User.fromJson(json.decode(sl<PrefManager>().getText()));
+  sl.registerLazySingleton(() => _user);
+}
+
 registerDictionaryTexts() async {
   //register response to reuse
   print("text sl :${sl<PrefManager>().getText()}");
@@ -48,3 +56,4 @@ registerDictionaryColors() {
       DictionaryResponse.fromJson(json.decode(sl<PrefManager>().getColor()));
   sl.registerLazySingleton(() => _dictionary, instanceName: "color");
 }
+
