@@ -122,7 +122,12 @@ class Profile {
   String bidang;
   String avatar;
 
-  Profile({this.fullName, this.jabatan, this.bidang, this.avatar});
+  Profile({
+    this.fullName,
+    this.jabatan,
+    this.bidang,
+    this.avatar,
+  });
 
   Profile.fromJson(Map<String, dynamic> json) {
     fullName = json['full_name'];

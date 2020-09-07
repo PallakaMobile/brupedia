@@ -30,8 +30,8 @@ Future<void> initPrefManager() async {
 
 registerUser() async {
   //register response to reuse
-  print("text sl :${sl<PrefManager>().getText()}");
-  User _user = User.fromJson(json.decode(sl<PrefManager>().getText()));
+  print("text sl :${sl<PrefManager>().getUser()}");
+  User _user = User.fromJson(json.decode(sl<PrefManager>().getUser()));
   sl.registerLazySingleton(() => _user);
 }
 
