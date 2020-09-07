@@ -1,6 +1,7 @@
 import 'package:brupedia/blocs/blocs.dart';
 import 'package:brupedia/data/models/helper/DataSelected.dart';
 import 'package:brupedia/data/models/responses/diagnostic_response.dart';
+import 'package:brupedia/data/models/responses/login_response.dart';
 import 'package:brupedia/di/di.dart';
 import 'package:brupedia/pages/login/login_page.dart';
 import 'package:brupedia/resources/resources.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_flexible_toast/flutter_flexible_toast.dart';
+import 'package:flutter_screenutil/size_extension.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 ///*********************************************
@@ -34,6 +36,8 @@ class _MainPageState extends State<MainPage> {
   @override
   void initState() {
     super.initState();
+    //register user on DI
+    registerUser();
     _logoutBloc = BlocProvider.of<LogoutBloc>(context);
     _drawerBloc = BlocProvider.of<NavDrawerBloc>(context);
     _dataMenus = [
@@ -44,6 +48,7 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    var user = sl<User>();
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
@@ -147,8 +152,11 @@ class _MainPageState extends State<MainPage> {
                                   child: Row(
                                     children: [
                                       CircleAvatar(
-                                        child: Icon(Icons.motorcycle),
-                                        backgroundColor: Palette.colorLink,
+                                        backgroundColor: Colors.white,
+                                        backgroundImage: NetworkImage(user
+                                                .profile.avatar ??
+                                            "https://avatars0.githubusercontent.com/u/1531684?s=400&u=e01e622a1c219bb04c8d69fb0cc06f14231ebbcd&v=4"),
+                                        radius: 30.h,
                                       ),
                                       SizedBox(
                                         width: dp8(context),
@@ -158,13 +166,28 @@ class _MainPageState extends State<MainPage> {
                                         crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                         children: [
-                                          Text("Pallaka Studio",
+                                          Text(user.name,
                                               style: TextStyles.whiteBold),
-                                          Text(
-                                            "Supervisor Bidang Enjiniring",
-                                            style: TextStyles.white.copyWith(
-                                              fontSize: Dimens.fontSmall,
-                                            ),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                user.profile.jabatan,
+                                                style:
+                                                    TextStyles.white.copyWith(
+                                                  fontSize: Dimens.fontSmall,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: dp4(context),
+                                              ),
+                                              Text(
+                                                user.profile.bidang,
+                                                style:
+                                                    TextStyles.white.copyWith(
+                                                  fontSize: Dimens.fontSmall,
+                                                ),
+                                              )
+                                            ],
                                           )
                                         ],
                                       )
