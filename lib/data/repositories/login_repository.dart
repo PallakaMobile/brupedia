@@ -13,6 +13,7 @@ class LoginRepository {
     try {
       var _response = await _restApi.login(_params);
       var _loginResponse = LoginResponse.fromJson(_response.data);
+
       if (_response.statusCode == 200) {
         //save token
         await sl<PrefManager>().setToken(
@@ -32,6 +33,7 @@ class LoginRepository {
     try {
       var _response = await _restApi.logout();
       var _loginResponse = DiagnosticResponse.fromJson(_response.data);
+
       if (_response.statusCode == 200) {
         return Resources.success(data: _loginResponse);
       } else {

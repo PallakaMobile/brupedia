@@ -20,6 +20,7 @@ Future<void> serviceLocator() async {
   //register  Repositories
   sl.registerLazySingleton(() => SplashScreenRepository());
   sl.registerLazySingleton(() => LoginRepository());
+  sl.registerLazySingleton(() => MasterRepository());
 }
 
 //register prefManager
@@ -56,4 +57,3 @@ registerDictionaryColors() {
       DictionaryResponse.fromJson(json.decode(sl<PrefManager>().getColor()));
   sl.registerLazySingleton(() => _dictionary, instanceName: "color");
 }
-

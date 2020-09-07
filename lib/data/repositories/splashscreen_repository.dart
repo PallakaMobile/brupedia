@@ -32,7 +32,7 @@ class SplashScreenRepository {
             .message);
       }
     } catch (e) {
-      return e;
+      return Resources.error(e.toString());
     }
   }
 }

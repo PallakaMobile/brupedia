@@ -13,7 +13,8 @@ class LogoutBloc extends Bloc<LogoutEvent, Resources<DiagnosticResponse>> {
   LogoutBloc() : super(Resources.loading());
 
   @override
-  Stream<Resources<DiagnosticResponse>> mapEventToState(LogoutEvent event) async* {
+  Stream<Resources<DiagnosticResponse>> mapEventToState(
+      LogoutEvent event) async* {
     var _loginRepo = sl<LoginRepository>();
     if (event is PostLogoutEvent) {
       yield Resources.loading();

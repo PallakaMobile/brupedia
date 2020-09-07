@@ -134,7 +134,7 @@ class _MainPageState extends State<MainPage> {
                                       color: Palette.colorPrimary,
                                       borderRadius: BorderRadius.only(
                                           bottomRight:
-                                          Radius.circular(dp36(context)))),
+                                              Radius.circular(dp36(context)))),
                                 ),
                                 Positioned(
                                   left: 0,
@@ -164,7 +164,7 @@ class _MainPageState extends State<MainPage> {
                                       Column(
                                         mainAxisSize: MainAxisSize.min,
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Text(user.name,
                                               style: TextStyles.whiteBold),
@@ -216,56 +216,58 @@ class _MainPageState extends State<MainPage> {
                     ),
                     Column(
                       children: _dataMenus
-                          .map<Widget>((value) =>
-                          InkWell(
-                            onTap: () {
-                              _dataMenus.forEach((element) {
-                                setState(() {
-                                  if (element.title == value.title)
-                                    element.isSelected = true;
-                                  else
-                                    element.isSelected = false;
-                                });
+                          .map<Widget>((value) => InkWell(
+                                onTap: () {
+                                  _dataMenus.forEach((element) {
+                                    setState(() {
+                                      if (element.title == value.title)
+                                        element.isSelected = true;
+                                      else
+                                        element.isSelected = false;
+                                    });
 
-                                //return selected page
-                                if (value.title == Strings.mainMenu)
-                                  _drawerBloc.add(NavigationEvents.HomePage);
-                                else
-                                  _drawerBloc.add(NavigationEvents.AboutPage);
+                                    //return selected page
+                                    if (value.title == Strings.mainMenu)
+                                      _drawerBloc
+                                          .add(NavigationEvents.HomePage);
+                                    else
+                                      _drawerBloc
+                                          .add(NavigationEvents.AboutPage);
 
-                                //hide navigation drawer
-                                _scaffoldKey.currentState.openDrawer();
-                              });
-                            },
-                            child: Column(
-                              children: [
-                                Row(
+                                    //hide navigation drawer
+                                    _scaffoldKey.currentState.openDrawer();
+                                  });
+                                },
+                                child: Column(
                                   children: [
-                                    Opacity(
-                                      opacity: value.isSelected ? 1 : 0,
-                                      child: Container(
-                                        color: Palette.colorLink,
-                                        width: 4,
-                                        height: dp30(context),
-                                      ),
+                                    Row(
+                                      children: [
+                                        Opacity(
+                                          opacity: value.isSelected ? 1 : 0,
+                                          child: Container(
+                                            color: Palette.colorLink,
+                                            width: 4,
+                                            height: dp30(context),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: dp16(context),
+                                        ),
+                                        Text(
+                                          value.title,
+                                          style:
+                                              TextStyles.primaryBold.copyWith(
+                                            fontSize: Dimens.fontLarge,
+                                          ),
+                                        )
+                                      ],
                                     ),
-                                    SizedBox(
-                                      width: dp16(context),
+                                    Divider(
+                                      color: Colors.transparent,
                                     ),
-                                    Text(
-                                      value.title,
-                                      style: TextStyles.primaryBold.copyWith(
-                                        fontSize: Dimens.fontLarge,
-                                      ),
-                                    )
                                   ],
                                 ),
-                                Divider(
-                                  color: Colors.transparent,
-                                ),
-                              ],
-                            ),
-                          ))
+                              ))
                           .toList(),
                     ),
                     SizedBox(
@@ -285,7 +287,7 @@ class _MainPageState extends State<MainPage> {
                                     .copyWith(fontSize: Dimens.fontLarge),
                               ),
                               content:
-                              Text(Strings.askExit, style: TextStyles.text),
+                                  Text(Strings.askExit, style: TextStyles.text),
                               actions: <Widget>[
                                 FlatButton(
                                   child: Text(Strings.cancel,
@@ -351,10 +353,8 @@ class _MainPageState extends State<MainPage> {
               ],
             ),
           ),
-        )
-        ,
-      )
-      ,
+        ),
+      ),
     );
   }
 }

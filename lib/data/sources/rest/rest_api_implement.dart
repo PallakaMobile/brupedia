@@ -21,4 +21,11 @@ class RestApiImpl with RestAPI {
 
   @override
   Future<Response> logout() async => await _dio.post("/api/revoke");
+
+  @override
+  Future<Response> listBidang() async => await _dio.get("/api/master/bidang");
+
+  @override
+  Future<Response> listJabatan(Map<String, String> _params) async =>
+      await _dio.get("/api/master/jabatan", queryParameters: _params);
 }

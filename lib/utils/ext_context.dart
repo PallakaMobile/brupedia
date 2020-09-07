@@ -44,8 +44,7 @@ extension ContextExtensions on BuildContext {
   }
 
   goToClearStack(Widget widget) {
-    Navigator.pushAndRemoveUntil(
-        this,
+    Navigator.pushAndRemoveUntil(this,
         MaterialPageRoute(builder: (context) => widget), (route) => false);
   }
 

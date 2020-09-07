@@ -1,9 +1,12 @@
-import 'package:brupedia/data/models/models.dart';
+import 'package:brupedia/blocs/blocs.dart';
+import 'package:brupedia/data/models/responses/list_jabatan_response.dart';
 import 'package:brupedia/pages/jobdesc/jobdesc.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_flexible_toast/flutter_flexible_toast.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 ///*********************************************
@@ -13,23 +16,27 @@ import 'package:flutter_svg/flutter_svg.dart';
 ///*********************************************
 /// © 2020 | All Right Reserved
 class JobDescListJabatanPage extends StatefulWidget {
-  JobDescListJabatanPage({Key key}) : super(key: key);
+  JobDescListJabatanPage({Key key, this.bidangId, this.namaBidang})
+      : super(key: key);
+  final String bidangId;
+  final String namaBidang;
 
   @override
   _JobDescListJabatanPageState createState() => _JobDescListJabatanPageState();
 }
 
 class _JobDescListJabatanPageState extends State<JobDescListJabatanPage> {
-  var _listDataSelected = List<DataSelected>();
-  var _listDataSelectedFilter = List<DataSelected>();
+  ListJabatanBloc _listBidangBloc;
+
+  var _listJabatan = List<Data>();
+  var _listJabatanFilter = List<Data>();
 
   @override
   void initState() {
     super.initState();
-    for (int i = 0; i < 10; i++) {
-      _listDataSelected.add(DataSelected(title: "Staff ${i + 1}"));
-    }
-    _listDataSelectedFilter = _listDataSelected;
+    var _params = Map<String, String>()..["bidangId"] = widget.bidangId;
+    _listBidangBloc = BlocProvider.of<ListJabatanBloc>(context);
+    _listBidangBloc.add(GetListJabatanEvent(_params));
   }
 
   @override
@@ -37,79 +44,109 @@ class _JobDescListJabatanPageState extends State<JobDescListJabatanPage> {
     return Parent(
       appBar: context.appBar(),
       isScroll: false,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          UserCard(),
-          SizedBox(
-            height: dp16(context),
-          ),
-          SearchLabel(
-            label: "${Strings.bidang} ${Strings.enjinering}",
-            onChanged: (value) {
-              context.logs(value);
-              setState(() {
-                if (value.isNotEmpty) {
-                  _listDataSelectedFilter = _listDataSelected
-                      .where((element) => element.title
-                          .toLowerCase()
-                          .contains(value.toLowerCase()))
-                      .toList();
-                } else {
-                  _listDataSelectedFilter = _listDataSelected;
-                }
-              });
-            },
-          ),
-          SizedBox(
-            height: dp16(context),
-          ),
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.only(bottom: dp24(context)),
-              child: _listDataSelectedFilter.isNotEmpty
-                  ? Scrollbar(
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: _listDataSelectedFilter.length,
-                        itemBuilder: (context, index) {
-                          return InkWell(
-                            onTap: () {
-                              context.goTo(JobDescDetailJabatanPage());
-                            },
-                            child: Row(
-                              children: [
-                                CircleAvatar(
-                                  backgroundColor: Palette.bgJobDesc,
-                                  child: SvgPicture.network(
-                                    "ic_job_desc_list".toIconDictionary(),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: dp4(context),
-                                ),
-                                Text(
-                                  _listDataSelectedFilter[index].title,
-                                  style: TextStyles.text,
-                                ),
-                                Spacer(),
-                                Icon(
-                                  Icons.arrow_forward_ios,
-                                  size: dp16(context),
-                                )
-                              ],
-                            ),
-                          ).padding(
-                              edgeInsets:
-                                  EdgeInsets.symmetric(vertical: dp8(context)));
-                        },
-                      ),
-                    )
-                  : Empty(),
+      child: BlocListener(
+        cubit: _listBidangBloc,
+        listener: (_, state) {
+          switch (state.status) {
+            case Status.LOADING:
+              {
+                "harap_tunggu".toTextDictionary().toToastLoading();
+              }
+              break;
+            case Status.ERROR:
+              {
+                FlutterFlexibleToast.cancel();
+                state.message.toString().toToastError();
+              }
+              break;
+            case Status.SUCCESS:
+              {
+                FlutterFlexibleToast.cancel();
+                ListJabatanResponse _response = state.data;
+                setState(() {
+                  _listJabatan = _response.data;
+                  _listJabatanFilter = _listJabatan;
+                });
+              }
+              break;
+            default:
+          }
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            UserCard(),
+            SizedBox(
+              height: dp16(context),
             ),
-          ),
-        ],
+            SearchLabel(
+              label: "${Strings.bidang} ${widget.namaBidang}",
+              onChanged: (value) {
+                context.logs(value);
+                setState(() {
+                  if (value.isNotEmpty) {
+                    _listJabatanFilter = _listJabatan
+                        .where((element) =>
+                        element.namaJabatan
+                            .toLowerCase()
+                            .contains(value.toLowerCase()))
+                        .toList();
+                  } else {
+                    _listJabatanFilter = _listJabatan;
+                  }
+                });
+              },
+            ),
+            SizedBox(
+              height: dp16(context),
+            ),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.only(bottom: dp24(context)),
+                child: _listJabatanFilter.isNotEmpty
+                    ? Scrollbar(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: _listJabatanFilter.length,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          context.goTo(JobDescDetailJabatanPage());
+                        },
+                        child: Row(
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: Palette.bgJobDesc,
+                              child: SvgPicture.network(
+                                "ic_job_desc_list".toIconDictionary(),
+                              ),
+                            ),
+                            SizedBox(
+                              width: dp4(context),
+                            ),
+                            Text(
+                              _listJabatanFilter[index].namaJabatan,
+                              style: TextStyles.text,
+                            ),
+                            Spacer(),
+                            Icon(
+                              Icons.arrow_forward_ios,
+                              size: dp16(context),
+                            )
+                          ],
+                        ),
+                      ).padding(
+                          edgeInsets:
+                          EdgeInsets.symmetric(vertical: dp8(context)));
+                    },
+                  ),
+                )
+                    : Empty(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

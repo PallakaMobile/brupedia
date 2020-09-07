@@ -10,4 +10,8 @@ abstract class RestAPI {
   Future<Response> icons();
 
   Future<Response> logout();
+
+  Future<Response> listJabatan(Map<String, String> _params);
+
+  Future<Response> listBidang();
 }

@@ -1,3 +1,4 @@
+import 'package:brupedia/blocs/blocs.dart';
 import 'package:brupedia/blocs/navdrawer/navdrawer_bloc.dart';
 import 'package:brupedia/pages/jobdesc/jobdesc.dart';
 import 'package:brupedia/pages/jobknowledge/jobknowledge.dart';
@@ -7,6 +8,7 @@ import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 ///*********************************************
 /// Created by ukietux on 25/08/20 with ♥
@@ -52,7 +54,10 @@ class _HomePageState extends State<HomePage> {
               children: [
                 MenuCard(
                     onPressed: () {
-                      context.goTo(JobDescPage());
+                      context.goTo(BlocProvider(
+                        create: (context) => ListBidangBloc(),
+                        child: JobDescPage(),
+                      ));
                     },
                     imageUrl: "ic_job_desc".toIconDictionary(),
                     title: Strings.job,
