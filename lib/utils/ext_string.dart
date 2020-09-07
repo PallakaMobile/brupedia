@@ -78,7 +78,8 @@ extension StringExtension on String {
               (element) => element.key.toLowerCase() == this.toLowerCase())
           .value;
     } catch (e) {
-      return e.toString();
+      print(e);
+      return "key $this belum terdaftar";
     }
   }
 

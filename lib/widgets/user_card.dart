@@ -46,7 +46,8 @@ class UserCard extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     backgroundColor: Colors.white,
-                    backgroundImage: NetworkImage(user.profile.avatar),
+                    backgroundImage: NetworkImage(user.profile.avatar ??
+                        "https://avatars0.githubusercontent.com/u/1531684?s=400&u=e01e622a1c219bb04c8d69fb0cc06f14231ebbcd&v=4"),
                     radius: 30.h,
                   ),
                   SizedBox(
