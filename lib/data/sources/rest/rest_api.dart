@@ -14,4 +14,6 @@ abstract class RestAPI {
   Future<Response> listJabatan(Map<String, String> _params);
 
   Future<Response> listBidang();
+
+  Future<Response> jobDescription(String id);
 }

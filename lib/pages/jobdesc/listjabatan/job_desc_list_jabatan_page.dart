@@ -1,4 +1,5 @@
 import 'package:brupedia/blocs/blocs.dart';
+import 'package:brupedia/blocs/job_description/job_description_bloc.dart';
 import 'package:brupedia/data/models/responses/list_jabatan_response.dart';
 import 'package:brupedia/pages/jobdesc/jobdesc.dart';
 import 'package:brupedia/resources/resources.dart';
@@ -112,30 +113,35 @@ class _JobDescListJabatanPageState extends State<JobDescListJabatanPage> {
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
-                          context.goTo(JobDescDetailJabatanPage());
-                        },
-                        child: Row(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Palette.bgJobDesc,
-                              child: SvgPicture.network(
-                                "ic_job_desc_list".toIconDictionary(),
+                                context.goTo(BlocProvider(
+                                  create: (context) => JobDescriptionBloc(),
+                                  child: JobDescDetailJabatanPage(
+                                    id: _listJabatanFilter[index].id.toString(),
+                                  ),
+                                ));
+                              },
+                              child: Row(
+                                children: [
+                                  CircleAvatar(
+                                    backgroundColor: Palette.bgJobDesc,
+                                    child: SvgPicture.network(
+                                      "ic_job_desc_list".toIconDictionary(),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: dp4(context),
+                                  ),
+                                  Text(
+                                    _listJabatanFilter[index].namaJabatan,
+                                    style: TextStyles.text,
+                                  ),
+                                  Spacer(),
+                                  Icon(
+                                    Icons.arrow_forward_ios,
+                                    size: dp16(context),
+                                  )
+                                ],
                               ),
-                            ),
-                            SizedBox(
-                              width: dp4(context),
-                            ),
-                            Text(
-                              _listJabatanFilter[index].namaJabatan,
-                              style: TextStyles.text,
-                            ),
-                            Spacer(),
-                            Icon(
-                              Icons.arrow_forward_ios,
-                              size: dp16(context),
-                            )
-                          ],
-                        ),
                       ).padding(
                           edgeInsets:
                           EdgeInsets.symmetric(vertical: dp8(context)));

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:brupedia/data/models/responses/dictionary_response.dart';
 import 'package:brupedia/data/models/responses/login_response.dart';
+import 'package:brupedia/data/repositories/job_description_repository.dart';
 import 'package:brupedia/data/repositories/login_repository.dart';
 import 'package:brupedia/data/repositories/repositories.dart';
 import 'package:brupedia/data/sources/sources.dart';
@@ -21,6 +22,7 @@ Future<void> serviceLocator() async {
   sl.registerLazySingleton(() => SplashScreenRepository());
   sl.registerLazySingleton(() => LoginRepository());
   sl.registerLazySingleton(() => MasterRepository());
+  sl.registerLazySingleton(() => JobDescriptionRepository());
 }
 
 //register prefManager

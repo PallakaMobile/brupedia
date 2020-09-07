@@ -3,6 +3,7 @@ export 'button_link.dart';
 export 'copy_right_text.dart';
 export 'custom_tab.dart';
 export 'empty.dart';
+export 'loading.dart';
 export 'menu_card.dart';
 export 'parent.dart';
 export 'search_label.dart';

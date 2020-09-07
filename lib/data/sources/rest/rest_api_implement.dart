@@ -28,4 +28,8 @@ class RestApiImpl with RestAPI {
   @override
   Future<Response> listJabatan(Map<String, String> _params) async =>
       await _dio.get("/api/master/jabatan", queryParameters: _params);
+
+  @override
+  Future<Response> jobDescription(String id) async =>
+      await _dio.get("/api/job-description/$id");
 }
