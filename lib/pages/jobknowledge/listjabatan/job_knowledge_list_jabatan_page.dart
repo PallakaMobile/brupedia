@@ -91,8 +91,8 @@ class _JobKnowledgeListJabatanPageState
                               children: [
                                 CircleAvatar(
                                   backgroundColor: Palette.bgJobKnowledge,
-                                  child: SvgPicture.asset(
-                                    "ic_job_knowledge_alt".toIconDictionary(),
+                                  child: SvgPicture.network(
+                                    "ic_job_knowledge_list".toIconDictionary(),
                                   ),
                                 ),
                                 SizedBox(
