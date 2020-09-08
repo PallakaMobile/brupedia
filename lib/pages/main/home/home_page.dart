@@ -72,7 +72,10 @@ class _HomePageState extends State<HomePage> {
                     type: TypeMenu.SOP),
                 MenuCard(
                     onPressed: () {
-                      context.goTo(JobKnowledgePage());
+                      context.goTo(BlocProvider(
+                        create: (context) => ListBidangBloc(),
+                        child: JobKnowledgePage(),
+                      ));
                     },
                     imageUrl: "ic_job_knowledge".toIconDictionary(),
                     title: Strings.job,

@@ -1,5 +1,4 @@
 import 'package:brupedia/blocs/blocs.dart';
-import 'package:brupedia/blocs/job_description/job_description_bloc.dart';
 import 'package:brupedia/data/models/responses/job_description_response.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';

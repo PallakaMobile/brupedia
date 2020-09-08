@@ -1,5 +1,4 @@
 import 'package:brupedia/blocs/blocs.dart';
-import 'package:brupedia/blocs/job_description/job_description_bloc.dart';
 import 'package:brupedia/data/models/responses/list_jabatan_response.dart';
 import 'package:brupedia/pages/jobdesc/jobdesc.dart';
 import 'package:brupedia/resources/resources.dart';
@@ -84,7 +83,6 @@ class _JobDescListJabatanPageState extends State<JobDescListJabatanPage> {
             SearchLabel(
               label: "${Strings.bidang} ${widget.namaBidang}",
               onChanged: (value) {
-                context.logs(value);
                 setState(() {
                   if (value.isNotEmpty) {
                     _listJabatanFilter = _listJabatan

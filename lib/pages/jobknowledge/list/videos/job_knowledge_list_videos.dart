@@ -1,4 +1,4 @@
-import 'package:brupedia/data/models/models.dart';
+import 'package:brupedia/data/models/responses/job_knowledge_response.dart';
 import 'package:brupedia/pages/jobknowledge/jobknowledge.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
@@ -13,26 +13,20 @@ import 'package:flutter_svg/flutter_svg.dart';
 ///*********************************************
 /// © 2020 | All Right Reserved
 class JobKnowledgeListVideos extends StatefulWidget {
-  JobKnowledgeListVideos({Key key}) : super(key: key);
+  JobKnowledgeListVideos({Key key, this.listMedia}) : super(key: key);
+  final List<Data> listMedia;
 
   @override
   _JobKnowledgeListVideosState createState() => _JobKnowledgeListVideosState();
 }
 
 class _JobKnowledgeListVideosState extends State<JobKnowledgeListVideos> {
-  var _listMedia = List<DataMedia>();
-  var _listMediaFilter = List<DataMedia>();
+  var _listMediaFilter = List<Data>();
 
   @override
   void initState() {
     super.initState();
-    for (int x = 0; x < 10; x++) {
-      _listMedia.add(DataMedia(
-          title: "Media ${x + 1}",
-          icon: "ic_list_videos".toIconDictionary(),
-          type: "video"));
-    }
-    _listMediaFilter = _listMedia;
+    _listMediaFilter = widget.listMedia;
   }
 
   @override
@@ -43,18 +37,18 @@ class _JobKnowledgeListVideosState extends State<JobKnowledgeListVideos> {
       mainAxisSize: MainAxisSize.max,
       children: [
         SearchLabel(
-          label: "${Strings.bidang} ${Strings.enjinering} - Videos",
+          label: "${Strings.bidang} ${Strings.enjinering} - Video",
           onChanged: (value) {
             context.logs(value);
             setState(() {
               if (value.isNotEmpty) {
-                _listMediaFilter = _listMedia
-                    .where((element) => element.title
+                _listMediaFilter = widget.listMedia
+                    .where((element) => element.nama
                         .toLowerCase()
                         .contains(value.toLowerCase()))
                     .toList();
               } else {
-                _listMediaFilter = _listMedia;
+                _listMediaFilter = widget.listMedia;
               }
             });
           },
@@ -70,14 +64,15 @@ class _JobKnowledgeListVideosState extends State<JobKnowledgeListVideos> {
                       itemBuilder: (context, index) {
                         return InkWell(
                           onTap: () {
-                            context.goTo(JobKnowledgeListVideosDetail());
+                            context.goTo(JobKnowledgeListVideosDetail(
+                              url: _listMediaFilter[index].url,));
                           },
                           child: Row(
                             children: [
                               CircleAvatar(
                                 backgroundColor: Palette.bgJobKnowledge,
                                 child: SvgPicture.network(
-                                  _listMediaFilter[index].icon,
+                                  "ic_list_videos".toIconDictionary(),
                                   height: dp16(context),
                                 ),
                               ),
@@ -85,7 +80,7 @@ class _JobKnowledgeListVideosState extends State<JobKnowledgeListVideos> {
                                 width: dp4(context),
                               ),
                               Text(
-                                _listMediaFilter[index].title,
+                                _listMediaFilter[index].nama ?? "Untitled",
                                 style: TextStyles.text,
                               ),
                               Spacer(),

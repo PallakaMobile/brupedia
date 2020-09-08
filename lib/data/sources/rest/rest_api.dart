@@ -18,4 +18,6 @@ abstract class RestAPI {
   Future<Response> jobDescription(String id);
 
   Future<Response> about();
+
+  Future<Response> jobKnowledge(Map<String,String> _params);
 }
