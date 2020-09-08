@@ -65,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                 setState(() {
                   _isEnabled = !_isEnabled;
                 });
-                "Harap Tunggu...".toToastLoading();
+                Strings.harapTunggu.toToastLoading();
               }
 
               break;

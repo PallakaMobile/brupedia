@@ -45,7 +45,7 @@ class _JobDescPageState extends State<JobDescPage> {
           switch (state.status) {
             case Status.LOADING:
               {
-                "harap_tunggu".toTextDictionary().toToastLoading();
+                Strings.harapTunggu.toToastLoading();
               }
               break;
             case Status.ERROR:

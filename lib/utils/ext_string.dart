@@ -69,7 +69,7 @@ extension StringExtension on String {
 
   String toTextDictionary() {
     try {
-      print(
+      logs(
           "key $this : value : ${sl.get<DictionaryResponse>(instanceName: "text").data.singleWhere((element) => element.key.toLowerCase() == this.toLowerCase()).value}");
       return sl
           .get<DictionaryResponse>(instanceName: "text")
@@ -78,15 +78,20 @@ extension StringExtension on String {
               (element) => element.key.toLowerCase() == this.toLowerCase())
           .value;
     } catch (e) {
-      print(e);
+      logs(e);
       return "key $this belum terdaftar";
     }
   }
 
   Color toColorDictionary() {
     try {
-      print(
-          "key color $this : value ${sl.get<DictionaryResponse>(instanceName: "color").data.singleWhere((element) => element.key.toLowerCase() == this.toLowerCase()).value}");
+      logs(
+          "key color $this : value ${sl
+              .get<DictionaryResponse>(instanceName: "color")
+              .data
+              .singleWhere((element) =>
+          element.key.toLowerCase() == this.toLowerCase())
+              .value}");
       return Color(int.parse(sl
           .get<DictionaryResponse>(instanceName: "color")
           .data

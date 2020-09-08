@@ -1,5 +1,4 @@
 import 'package:brupedia/blocs/blocs.dart';
-import 'package:brupedia/blocs/navdrawer/navdrawer_bloc.dart';
 import 'package:brupedia/pages/jobdesc/jobdesc.dart';
 import 'package:brupedia/pages/jobknowledge/jobknowledge.dart';
 import 'package:brupedia/pages/sop/sop.dart';
@@ -16,7 +15,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 /// github : https://www.github.com/ukieTux <(’_’<)
 ///*********************************************
 /// © 2020 | All Right Reserved
-class HomePage extends StatefulWidget with NavigationStates {
+class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
 
   @override

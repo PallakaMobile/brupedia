@@ -18,7 +18,7 @@ class Loading extends StatelessWidget {
       children: [
         ColorLoader(),
         Text(
-          "harap_tunggu".toTextDictionary(),
+          Strings.harapTunggu,
           style: TextStyles.text,
         )
       ],

@@ -5,7 +5,6 @@ import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_html/flutter_html.dart';
 
 ///*********************************************
 /// Created by ukietux on 25/08/20 with ♥
@@ -13,7 +12,7 @@ import 'package:flutter_html/flutter_html.dart';
 /// github : https://www.github.com/ukieTux <(’_’<)
 ///*********************************************
 /// © 2020 | All Right Reserved
-class JobDescDetailJabatanPage extends StatefulWidget with NavigationStates {
+class JobDescDetailJabatanPage extends StatefulWidget {
   JobDescDetailJabatanPage({Key key, this.id}) : super(key: key);
   final String id;
 
@@ -55,7 +54,9 @@ class _JobDescDetailJabatanPageState extends State<JobDescDetailJabatanPage> {
               case Status.SUCCESS:
                 {
                   JobDescriptionResponse _jobDesc = state.data;
-                  return Html(data: _jobDesc.data.content);
+                  return HtmlView(
+                    htmlString: _jobDesc.data.content,
+                  );
                 }
                 break;
               default:

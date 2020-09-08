@@ -31,7 +31,8 @@ class Strings {
   static String enjinering = "enjinering".toTextDictionary();
   static String search = "search".toTextDictionary();
   static String dataKosong = "dataKosong".toTextDictionary();
-  static String cancel = "Batal";
+  static String harapTunggu = "harapTunggu".toTextDictionary();
+  static String cancel = "cancel".toTextDictionary();
 
   static String copyRight = "Copyright © 2020";
   static String namePLTU = "PLTU Barru OMU";

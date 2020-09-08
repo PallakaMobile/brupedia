@@ -39,4 +39,19 @@ class MasterRepository {
       return Resources.error(e.toString());
     }
   }
+
+  Future<Resources<String>> about() async {
+    var _restApi = sl<RestApiImpl>();
+    try {
+      var _responseListBidang = await _restApi.about();
+      if (_responseListBidang.statusCode == 200) {
+        return Resources.success(data: _responseListBidang.data);
+      } else {
+        return Resources.error(
+            Diagnostic.fromJson(_responseListBidang.data).message);
+      }
+    } catch (e) {
+      return Resources.error(e.toString());
+    }
+  }
 }

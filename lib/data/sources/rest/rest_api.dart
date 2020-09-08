@@ -16,4 +16,6 @@ abstract class RestAPI {
   Future<Response> listBidang();
 
   Future<Response> jobDescription(String id);
+
+  Future<Response> about();
 }

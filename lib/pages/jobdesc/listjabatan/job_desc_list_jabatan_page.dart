@@ -51,7 +51,7 @@ class _JobDescListJabatanPageState extends State<JobDescListJabatanPage> {
           switch (state.status) {
             case Status.LOADING:
               {
-                "harap_tunggu".toTextDictionary().toToastLoading();
+                Strings.harapTunggu.toToastLoading();
               }
               break;
             case Status.ERROR:
@@ -88,8 +88,7 @@ class _JobDescListJabatanPageState extends State<JobDescListJabatanPage> {
                 setState(() {
                   if (value.isNotEmpty) {
                     _listJabatanFilter = _listJabatan
-                        .where((element) =>
-                        element.namaJabatan
+                        .where((element) => element.namaJabatan
                             .toLowerCase()
                             .contains(value.toLowerCase()))
                         .toList();
@@ -107,12 +106,12 @@ class _JobDescListJabatanPageState extends State<JobDescListJabatanPage> {
                 padding: EdgeInsets.only(bottom: dp24(context)),
                 child: _listJabatanFilter.isNotEmpty
                     ? Scrollbar(
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: _listJabatanFilter.length,
-                    itemBuilder: (context, index) {
-                      return InkWell(
-                        onTap: () {
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: _listJabatanFilter.length,
+                          itemBuilder: (context, index) {
+                            return InkWell(
+                              onTap: () {
                                 context.goTo(BlocProvider(
                                   create: (context) => JobDescriptionBloc(),
                                   child: JobDescDetailJabatanPage(
@@ -142,12 +141,12 @@ class _JobDescListJabatanPageState extends State<JobDescListJabatanPage> {
                                   )
                                 ],
                               ),
-                      ).padding(
-                          edgeInsets:
-                          EdgeInsets.symmetric(vertical: dp8(context)));
-                    },
-                  ),
-                )
+                            ).padding(
+                                edgeInsets: EdgeInsets.symmetric(
+                                    vertical: dp8(context)));
+                          },
+                        ),
+                      )
                     : Empty(),
               ),
             ),

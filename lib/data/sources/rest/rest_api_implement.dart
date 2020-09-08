@@ -32,4 +32,7 @@ class RestApiImpl with RestAPI {
   @override
   Future<Response> jobDescription(String id) async =>
       await _dio.get("/api/job-description/$id");
+
+  @override
+  Future<Response> about() async => await _dio.get("/api/tentang");
 }
