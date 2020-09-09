@@ -1,4 +1,4 @@
-import 'package:brupedia/data/models/responses/job_knowledge_response.dart';
+import 'package:brupedia/data/models/responses/media_response.dart';
 import 'package:brupedia/pages/jobknowledge/jobknowledge.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
@@ -13,8 +13,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 ///*********************************************
 /// © 2020 | All Right Reserved
 class JobKnowledgeListAll extends StatefulWidget {
-  JobKnowledgeListAll({Key key, this.listMedia}) : super(key: key);
+  JobKnowledgeListAll({Key key, this.listMedia, this.name}) : super(key: key);
   final List<Data> listMedia;
+  final String name;
 
   @override
   _JobKnowledgeListAllState createState() => _JobKnowledgeListAllState();
@@ -37,9 +38,8 @@ class _JobKnowledgeListAllState extends State<JobKnowledgeListAll> {
       mainAxisSize: MainAxisSize.max,
       children: [
         SearchLabel(
-          label: "${Strings.bidang} ${Strings.enjinering} - ${Strings.all}",
+          label: "${widget.name} - ${Strings.all}",
           onChanged: (value) {
-            context.logs(value);
             try {
               setState(() {
                 if (value.isNotEmpty) {
@@ -72,11 +72,11 @@ class _JobKnowledgeListAllState extends State<JobKnowledgeListAll> {
                             if (_listMediaFilter[index].type == "url") {
                               context.goTo(JobKnowledgeListVideosDetail(
                                 fileName: _listMediaFilter[index].nama,
-                                url: _listMediaFilter[index].url,));
+                                url: _listMediaFilter[index].link,));
                             } else {
                               context.goTo(JobKnowledgeListDocumentsDetail(
                                 fileName: _listMediaFilter[index].nama,
-                                url: _listMediaFilter[index].url,));
+                                url: _listMediaFilter[index].link,));
                             }
                           },
                           child: Row(

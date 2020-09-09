@@ -39,4 +39,8 @@ class RestApiImpl with RestAPI {
   @override
   Future<Response> jobKnowledge(Map<String, String> _params) async =>
       await _dio.get("/api/job-knowledge", queryParameters: _params);
+
+  @override
+  Future<Response> sop(Map<String, String> _params) async =>
+      await _dio.get("/api/sop", queryParameters: _params);
 }

@@ -19,5 +19,7 @@ abstract class RestAPI {
 
   Future<Response> about();
 
-  Future<Response> jobKnowledge(Map<String,String> _params);
+  Future<Response> jobKnowledge(Map<String, String> _params);
+
+  Future<Response> sop(Map<String, String> _params);
 }

@@ -1,5 +1,6 @@
 import 'package:brupedia/blocs/blocs.dart';
 import 'package:brupedia/data/models/responses/job_description_response.dart';
+import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +13,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 ///*********************************************
 /// © 2020 | All Right Reserved
 class JobDescDetailJabatanPage extends StatefulWidget {
-  JobDescDetailJabatanPage({Key key, this.id}) : super(key: key);
+  JobDescDetailJabatanPage({Key key, this.id, this.name}) : super(key: key);
   final String id;
+  final String name;
 
   @override
   _JobDescDetailJabatanPageState createState() =>
@@ -53,9 +55,22 @@ class _JobDescDetailJabatanPageState extends State<JobDescDetailJabatanPage> {
               case Status.SUCCESS:
                 {
                   JobDescriptionResponse _jobDesc = state.data;
-                  return HtmlView(
-                    htmlString: _jobDesc.data.content,
-                  );
+                  return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.name,
+                          style: TextStyles.primaryBold
+                              .copyWith(fontSize: Dimens.fontLarge),
+                        ),
+                        Text(
+                          "${Strings.jobDescription} - ${widget.name}",
+                          style: TextStyles.primaryBold,
+                        ),
+                        HtmlView(
+                          htmlString: _jobDesc.data.content,
+                        ),
+                      ]);
                 }
                 break;
               default:

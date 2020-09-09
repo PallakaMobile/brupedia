@@ -64,7 +64,10 @@ class _HomePageState extends State<HomePage> {
                     type: TypeMenu.JOB_DESC),
                 MenuCard(
                     onPressed: () {
-                      context.goTo(SopPage());
+                      context.goTo(BlocProvider(
+                        create: (context) => ListBidangBloc(),
+                        child: SopPage(),
+                      ));
                     },
                     imageUrl: "ic_sop".toIconDictionary(),
                     title: Strings.sop,

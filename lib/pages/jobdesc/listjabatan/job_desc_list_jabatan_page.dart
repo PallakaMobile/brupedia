@@ -114,6 +114,7 @@ class _JobDescListJabatanPageState extends State<JobDescListJabatanPage> {
                                   create: (context) => JobDescriptionBloc(),
                                   child: JobDescDetailJabatanPage(
                                     id: _listJabatanFilter[index].id.toString(),
+                                    name: _listJabatanFilter[index].namaJabatan,
                                   ),
                                 ));
                               },

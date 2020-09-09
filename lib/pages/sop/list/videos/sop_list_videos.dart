@@ -1,5 +1,5 @@
-import 'package:brupedia/data/models/models.dart';
-import 'package:brupedia/pages/sop/sop.dart';
+import 'package:brupedia/data/models/responses/media_response.dart';
+import 'package:brupedia/pages/sop/list/videos/sop_list_videos_detail.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';
@@ -13,26 +13,21 @@ import 'package:flutter_svg/flutter_svg.dart';
 ///*********************************************
 /// © 2020 | All Right Reserved
 class SopListVideos extends StatefulWidget {
-  SopListVideos({Key key}) : super(key: key);
+  SopListVideos({Key key, this.listMedia, this.name}) : super(key: key);
+  final List<Data> listMedia;
+  final String name;
 
   @override
   _SopListVideosState createState() => _SopListVideosState();
 }
 
 class _SopListVideosState extends State<SopListVideos> {
-  var _listMedia = List<DataMedia>();
-  var _listMediaFilter = List<DataMedia>();
+  var _listMediaFilter = List<Data>();
 
   @override
   void initState() {
     super.initState();
-    for (int x = 0; x < 10; x++) {
-      _listMedia.add(DataMedia(
-          title: "Media ${x + 1}",
-          icon: "ic_list_videos".toIconDictionary(),
-          type: "video"));
-    }
-    _listMediaFilter = _listMedia;
+    _listMediaFilter = widget.listMedia;
   }
 
   @override
@@ -43,18 +38,18 @@ class _SopListVideosState extends State<SopListVideos> {
       mainAxisSize: MainAxisSize.max,
       children: [
         SearchLabel(
-          label: "${Strings.bidang} ${Strings.enjinering} - Videos",
+          label: "${widget.name} - ${Strings.video}",
           onChanged: (value) {
             context.logs(value);
             setState(() {
               if (value.isNotEmpty) {
-                _listMediaFilter = _listMedia
-                    .where((element) => element.title
+                _listMediaFilter = widget.listMedia
+                    .where((element) => element.nama
                         .toLowerCase()
                         .contains(value.toLowerCase()))
                     .toList();
               } else {
-                _listMediaFilter = _listMedia;
+                _listMediaFilter = widget.listMedia;
               }
             });
           },
@@ -64,44 +59,52 @@ class _SopListVideosState extends State<SopListVideos> {
             padding: EdgeInsets.only(bottom: dp24(context)),
             child: _listMediaFilter.isNotEmpty
                 ? Scrollbar(
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: _listMediaFilter.length,
-                      itemBuilder: (context, index) {
-                        return InkWell(
-                          onTap: () {
-                            context.goTo(SopListVideosDetail());
-                          },
-                          child: Row(
-                            children: [
-                              CircleAvatar(
-                                backgroundColor: Palette.bgSop,
-                                child: SvgPicture.network(
-                                  _listMediaFilter[index].icon,
-                                  height: dp16(context),
-                                  color: Palette.textSop,
-                                ),
-                              ),
-                              SizedBox(
-                                width: dp4(context),
-                              ),
-                              Text(
-                                _listMediaFilter[index].title,
-                                style: TextStyles.text,
-                              ),
-                              Spacer(),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                size: dp16(context),
-                              )
-                            ],
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: _listMediaFilter.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      context.goTo(SopListVideosDetail(
+                        fileName: _listMediaFilter[index].nama,
+                        url: _listMediaFilter[index].link,));
+                    },
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Palette.bgSop,
+                          child: SvgPicture.network(
+                            "ic_list_videos".toIconDictionary(),
+                            height: dp16(context),
+                            color: Palette.textSop,
                           ),
-                        ).padding(
-                            edgeInsets:
-                                EdgeInsets.symmetric(vertical: dp8(context)));
-                      },
+                        ),
+                        SizedBox(
+                          width: dp4(context),
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              _listMediaFilter[index].nama ?? "Untitled",
+                              style: TextStyles.text,
+                            ),
+                            Text(
+                              _listMediaFilter[index].updatedAt.toDate(),
+                              style: TextStyles.textAlt.copyWith(
+                                  fontSize: Dimens.fontSmall),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                  )
+                  ).padding(
+                      edgeInsets:
+                      EdgeInsets.symmetric(vertical: dp8(context)));
+                },
+              ),
+            )
                 : Empty(),
           ),
         ),

@@ -1,4 +1,4 @@
-import 'package:brupedia/data/models/models.dart';
+import 'package:brupedia/data/models/responses/media_response.dart';
 import 'package:brupedia/pages/sop/sop.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
@@ -13,33 +13,21 @@ import 'package:flutter_svg/flutter_svg.dart';
 ///*********************************************
 /// © 2020 | All Right Reserved
 class SopListAll extends StatefulWidget {
-  SopListAll({Key key}) : super(key: key);
+  SopListAll({Key key, this.listMedia, this.name}) : super(key: key);
+  final List<Data> listMedia;
+  final String name;
 
   @override
   _SopListAllState createState() => _SopListAllState();
 }
 
 class _SopListAllState extends State<SopListAll> {
-  var _listMedia = List<DataMedia>();
-  var _listMediaFilter = List<DataMedia>();
+  var _listMediaFilter = List<Data>();
 
   @override
   void initState() {
     super.initState();
-    for (int x = 0; x < 10; x++) {
-      if (x % 2 == 0) {
-        _listMedia.add(DataMedia(
-            title: "Media ${x + 1}",
-            icon: "ic_list_videos".toIconDictionary(),
-            type: "video"));
-      } else {
-        _listMedia.add(DataMedia(
-            title: "Media ${x + 1}",
-            icon: "ic_list_document".toIconDictionary(),
-            type: "document"));
-      }
-    }
-    _listMediaFilter = _listMedia;
+    _listMediaFilter = widget.listMedia;
   }
 
   @override
@@ -50,20 +38,24 @@ class _SopListAllState extends State<SopListAll> {
       mainAxisSize: MainAxisSize.max,
       children: [
         SearchLabel(
-          label: "${Strings.bidang} ${Strings.enjinering} - All",
+          label: "${widget.name}  - ${Strings.all}",
           onChanged: (value) {
-            context.logs(value);
-            setState(() {
-              if (value.isNotEmpty) {
-                _listMediaFilter = _listMedia
-                    .where((element) => element.title
-                        .toLowerCase()
-                        .contains(value.toLowerCase()))
-                    .toList();
-              } else {
-                _listMediaFilter = _listMedia;
-              }
-            });
+            try {
+              setState(() {
+                if (value.isNotEmpty) {
+                  _listMediaFilter = widget.listMedia
+                      .where((element) => element.nama
+                          .toLowerCase()
+                          .contains(value.toLowerCase()))
+                      .toList();
+                  context.logs("filtered $_listMediaFilter");
+                } else {
+                  _listMediaFilter = widget.listMedia;
+                }
+              });
+            } catch (e) {
+              context.logs(e);
+            }
           },
         ),
         Expanded(
@@ -77,10 +69,14 @@ class _SopListAllState extends State<SopListAll> {
                       itemBuilder: (context, index) {
                         return InkWell(
                           onTap: () {
-                            if (_listMediaFilter[index].type == "video") {
-                              context.goTo(SopListVideosDetail());
+                            if (_listMediaFilter[index].type == "url") {
+                              context.goTo(SopListVideosDetail(
+                                fileName: _listMediaFilter[index].nama,
+                                url: _listMediaFilter[index].link,));
                             } else {
-                              context.goTo(SopListDocumentsDetail());
+                              context.goTo(SopListDocumentsDetail(
+                                fileName: _listMediaFilter[index].nama,
+                                url: _listMediaFilter[index].link,));
                             }
                           },
                           child: Row(
@@ -88,7 +84,9 @@ class _SopListAllState extends State<SopListAll> {
                               CircleAvatar(
                                 backgroundColor: Palette.bgSop,
                                 child: SvgPicture.network(
-                                  _listMediaFilter[index].icon,
+                                  _listMediaFilter[index].type == "url"
+                                      ? "ic_list_videos".toIconDictionary()
+                                      : "ic_list_document".toIconDictionary(),
                                   height: dp16(context),
                                   color: Palette.textSop,
                                 ),
@@ -96,15 +94,27 @@ class _SopListAllState extends State<SopListAll> {
                               SizedBox(
                                 width: dp4(context),
                               ),
-                              Text(
-                                _listMediaFilter[index].title,
-                                style: TextStyles.text,
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    _listMediaFilter[index].nama ?? "Untitled",
+                                    style: TextStyles.text,
+                                  ),
+                                  Text(
+                                    _listMediaFilter[index].updatedAt.toDate(),
+                                    style: TextStyles.textAlt.copyWith(
+                                        fontSize: Dimens.fontSmall),
+                                  ),
+                                ],
                               ),
                               Spacer(),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                size: dp16(context),
-                              )
+                              Visibility(
+                                  visible: _listMediaFilter[index].type ==
+                                      "file",
+                                  child: Text(
+                                      _listMediaFilter[index].fileSize ?? ""))
                             ],
                           ),
                         ).padding(

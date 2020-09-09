@@ -25,6 +25,7 @@ Future<void> serviceLocator() async {
   sl.registerLazySingleton(() => MasterRepository());
   sl.registerLazySingleton(() => JobDescriptionRepository());
   sl.registerLazySingleton(() => JobKnowledgeRepository());
+  sl.registerLazySingleton(() => SOPRepository());
 }
 
 //register prefManager

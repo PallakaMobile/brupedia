@@ -1,4 +1,4 @@
-import 'package:brupedia/data/models/responses/job_knowledge_response.dart';
+import 'package:brupedia/data/models/responses/media_response.dart';
 import 'package:brupedia/pages/jobknowledge/jobknowledge.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
@@ -13,8 +13,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 ///*********************************************
 /// © 2020 | All Right Reserved
 class JobKnowledgeListVideos extends StatefulWidget {
-  JobKnowledgeListVideos({Key key, this.listMedia}) : super(key: key);
+  JobKnowledgeListVideos({Key key, this.listMedia, this.name})
+      : super(key: key);
   final List<Data> listMedia;
+  final String name;
 
   @override
   _JobKnowledgeListVideosState createState() => _JobKnowledgeListVideosState();
@@ -37,7 +39,7 @@ class _JobKnowledgeListVideosState extends State<JobKnowledgeListVideos> {
       mainAxisSize: MainAxisSize.max,
       children: [
         SearchLabel(
-          label: "${Strings.bidang} ${Strings.enjinering} - ${Strings.video}",
+          label: "${widget.name} - ${Strings.video}",
           onChanged: (value) {
             context.logs(value);
             setState(() {
@@ -65,7 +67,7 @@ class _JobKnowledgeListVideosState extends State<JobKnowledgeListVideos> {
                         return InkWell(
                           onTap: () {
                             context.goTo(JobKnowledgeListVideosDetail(
-                              url: _listMediaFilter[index].url,));
+                              url: _listMediaFilter[index].link,));
                           },
                           child: Row(
                             children: [

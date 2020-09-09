@@ -1,6 +1,6 @@
 import 'package:brupedia/blocs/blocs.dart';
 import 'package:brupedia/data/models/helper/DataSelected.dart';
-import 'package:brupedia/data/models/responses/job_knowledge_response.dart';
+import 'package:brupedia/data/models/responses/media_response.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';
@@ -16,8 +16,9 @@ import '../jobknowledge.dart';
 ///*********************************************
 /// © 2020 | All Right Reserved
 class JobKnowledgeListPage extends StatefulWidget {
-  JobKnowledgeListPage({Key key, this.id}) : super(key: key);
+  JobKnowledgeListPage({Key key, this.id, this.name}) : super(key: key);
   final String id;
+  final String name;
 
   @override
   _JobKnowledgeListPageState createState() => _JobKnowledgeListPageState();
@@ -34,19 +35,19 @@ class _JobKnowledgeListPageState extends State<JobKnowledgeListPage> {
   void initState() {
     super.initState();
     _jobKnowledgeBloc = BlocProvider.of<JobKnowledgeBloc>(context);
-    var _params = Map<String, String>()..["jabatanId"] = "4"; //TODO change to widget.id
+    var _params = Map<String, String>()..["jabatanId"] = widget.id;
     _jobKnowledgeBloc.add(GetJobKnowledgeEvent(_params));
 
     _listLabel.add(DataSelected(
-        title: "Semua",
+        title: Strings.all,
         isSelected: true,
         icon: "ic_list_all".toIconDictionary()));
     _listLabel.add(DataSelected(
-        title: "Video",
+        title: Strings.video,
         isSelected: false,
         icon: "ic_list_videos".toIconDictionary()));
     _listLabel.add(DataSelected(
-        title: "Dokumen",
+        title: Strings.document,
         isSelected: false,
         icon: "ic_list_document".toIconDictionary()));
   }
@@ -72,7 +73,7 @@ class _JobKnowledgeListPageState extends State<JobKnowledgeListPage> {
               break;
             case Status.SUCCESS:
               {
-                JobKnowledgeResponse _response = state.data;
+                MediaResponse _response = state.data;
 
                 var _listVideo = _response.data.where((element) =>
                 element.type ==
@@ -82,10 +83,14 @@ class _JobKnowledgeListPageState extends State<JobKnowledgeListPage> {
                 element.type ==
                     "file").toList(growable: true);
                 _listFragment = [
-                  JobKnowledgeListAll(listMedia: _response.data,),
+                  JobKnowledgeListAll(
+                    name: widget.name,
+                    listMedia: _response.data,),
                   JobKnowledgeListVideos(
+                    name: widget.name,
                     listMedia: _listVideo,),
                   JobKnowledgeListDocuments(
+                      name: widget.name,
                       listMedia: _listDocument),
                 ];
 

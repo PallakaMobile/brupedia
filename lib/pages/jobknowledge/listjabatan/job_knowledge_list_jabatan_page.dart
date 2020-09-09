@@ -83,13 +83,12 @@ class _JobKnowledgeListJabatanPageState
               height: dp16(context),
             ),
             SearchLabel(
-              label: "${Strings.bidang} ${Strings.enjinering}",
+              label: "${Strings.bidang} ${widget.namaBidang}",
               onChanged: (value) {
                 setState(() {
                   if (value.isNotEmpty) {
                     _listJabatanFilter = _listJabatan
-                        .where((element) =>
-                        element.namaJabatan
+                        .where((element) => element.namaJabatan
                             .toLowerCase()
                             .contains(value.toLowerCase()))
                         .toList();
@@ -121,7 +120,8 @@ class _JobKnowledgeListJabatanPageState
                           ));*/
                           context.goTo(BlocProvider(
                               create: (context) => JobKnowledgeBloc(),
-                              child: JobKnowledgeListPage()));
+                              child: JobKnowledgeListPage(
+                                name: _listJabatanFilter[index].namaJabatan,)));
                         },
                         child: Row(
                           children: [

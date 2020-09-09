@@ -1,12 +1,12 @@
 import 'package:brupedia/data/models/responses/diagnostic.dart';
 
-class JobKnowledgeResponse {
+class MediaResponse {
   Diagnostic diagnostic;
   List<Data> data;
 
-  JobKnowledgeResponse({this.diagnostic, this.data});
+  MediaResponse({this.diagnostic, this.data});
 
-  JobKnowledgeResponse.fromJson(Map<String, dynamic> json) {
+  MediaResponse.fromJson(Map<String, dynamic> json) {
     diagnostic = json['diagnostic'] != null
         ? new Diagnostic.fromJson(json['diagnostic'])
         : null;
@@ -37,7 +37,7 @@ class Data {
   String createdAt;
   String updatedAt;
   int jabatanId;
-  String url;
+  String link;
   String type;
   String fileSize;
 
@@ -48,7 +48,7 @@ class Data {
       this.createdAt,
       this.updatedAt,
       this.jabatanId,
-      this.url,
+      this.link,
       this.type,
       this.fileSize});
 
@@ -59,7 +59,7 @@ class Data {
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     jabatanId = json['jabatan_id'];
-    url = json['url'];
+    link = json['link'];
     type = json['type'];
     fileSize = json['file_size'];
   }
@@ -72,7 +72,7 @@ class Data {
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
     data['jabatan_id'] = this.jabatanId;
-    data['url'] = this.url;
+    data['link'] = this.link;
     data['type'] = this.type;
     data['file_size'] = this.fileSize;
     return data;

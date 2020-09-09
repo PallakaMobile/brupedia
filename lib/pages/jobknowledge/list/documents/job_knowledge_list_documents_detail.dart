@@ -1,6 +1,6 @@
-import 'package:brupedia/resources/dimens.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
+import 'package:brupedia/widgets/loading.dart';
 import 'package:brupedia/widgets/parent.dart';
 import 'package:flutter/material.dart';
 import 'package:pdf_flutter/pdf_flutter.dart';
@@ -19,7 +19,6 @@ class JobKnowledgeListDocumentsDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.logs(url);
     var height = heightInPercent(100, context) -
         (AppBar().preferredSize.height + dp20(context));
     print(height);
@@ -35,6 +34,9 @@ class JobKnowledgeListDocumentsDetail extends StatelessWidget {
             url,
             width: widthInPercent(100, context),
             height: height,
+            placeHolder: Center(
+              child: Loading(),
+            ),
           ),
         ],
       ),
