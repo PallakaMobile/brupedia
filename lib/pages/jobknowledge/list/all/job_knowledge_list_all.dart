@@ -37,7 +37,7 @@ class _JobKnowledgeListAllState extends State<JobKnowledgeListAll> {
       mainAxisSize: MainAxisSize.max,
       children: [
         SearchLabel(
-          label: "${Strings.bidang} ${Strings.enjinering} - Semua",
+          label: "${Strings.bidang} ${Strings.enjinering} - ${Strings.all}",
           onChanged: (value) {
             context.logs(value);
             try {
@@ -71,9 +71,11 @@ class _JobKnowledgeListAllState extends State<JobKnowledgeListAll> {
                           onTap: () {
                             if (_listMediaFilter[index].type == "url") {
                               context.goTo(JobKnowledgeListVideosDetail(
+                                fileName: _listMediaFilter[index].nama,
                                 url: _listMediaFilter[index].url,));
                             } else {
                               context.goTo(JobKnowledgeListDocumentsDetail(
+                                fileName: _listMediaFilter[index].nama,
                                 url: _listMediaFilter[index].url,));
                             }
                           },
@@ -91,15 +93,26 @@ class _JobKnowledgeListAllState extends State<JobKnowledgeListAll> {
                               SizedBox(
                                 width: dp4(context),
                               ),
-                              Text(
-                                _listMediaFilter[index].nama ?? "Untitled",
-                                style: TextStyles.text,
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    _listMediaFilter[index].nama ?? "Untitled",
+                                    style: TextStyles.text,
+                                  ),
+                                  Text(
+                                    _listMediaFilter[index].updatedAt.toDate(),
+                                    style: TextStyles.textAlt.copyWith(
+                                        fontSize: Dimens.fontSmall),
+                                  ),
+                                ],
                               ),
                               Spacer(),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                size: dp16(context),
-                              )
+                              Visibility(
+                                  visible: _listMediaFilter[index].type ==
+                                      "file",
+                                  child: Text(_listMediaFilter[index].fileSize??""))
                             ],
                           ),
                         ).padding(

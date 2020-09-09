@@ -38,7 +38,8 @@ class _JobKnowledgeListDocumentsState extends State<JobKnowledgeListDocuments> {
       mainAxisSize: MainAxisSize.max,
       children: [
         SearchLabel(
-          label: "${Strings.bidang} ${Strings.enjinering} - Dokumen",
+          label:
+              "${Strings.bidang} ${Strings.enjinering} - ${Strings.document}",
           onChanged: (value) {
             context.logs(value);
             setState(() {
@@ -66,6 +67,7 @@ class _JobKnowledgeListDocumentsState extends State<JobKnowledgeListDocuments> {
                         return InkWell(
                           onTap: () {
                             context.goTo(JobKnowledgeListDocumentsDetail(
+                              fileName: _listMediaFilter[index].nama,
                               url: _listMediaFilter[index].url,));
                           },
                           child: Row(
@@ -80,15 +82,24 @@ class _JobKnowledgeListDocumentsState extends State<JobKnowledgeListDocuments> {
                               SizedBox(
                                 width: dp4(context),
                               ),
-                              Text(
-                                _listMediaFilter[index].nama ?? "Untitled",
-                                style: TextStyles.text,
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    _listMediaFilter[index].nama ?? "Untitled",
+                                    style: TextStyles.text,
+                                  ),
+                                  Text(
+                                    _listMediaFilter[index].updatedAt.toDate(),
+                                    style: TextStyles.textAlt.copyWith(
+                                        fontSize: Dimens.fontSmall),
+                                  ),
+                                ],
                               ),
                               Spacer(),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                size: dp16(context),
-                              )
+                              Text(_listMediaFilter[index].fileSize ?? "")
+
                             ],
                           ),
                         ).padding(

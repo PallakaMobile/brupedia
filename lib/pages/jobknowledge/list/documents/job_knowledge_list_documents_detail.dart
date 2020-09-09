@@ -1,4 +1,5 @@
 import 'package:brupedia/resources/dimens.dart';
+import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/parent.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +13,9 @@ import 'package:pdf_flutter/pdf_flutter.dart';
 /// © 2020 | All Right Reserved
 class JobKnowledgeListDocumentsDetail extends StatelessWidget {
   final String url;
+  final String fileName;
 
-  const JobKnowledgeListDocumentsDetail({Key key, this.url}) : super(key: key);
+  const JobKnowledgeListDocumentsDetail({Key key, this.url, this.fileName}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +25,18 @@ class JobKnowledgeListDocumentsDetail extends StatelessWidget {
     print(height);
     return Parent(
       appBar: context.appBar(),
-      child: PDF.network(
-        url,
-        width: widthInPercent(100, context),
-        height: height,
+      child: Column(
+        children: [
+          Text(
+            fileName ?? "",
+            style: TextStyles.primaryBold.copyWith(fontSize: Dimens.fontLarge),
+          ),
+          PDF.network(
+            url,
+            width: widthInPercent(100, context),
+            height: height,
+          ),
+        ],
       ),
     );
   }

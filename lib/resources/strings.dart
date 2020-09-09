@@ -36,4 +36,8 @@ class Strings {
 
   static String copyRight = "Copyright © 2020";
   static String namePLTU = "PLTU Barru OMU";
+
+  static String all = "all".toTextDictionary();
+  static String document = "document".toTextDictionary();
+  static String video = "video".toTextDictionary();
 }

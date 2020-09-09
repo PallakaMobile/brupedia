@@ -37,7 +37,7 @@ class _JobKnowledgeListVideosState extends State<JobKnowledgeListVideos> {
       mainAxisSize: MainAxisSize.max,
       children: [
         SearchLabel(
-          label: "${Strings.bidang} ${Strings.enjinering} - Video",
+          label: "${Strings.bidang} ${Strings.enjinering} - ${Strings.video}",
           onChanged: (value) {
             context.logs(value);
             setState(() {
@@ -79,15 +79,21 @@ class _JobKnowledgeListVideosState extends State<JobKnowledgeListVideos> {
                               SizedBox(
                                 width: dp4(context),
                               ),
-                              Text(
-                                _listMediaFilter[index].nama ?? "Untitled",
-                                style: TextStyles.text,
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    _listMediaFilter[index].nama ?? "Untitled",
+                                    style: TextStyles.text,
+                                  ),
+                                  Text(
+                                    _listMediaFilter[index].updatedAt.toDate(),
+                                    style: TextStyles.textAlt.copyWith(
+                                        fontSize: Dimens.fontSmall),
+                                  ),
+                                ],
                               ),
-                              Spacer(),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                size: dp16(context),
-                              )
                             ],
                           ),
                         ).padding(

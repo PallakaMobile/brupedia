@@ -1,3 +1,4 @@
+import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -10,16 +11,17 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 ///*********************************************
 /// © 2020 | All Right Reserved
 class JobKnowledgeListVideosDetail extends StatefulWidget {
-  JobKnowledgeListVideosDetail({Key key, this.url}) : super(key: key);
+  JobKnowledgeListVideosDetail({Key key, this.url, this.fileName})
+      : super(key: key);
   final String url;
+  final String fileName;
 
   @override
   _JobKnowledgeListVideosDetailState createState() =>
       _JobKnowledgeListVideosDetailState();
 }
 
-class _JobKnowledgeListVideosDetailState
-    extends State<JobKnowledgeListVideosDetail> {
+class _JobKnowledgeListVideosDetailState extends State<JobKnowledgeListVideosDetail> {
   YoutubePlayerController _controller;
 
   @override
@@ -59,7 +61,16 @@ class _JobKnowledgeListVideosDetailState
       builder: (_, player) {
         return Parent(
           appBar: context.appBar(),
-          child: player,
+          child: Column(
+            children: [
+              Text(
+                widget.fileName ?? "",
+                style:
+                    TextStyles.primaryBold.copyWith(fontSize: Dimens.fontLarge),
+              ),
+              Center(child: player),
+            ],
+          ),
         );
       },
       player: YoutubePlayer(
