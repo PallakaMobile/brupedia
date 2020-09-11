@@ -1,7 +1,9 @@
-import 'package:brupedia/pages/main/home/home_page.dart';
+import 'package:brupedia/blocs/blocs.dart';
+import 'package:brupedia/pages/main/main.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 extension ContextExtensions on BuildContext {
@@ -78,7 +80,13 @@ extension ContextExtensions on BuildContext {
             color: Palette.colorPrimary,
           ),
           onPressed: () {
-            goToClearStack(HomePage());
+            goToClearStack(MultiBlocProvider(
+              providers: [
+                BlocProvider(create: (context) => NavDrawerBloc()),
+                BlocProvider(create: (context) => LogoutBloc())
+              ],
+              child: MainPage(),
+            ));
           },
         )
       ],
