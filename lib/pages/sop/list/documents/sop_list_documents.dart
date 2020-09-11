@@ -59,56 +59,56 @@ class _SopListDocumentsState extends State<SopListDocuments> {
             padding: EdgeInsets.only(bottom: dp24(context)),
             child: _listMediaFilter.isNotEmpty
                 ? Scrollbar(
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: _listMediaFilter.length,
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: () {
-                      print("url : ${ _listMediaFilter[index].link}");
-                      context.goTo(SopListDocumentsDetail(
-                        fileName: _listMediaFilter[index].nama,
-                        url: _listMediaFilter[index].link,));
-                    },
-                    child: Row(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Palette.bgSop,
-                          child: SvgPicture.network(
-                            "ic_list_document".toIconDictionary(),
-                            height: dp16(context),
-                            color: Palette.textSop,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: _listMediaFilter.length,
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          onTap: () {
+                            print("url : ${_listMediaFilter[index].link}");
+                            context.goTo(SopListDocumentsDetail(
+                              fileName: _listMediaFilter[index].nama,
+                              url: _listMediaFilter[index].link,
+                            ));
+                          },
+                          child: Row(
+                            children: [
+                              CircleAvatar(
+                                backgroundColor: Palette.bgSop,
+                                child: SvgPicture.network(
+                                  "ic_list_document".toIconDictionary(),
+                                  height: dp16(context),
+                                  color: Palette.textSop,
+                                ),
+                              ),
+                              SizedBox(
+                                width: dp4(context),
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    _listMediaFilter[index].nama ?? "Untitled",
+                                    style: TextStyles.text,
+                                  ),
+                                  Text(
+                                    _listMediaFilter[index].updatedAt.toDate(),
+                                    style: TextStyles.textAlt
+                                        .copyWith(fontSize: Dimens.fontSmall),
+                                  ),
+                                ],
+                              ),
+                              Spacer(),
+                              Text(_listMediaFilter[index].fileSize ?? "")
+                            ],
                           ),
-                        ),
-                        SizedBox(
-                          width: dp4(context),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              _listMediaFilter[index].nama ?? "Untitled",
-                              style: TextStyles.text,
-                            ),
-                            Text(
-                              _listMediaFilter[index].updatedAt.toDate(),
-                              style: TextStyles.textAlt.copyWith(
-                                  fontSize: Dimens.fontSmall),
-                            ),
-                          ],
-                        ),
-                        Spacer(),
-                        Text(_listMediaFilter[index].fileSize ?? "")
-
-                      ],
+                        ).padding(
+                            edgeInsets:
+                                EdgeInsets.symmetric(vertical: dp8(context)));
+                      },
                     ),
-                  ).padding(
-                      edgeInsets:
-                      EdgeInsets.symmetric(vertical: dp8(context)));
-                },
-              ),
-            )
+                  )
                 : Empty(),
           ),
         ),

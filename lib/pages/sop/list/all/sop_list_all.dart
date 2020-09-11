@@ -72,11 +72,13 @@ class _SopListAllState extends State<SopListAll> {
                             if (_listMediaFilter[index].type == "url") {
                               context.goTo(SopListVideosDetail(
                                 fileName: _listMediaFilter[index].nama,
-                                url: _listMediaFilter[index].link,));
+                                url: _listMediaFilter[index].link,
+                              ));
                             } else {
                               context.goTo(SopListDocumentsDetail(
                                 fileName: _listMediaFilter[index].nama,
-                                url: _listMediaFilter[index].link,));
+                                url: _listMediaFilter[index].link,
+                              ));
                             }
                           },
                           child: Row(
@@ -104,15 +106,15 @@ class _SopListAllState extends State<SopListAll> {
                                   ),
                                   Text(
                                     _listMediaFilter[index].updatedAt.toDate(),
-                                    style: TextStyles.textAlt.copyWith(
-                                        fontSize: Dimens.fontSmall),
+                                    style: TextStyles.textAlt
+                                        .copyWith(fontSize: Dimens.fontSmall),
                                   ),
                                 ],
                               ),
                               Spacer(),
                               Visibility(
-                                  visible: _listMediaFilter[index].type ==
-                                      "file",
+                                  visible:
+                                      _listMediaFilter[index].type == "file",
                                   child: Text(
                                       _listMediaFilter[index].fileSize ?? ""))
                             ],

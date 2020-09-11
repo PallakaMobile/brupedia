@@ -69,7 +69,8 @@ class _JobKnowledgeListDocumentsState extends State<JobKnowledgeListDocuments> {
                           onTap: () {
                             context.goTo(JobKnowledgeListDocumentsDetail(
                               fileName: _listMediaFilter[index].nama,
-                              url: _listMediaFilter[index].link,));
+                              url: _listMediaFilter[index].link,
+                            ));
                           },
                           child: Row(
                             children: [
@@ -93,14 +94,13 @@ class _JobKnowledgeListDocumentsState extends State<JobKnowledgeListDocuments> {
                                   ),
                                   Text(
                                     _listMediaFilter[index].updatedAt.toDate(),
-                                    style: TextStyles.textAlt.copyWith(
-                                        fontSize: Dimens.fontSmall),
+                                    style: TextStyles.textAlt
+                                        .copyWith(fontSize: Dimens.fontSmall),
                                   ),
                                 ],
                               ),
                               Spacer(),
                               Text(_listMediaFilter[index].fileSize ?? "")
-
                             ],
                           ),
                         ).padding(

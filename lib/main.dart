@@ -5,6 +5,7 @@ import 'package:brupedia/resources/resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:oktoast/oktoast.dart';
 
 void main() {
   serviceLocator();
@@ -23,20 +24,23 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      builder: (BuildContext context, Widget child) {
-        final MediaQueryData data = MediaQuery.of(context);
-        return MediaQuery(
-          data: data.copyWith(textScaleFactor: 1, alwaysUse24HourFormat: true),
-          child: child,
-        );
-      },
-      title: Strings.appName,
-      theme: themeDefault,
-      home: BlocProvider(
-        create: (context) => DictionaryBloc(),
-        child: SplashScreenPage(),
+    return OKToast(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        builder: (BuildContext context, Widget child) {
+          final MediaQueryData data = MediaQuery.of(context);
+          return MediaQuery(
+            data:
+                data.copyWith(textScaleFactor: 1, alwaysUse24HourFormat: true),
+            child: child,
+          );
+        },
+        title: Strings.appName,
+        theme: themeDefault,
+        home: BlocProvider(
+          create: (context) => DictionaryBloc(),
+          child: SplashScreenPage(),
+        ),
       ),
     );
   }

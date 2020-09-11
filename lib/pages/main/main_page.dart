@@ -10,9 +10,9 @@ import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_flexible_toast/flutter_flexible_toast.dart';
 import 'package:flutter_screenutil/size_extension.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:oktoast/oktoast.dart';
 
 ///*********************************************
 /// Created by ukietux on 25/08/20 with ♥
@@ -119,7 +119,7 @@ class _MainPageState extends State<MainPage> {
                 break;
               case Status.ERROR:
                 {
-                  FlutterFlexibleToast.cancel();
+                  dismissAllToast(showAnim: true);
                   state.message.toString().toToastError();
                 }
                 break;
@@ -127,7 +127,7 @@ class _MainPageState extends State<MainPage> {
                 {
                   sl<PrefManager>().logout(); // clear data
 
-                  FlutterFlexibleToast.cancel();
+                  dismissAllToast(showAnim: true);
                   DiagnosticResponse _response = state.data;
                   _response.diagnostic.message.toToastSuccess();
                   context.goToClearStack(BlocProvider(

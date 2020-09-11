@@ -95,8 +95,10 @@ class _SopListPageState extends State<SopListPage> {
                         name: widget.name,
                         listMedia: _listVideo,
                       ),
-                      SopListDocuments(name: widget.name,
-                        listMedia: _listDocument,),
+                      SopListDocuments(
+                        name: widget.name,
+                        listMedia: _listDocument,
+                      ),
                     ];
 
                     return Column(

@@ -6,8 +6,8 @@ import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_flexible_toast/flutter_flexible_toast.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:oktoast/oktoast.dart';
 
 ///*********************************************
 /// Created by ukietux on 26/08/20 with ♥
@@ -57,13 +57,13 @@ class _JobKnowledgeListJabatanPageState
               break;
             case Status.ERROR:
               {
-                FlutterFlexibleToast.cancel();
+                dismissAllToast(showAnim: true);
                 state.message.toString().toToastError();
               }
               break;
             case Status.SUCCESS:
               {
-                FlutterFlexibleToast.cancel();
+                dismissAllToast(showAnim: true);
                 ListJabatanResponse _response = state.data;
                 setState(() {
                   _listJabatan = _response.data;
@@ -106,51 +106,54 @@ class _JobKnowledgeListJabatanPageState
                 padding: EdgeInsets.only(bottom: dp24(context)),
                 child: _listJabatanFilter.isNotEmpty
                     ? Scrollbar(
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: _listJabatanFilter.length,
-                    itemBuilder: (context, index) {
-                      return InkWell(
-                        onTap: () {
-                          /*context.goTo(BlocProvider(
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: _listJabatanFilter.length,
+                          itemBuilder: (context, index) {
+                            return InkWell(
+                              onTap: () {
+                                /*context.goTo(BlocProvider(
                             create: (context) => JobDescriptionBloc(),
                             child: JobDescDetailJabatanPage(
                               id: _listJabatanFilter[index].id.toString(),
                             ),
                           ));*/
-                          context.goTo(BlocProvider(
-                              create: (context) => JobKnowledgeBloc(),
-                              child: JobKnowledgeListPage(
-                                name: _listJabatanFilter[index].namaJabatan,)));
-                        },
-                        child: Row(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Palette.bgJobKnowledge,
-                              child: SvgPicture.network(
-                                "ic_job_knowledge_list".toIconDictionary(),
+                                context.goTo(BlocProvider(
+                                    create: (context) => JobKnowledgeBloc(),
+                                    child: JobKnowledgeListPage(
+                                      name:
+                                          _listJabatanFilter[index].namaJabatan,
+                                    )));
+                              },
+                              child: Row(
+                                children: [
+                                  CircleAvatar(
+                                    backgroundColor: Palette.bgJobKnowledge,
+                                    child: SvgPicture.network(
+                                      "ic_job_knowledge_list"
+                                          .toIconDictionary(),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: dp4(context),
+                                  ),
+                                  Text(
+                                    _listJabatanFilter[index].namaJabatan,
+                                    style: TextStyles.text,
+                                  ),
+                                  Spacer(),
+                                  Icon(
+                                    Icons.arrow_forward_ios,
+                                    size: dp16(context),
+                                  )
+                                ],
                               ),
-                            ),
-                            SizedBox(
-                              width: dp4(context),
-                            ),
-                            Text(
-                              _listJabatanFilter[index].namaJabatan,
-                              style: TextStyles.text,
-                            ),
-                            Spacer(),
-                            Icon(
-                              Icons.arrow_forward_ios,
-                              size: dp16(context),
-                            )
-                          ],
+                            ).padding(
+                                edgeInsets: EdgeInsets.symmetric(
+                                    vertical: dp8(context)));
+                          },
                         ),
-                      ).padding(
-                          edgeInsets: EdgeInsets.symmetric(
-                              vertical: dp8(context)));
-                    },
-                  ),
-                )
+                      )
                     : Empty(),
               ),
             ),

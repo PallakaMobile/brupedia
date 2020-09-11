@@ -11,9 +11,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_flexible_toast/flutter_flexible_toast.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:oktoast/oktoast.dart';
 
 ///*********************************************
 /// Created by ukietux on 24/08/20 with ♥
@@ -71,11 +71,12 @@ class _LoginPageState extends State<LoginPage> {
               break;
             case Status.ERROR:
               {
+                dismissAllToast(showAnim: true);
                 //update state
                 setState(() {
                   _isEnabled = !_isEnabled;
                 });
-                FlutterFlexibleToast.cancel();
+
                 state.message.toString().toToastError();
               }
               break;
@@ -84,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                 //check isRemember ?
                 await sl<PrefManager>().setIsLogin(_isRemember);
 
-                FlutterFlexibleToast.cancel();
+                dismissAllToast(showAnim: true);
                 LoginResponse _response = state.data;
                 _response.diagnostic.message.toToastSuccess();
                 context.goToReplacePageRoute(MultiBlocProvider(

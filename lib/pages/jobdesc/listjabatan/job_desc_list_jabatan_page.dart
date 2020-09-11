@@ -6,8 +6,8 @@ import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_flexible_toast/flutter_flexible_toast.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:oktoast/oktoast.dart';
 
 ///*********************************************
 /// Created by ukietux on 26/08/20 with ♥
@@ -55,13 +55,13 @@ class _JobDescListJabatanPageState extends State<JobDescListJabatanPage> {
               break;
             case Status.ERROR:
               {
-                FlutterFlexibleToast.cancel();
+                dismissAllToast(showAnim: true);
                 state.message.toString().toToastError();
               }
               break;
             case Status.SUCCESS:
               {
-                FlutterFlexibleToast.cancel();
+                dismissAllToast(showAnim: true);
                 ListJabatanResponse _response = state.data;
                 setState(() {
                   _listJabatan = _response.data;

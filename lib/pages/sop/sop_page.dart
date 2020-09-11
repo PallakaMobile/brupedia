@@ -6,7 +6,7 @@ import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_flexible_toast/flutter_flexible_toast.dart';
+import 'package:oktoast/oktoast.dart';
 
 ///*********************************************
 /// Created by ukietux on 26/08/20 with ♥
@@ -50,13 +50,13 @@ class _SopPageState extends State<SopPage> {
               break;
             case Status.ERROR:
               {
-                FlutterFlexibleToast.cancel();
+                dismissAllToast(showAnim: true);
                 state.message.toString().toToastError();
               }
               break;
             case Status.SUCCESS:
               {
-                FlutterFlexibleToast.cancel();
+                dismissAllToast(showAnim: true);
                 ListBidangResponse _response = state.data;
                 setState(() {
                   _listBidang = _response.data;
@@ -105,7 +105,7 @@ class _SopPageState extends State<SopPage> {
                             crossAxisCount: 2,
                             crossAxisSpacing: dp16(context),
                             mainAxisSpacing: dp16(context),
-                            childAspectRatio: 2 / 1.6,
+                            childAspectRatio: 2 / 1.65,
                           ),
                           itemCount: _listBidangFilter.length,
                           itemBuilder: (context, index) {

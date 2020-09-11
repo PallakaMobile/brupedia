@@ -8,9 +8,9 @@ import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/copy_right_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_flexible_toast/flutter_flexible_toast.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:oktoast/oktoast.dart';
 
 ///*********************************************
 /// Created by ukietux on 24/08/20 with ♥
@@ -55,7 +55,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
           switch (state.status) {
             case Status.ERROR:
               {
-                FlutterFlexibleToast.cancel();
+                dismissAllToast(showAnim: true);
                 state.message.toString().toToastError();
               }
               break;
@@ -65,7 +65,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
                 await registerDictionaryTexts();
                 await registerDictionaryColors();
                 await registerDictionaryIcons();
-
+                dismissAllToast(showAnim: true);
                 if (sl<PrefManager>().getIsLogin())
                   context.goToReplacePageRoute(MultiBlocProvider(
                     providers: [
