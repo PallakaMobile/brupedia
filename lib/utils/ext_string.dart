@@ -1,10 +1,10 @@
 import 'package:brupedia/data/models/responses/dictionary_response.dart';
 import 'package:brupedia/di/di.dart';
-import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/helper.dart';
+import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_flexible_toast/flutter_flexible_toast.dart';
 import 'package:intl/intl.dart';
+import 'package:oktoast/oktoast.dart';
 
 extension StringExtension on String {
   String replaceCharAt(String oldString, int index, String newChar) {
@@ -24,47 +24,59 @@ extension StringExtension on String {
   }
 
   toToastError() {
-    FlutterFlexibleToast.showToast(
-        message: this,
-        toastLength: Toast.LENGTH_LONG,
-        toastGravity: ToastGravity.TOP,
-        icon: ICON.ERROR,
-        radius: 30,
-        elevation: 10,
-        imageSize: 20,
-        fontSize: Dimens.fontNormal,
-        textColor: Colors.white,
-        backgroundColor: Colors.redAccent,
-        timeInSeconds: 2);
+    try {
+      var message = this == null || this.isEmpty ? "error" : this;
+      showToastWidget(
+          Toast(
+            bgColor: Colors.red,
+            icon: Icons.error,
+            message: message,
+            textColor: Colors.white,
+          ),
+          dismissOtherToast: true,
+          position: ToastPosition.top,
+          duration: Duration(seconds: 2));
+    } catch (e) {
+      print("error $e");
+    }
   }
 
   toToastSuccess() {
-    FlutterFlexibleToast.showToast(
-        message: this,
-        toastLength: Toast.LENGTH_LONG,
-        toastGravity: ToastGravity.TOP,
-        icon: ICON.SUCCESS,
-        radius: 30,
-        elevation: 10,
-        imageSize: 20,
-        fontSize: Dimens.fontNormal,
-        textColor: Colors.white,
-        backgroundColor: Colors.green,
-        timeInSeconds: 2);
+    try {
+      var message = (this == null || this.isEmpty) ? "success" : this;
+      // showToast(msg)
+      showToastWidget(
+          Toast(
+            bgColor: Colors.green,
+            icon: Icons.check_circle,
+            message: message,
+            textColor: Colors.white,
+          ),
+          dismissOtherToast: true,
+          position: ToastPosition.top,
+          duration: Duration(seconds: 2));
+    } catch (e) {
+      print("success $e");
+    }
   }
 
   toToastLoading() {
-    FlutterFlexibleToast.showToast(
-        message: this,
-        toastLength: Toast.LENGTH_LONG,
-        toastGravity: ToastGravity.TOP,
-        icon: ICON.LOADING,
-        radius: 30,
-        elevation: 10,
-        imageSize: 20,
-        fontSize: Dimens.fontNormal,
-        textColor: Palette.colorHint,
-        timeInSeconds: 2);
+    try {
+      var message = this == null || this.isEmpty ? "loading" : this;
+      showToast(message);
+      showToastWidget(
+          Toast(
+            bgColor: Colors.black,
+            icon: Icons.info,
+            message: message,
+            textColor: Colors.white,
+          ),
+          dismissOtherToast: true,
+          position: ToastPosition.top,
+          duration: Duration(seconds: 3));
+    } catch (e) {
+      print("loading $e");
+    }
   }
 
   String toTextDictionary() {
@@ -86,12 +98,7 @@ extension StringExtension on String {
   Color toColorDictionary() {
     try {
       logs(
-          "key color $this : value ${sl
-              .get<DictionaryResponse>(instanceName: "color")
-              .data
-              .singleWhere((element) =>
-          element.key.toLowerCase() == this.toLowerCase())
-              .value}");
+          "key color $this : value ${sl.get<DictionaryResponse>(instanceName: "color").data.singleWhere((element) => element.key.toLowerCase() == this.toLowerCase()).value}");
       return Color(int.parse(sl
           .get<DictionaryResponse>(instanceName: "color")
           .data
