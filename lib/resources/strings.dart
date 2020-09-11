@@ -40,4 +40,7 @@ class Strings {
   static String all = "all".toTextDictionary();
   static String document = "document".toTextDictionary();
   static String video = "video".toTextDictionary();
+  static String selesai = "selesai".toTextDictionary();
+  static String belum = "belum".toTextDictionary();
+  static String readMore = "read_more".toTextDictionary();
 }
