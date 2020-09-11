@@ -21,7 +21,8 @@ class JobKnowledgeListVideosDetail extends StatefulWidget {
       _JobKnowledgeListVideosDetailState();
 }
 
-class _JobKnowledgeListVideosDetailState extends State<JobKnowledgeListVideosDetail> {
+class _JobKnowledgeListVideosDetailState
+    extends State<JobKnowledgeListVideosDetail> {
   YoutubePlayerController _controller;
 
   @override
@@ -62,13 +63,17 @@ class _JobKnowledgeListVideosDetailState extends State<JobKnowledgeListVideosDet
         return Parent(
           appBar: context.appBar(),
           child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                widget.fileName ?? "",
+                widget.fileName ?? "Test",
                 style:
-                    TextStyles.primaryBold.copyWith(fontSize: Dimens.fontLarge),
+                TextStyles.primaryBold.copyWith(fontSize: Dimens.fontLarge),
+                textAlign: TextAlign.start,
               ),
-              Center(child: player),
+              Expanded(child: Center(child: player))
             ],
           ),
         );

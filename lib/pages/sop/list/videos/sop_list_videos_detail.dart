@@ -59,14 +59,19 @@ class _SopListVideosDetailState extends State<SopListVideosDetail> {
       builder: (_, player) {
         return Parent(
           appBar: context.appBar(),
+          isScroll: false,
           child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                widget.fileName ?? "",
+                widget.fileName ?? "Test",
                 style:
                     TextStyles.primaryBold.copyWith(fontSize: Dimens.fontLarge),
+                textAlign: TextAlign.start,
               ),
-              Center(child: player),
+              Expanded(child: Center(child: player))
             ],
           ),
         );
