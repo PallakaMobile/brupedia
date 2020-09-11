@@ -1,4 +1,5 @@
 import 'package:brupedia/utils/utils.dart';
+import 'package:brupedia/widgets/html_view.dart';
 import 'package:brupedia/widgets/parent.dart';
 import 'package:flutter/material.dart';
 
@@ -9,11 +10,17 @@ import 'package:flutter/material.dart';
 ///*********************************************
 /// © 2020 | All Right Reserved
 class TroubleshootingDetail extends StatelessWidget {
+  final String data;
+
+  const TroubleshootingDetail({Key key, this.data}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Parent(
       appBar: context.appBar(),
-      child: Center(child: Text("Detail Troubleshooting")),
+      child: HtmlView(
+        htmlString: data,
+      ),
     );
   }
 }

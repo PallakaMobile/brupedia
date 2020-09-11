@@ -67,7 +67,8 @@ class _JobKnowledgeListVideosState extends State<JobKnowledgeListVideos> {
                         return InkWell(
                           onTap: () {
                             context.goTo(JobKnowledgeListVideosDetail(
-                              url: _listMediaFilter[index].link,));
+                              url: _listMediaFilter[index].link,
+                            ));
                           },
                           child: Row(
                             children: [
@@ -91,8 +92,8 @@ class _JobKnowledgeListVideosState extends State<JobKnowledgeListVideos> {
                                   ),
                                   Text(
                                     _listMediaFilter[index].updatedAt.toDate(),
-                                    style: TextStyles.textAlt.copyWith(
-                                        fontSize: Dimens.fontSmall),
+                                    style: TextStyles.textAlt
+                                        .copyWith(fontSize: Dimens.fontSmall),
                                   ),
                                 ],
                               ),

@@ -15,7 +15,8 @@ class JobKnowledgeListDocumentsDetail extends StatelessWidget {
   final String url;
   final String fileName;
 
-  const JobKnowledgeListDocumentsDetail({Key key, this.url, this.fileName}) : super(key: key);
+  const JobKnowledgeListDocumentsDetail({Key key, this.url, this.fileName})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

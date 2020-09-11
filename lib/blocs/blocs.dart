@@ -8,3 +8,4 @@ export 'logout/logout_bloc.dart';
 export 'navdrawer/navdrawer_bloc.dart';
 export 'resources.dart';
 export 'sop/sop_bloc.dart';
+export 'troubleshoot/troubleshoot_bloc.dart';

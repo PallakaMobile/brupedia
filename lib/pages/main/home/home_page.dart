@@ -86,7 +86,10 @@ class _HomePageState extends State<HomePage> {
                     type: TypeMenu.JOB_KNOW),
                 MenuCard(
                     onPressed: () {
-                      context.goTo(TroubleshootingPage());
+                      context.goTo(BlocProvider(
+                        create: (context) => ListBidangBloc(),
+                        child: TroubleshootingPage(),
+                      ));
                     },
                     imageUrl: "ic_permasalahan".toIconDictionary(),
                     title: Strings.permasalahan,

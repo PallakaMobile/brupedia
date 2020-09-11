@@ -43,4 +43,8 @@ class RestApiImpl with RestAPI {
   @override
   Future<Response> sop(Map<String, String> _params) async =>
       await _dio.get("/api/sop", queryParameters: _params);
+
+  @override
+  Future<Response> listTroubleshoot(Map<String, String> _params) async =>
+      await _dio.get("/api/troubleshoot", queryParameters: _params);
 }

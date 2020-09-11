@@ -75,23 +75,24 @@ class _JobKnowledgeListPageState extends State<JobKnowledgeListPage> {
               {
                 MediaResponse _response = state.data;
 
-                var _listVideo = _response.data.where((element) =>
-                element.type ==
-                    "url").toList(growable: true);
+                var _listVideo = _response.data
+                    .where((element) => element.type == "url")
+                    .toList(growable: true);
 
-                List<Data> _listDocument = _response.data.where((element) =>
-                element.type ==
-                    "file").toList(growable: true);
+                List<Data> _listDocument = _response.data
+                    .where((element) => element.type == "file")
+                    .toList(growable: true);
                 _listFragment = [
                   JobKnowledgeListAll(
                     name: widget.name,
-                    listMedia: _response.data,),
+                    listMedia: _response.data,
+                  ),
                   JobKnowledgeListVideos(
                     name: widget.name,
-                    listMedia: _listVideo,),
+                    listMedia: _listVideo,
+                  ),
                   JobKnowledgeListDocuments(
-                      name: widget.name,
-                      listMedia: _listDocument),
+                      name: widget.name, listMedia: _listDocument),
                 ];
 
                 return Column(

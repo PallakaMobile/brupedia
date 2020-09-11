@@ -6,6 +6,7 @@ import 'package:brupedia/data/repositories/job_description_repository.dart';
 import 'package:brupedia/data/repositories/job_knowledge_repository.dart';
 import 'package:brupedia/data/repositories/login_repository.dart';
 import 'package:brupedia/data/repositories/repositories.dart';
+import 'package:brupedia/data/repositories/troubleshoot_repository.dart';
 import 'package:brupedia/data/sources/sources.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -26,6 +27,7 @@ Future<void> serviceLocator() async {
   sl.registerLazySingleton(() => JobDescriptionRepository());
   sl.registerLazySingleton(() => JobKnowledgeRepository());
   sl.registerLazySingleton(() => SOPRepository());
+  sl.registerLazySingleton(() => TroubleshootRepository());
 }
 
 //register prefManager
@@ -36,9 +38,13 @@ Future<void> initPrefManager() async {
 
 registerUser() async {
   //register response to reuse
-  print("text sl :${sl<PrefManager>().getUser()}");
-  User _user = User.fromJson(json.decode(sl<PrefManager>().getUser()));
-  sl.registerLazySingleton(() => _user);
+  try {
+    print("text sl :${sl<PrefManager>().getUser()}");
+    User _user = User.fromJson(json.decode(sl<PrefManager>().getUser()));
+    sl.registerLazySingleton(() => _user);
+  } catch (e) {
+    print(e);
+  }
 }
 
 registerDictionaryTexts() async {

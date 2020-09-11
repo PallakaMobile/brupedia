@@ -32,7 +32,7 @@ class MediaResponse {
 
 class Data {
   int id;
-  String nama ;
+  String nama;
   String file;
   String createdAt;
   String updatedAt;
