@@ -12,14 +12,17 @@ import 'package:flutter_html/style.dart';
 /// © 2020 | All Right Reserved
 class HtmlView extends StatelessWidget {
   final String htmlString;
+  final Color color;
 
-  const HtmlView({Key key, @required this.htmlString}) : super(key: key);
+  const HtmlView({Key key, @required this.htmlString, this.color})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Html(
-            data: htmlString, style: {"body": Style(fontSize: FontSize.small)})
-        .margin(edgeInsets: EdgeInsets.only(bottom: dp20(context)));
+    return Html(data: htmlString, style: {
+      "body":
+          Style(fontSize: FontSize.medium, color: color ?? Palette.colorText)
+    }).margin(edgeInsets: EdgeInsets.only(bottom: dp20(context)));
     ;
   }
 }
