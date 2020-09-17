@@ -5,6 +5,7 @@ export 'custom_tab.dart';
 export 'empty.dart';
 export 'html_view.dart';
 export 'loading.dart';
+export 'measure_size.dart';
 export 'menu_card.dart';
 export 'parent.dart';
 export 'search_label.dart';

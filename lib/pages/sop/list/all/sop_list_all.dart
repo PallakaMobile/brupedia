@@ -180,7 +180,7 @@ class _SopListAllState extends State<SopListAll> {
                                                   visible:
                                                       _listMediaFilter[index]
                                                               .type ==
-                                                          "file",
+                                                          "Dokumen",
                                                   child: Text(
                                                       _listMediaFilter[index]
                                                               .fileSize ??

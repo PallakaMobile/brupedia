@@ -11,7 +11,7 @@ import 'package:pdf_flutter/pdf_flutter.dart';
 /// github : https://www.github.com/ukieTux <(’_’<)
 ///*********************************************
 /// © 2020 | All Right Reserved
-class SopListDocumentsDetail extends StatelessWidget {
+class SopListDocumentsDetail extends StatefulWidget {
   final String url;
   final String fileName;
 
@@ -19,10 +19,14 @@ class SopListDocumentsDetail extends StatelessWidget {
       : super(key: key);
 
   @override
+  _SopListDocumentsDetailState createState() => _SopListDocumentsDetailState();
+}
+
+class _SopListDocumentsDetailState extends State<SopListDocumentsDetail> {
+  var _height = 0.0;
+
+  @override
   Widget build(BuildContext context) {
-    var height = heightInPercent(100, context) -
-        (AppBar().preferredSize.height + dp20(context));
-    print(height);
     return Parent(
       appBar: context.appBar(),
       isScroll: false,
@@ -30,15 +34,23 @@ class SopListDocumentsDetail extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           Text(
-            fileName ?? "",
+            widget.fileName ?? "",
             style: TextStyles.primaryBold.copyWith(fontSize: Dimens.fontLarge),
           ),
           Expanded(
-            child: PDF.network(
-              url,
-              width: widthInPercent(100, context),
-              placeHolder: Center(
-                child: Loading(),
+            child: MeasureSize(
+              onChange: (value) {
+                setState(() {
+                  _height = value.height;
+                });
+              },
+              child: PDF.network(
+                widget.url,
+                width: widthInPercent(100, context),
+                height: _height,
+                placeHolder: Center(
+                  child: Loading(),
+                ),
               ),
             ),
           ),

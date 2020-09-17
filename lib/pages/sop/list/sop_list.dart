@@ -46,9 +46,22 @@ class _SopListPageState extends State<SopListPage> {
     _listFragment = [
       BlocProvider(
           create: (context) => SOPBloc(),
-          child: SopListAll(idBidang: widget.id, name: widget.name,)),
-      BlocProvider(create: (context) => SOPBloc(), child: SopListVideos()),
-      BlocProvider(create: (context) => SOPBloc(), child: SopListDocuments()),
+          child: SopListAll(
+            idBidang: widget.id,
+            name: widget.name,
+          )),
+      BlocProvider(
+          create: (context) => SOPBloc(),
+          child: SopListVideos(
+            idBidang: widget.id,
+            name: widget.name,
+          )),
+      BlocProvider(
+          create: (context) => SOPBloc(),
+          child: SopListDocuments(
+            idBidang: widget.id,
+            name: widget.name,
+          )),
     ];
   }
 
