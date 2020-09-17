@@ -16,7 +16,7 @@ class SOPBloc extends Bloc<SOPEvent, Resources<MediaResponse>> {
   Stream<Resources<MediaResponse>> mapEventToState(SOPEvent event) async* {
     var _sopRepo = sl<SOPRepository>();
     if (event is GetSOPEvent) {
-      yield Resources.loading();
+      if (event.isFirstPage) yield Resources.loading();
       yield await _sopRepo.sop(event.params);
     }
   }

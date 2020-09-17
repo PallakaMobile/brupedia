@@ -31,7 +31,7 @@ dependencies:
   flutter_svg: ^0.18.1
   dio: 3.0.9
   shared_preferences: ^0.5.10
-  get_it: ^4.0.4
+  get_it: ^5.0.0
   flutter_bloc: ^6.0.5
   intl: ^0.16.1
   oktoast: ^2.3.2
@@ -44,7 +44,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.7.5
+  flutter_launcher_icons: ^0.8.0
 
 flutter_icons:
   android: true

@@ -25,18 +25,21 @@ class SopListDocumentsDetail extends StatelessWidget {
     print(height);
     return Parent(
       appBar: context.appBar(),
+      isScroll: false,
       child: Column(
+        mainAxisSize: MainAxisSize.max,
         children: [
           Text(
             fileName ?? "",
             style: TextStyles.primaryBold.copyWith(fontSize: Dimens.fontLarge),
           ),
-          PDF.network(
-            url,
-            width: widthInPercent(100, context),
-            height: height,
-            placeHolder: Center(
-              child: Loading(),
+          Expanded(
+            child: PDF.network(
+              url,
+              width: widthInPercent(100, context),
+              placeHolder: Center(
+                child: Loading(),
+              ),
             ),
           ),
         ],

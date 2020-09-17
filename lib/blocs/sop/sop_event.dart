@@ -5,6 +5,7 @@ abstract class SOPEvent {}
 
 class GetSOPEvent extends SOPEvent {
   final Map<String, String> params;
+  final bool isFirstPage;
 
-  GetSOPEvent(this.params);
+  GetSOPEvent(this.params, this.isFirstPage);
 }
