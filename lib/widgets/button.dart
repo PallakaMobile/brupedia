@@ -16,6 +16,7 @@ class Button extends StatelessWidget {
   final double height;
   final Color color;
   final Color titleColor;
+  final double fontSize;
 
   const Button(
       {Key key,
@@ -24,7 +25,8 @@ class Button extends StatelessWidget {
       this.width,
       this.height,
       this.color,
-      this.titleColor})
+      this.titleColor,
+      this.fontSize})
       : super(key: key);
 
   @override
@@ -32,7 +34,8 @@ class Button extends StatelessWidget {
     return Container(
       width: width ?? widthInPercent(100, context),
       height: height ?? 40.w,
-      decoration: BoxDecorations.button,
+      decoration:
+          BoxDecorations.button.copyWith(color: color ?? Palette.colorPrimary),
       child: FlatButton(
           onPressed: onPressed,
           shape: new RoundedRectangleBorder(
@@ -42,7 +45,7 @@ class Button extends StatelessWidget {
             title,
             style: TextStyle(
                 color: titleColor ?? Colors.white,
-                fontSize: Dimens.fontLarge1,
+                fontSize: fontSize ?? Dimens.fontLarge1,
                 fontWeight: FontWeight.w600),
             textAlign: TextAlign.center,
           )),

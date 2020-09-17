@@ -43,4 +43,5 @@ class Strings {
   static String selesai = "selesai".toTextDictionary();
   static String belum = "belum".toTextDictionary();
   static String readMore = "read_more".toTextDictionary();
+  static String fileDisimpan = "file_disimpan_di".toTextDictionary();
 }

@@ -13,6 +13,8 @@
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+		AB09A64E25139BEE0052250A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB09A64D25139BD80052250A /* libsqlite3.tbd */; };
+		AB09A64F25139C030052250A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB09A64D25139BD80052250A /* libsqlite3.tbd */; };
 		C6A9638E20D5B78B2BE932D8 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222F4A949C2E28210CB4133B /* Pods_Runner.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,7 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB09A64D25139BD80052250A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		E82F5BC1FB0AB793FE7F1D9F /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB09A64F25139C030052250A /* libsqlite3.tbd in Frameworks */,
+				AB09A64E25139BEE0052250A /* libsqlite3.tbd in Frameworks */,
 				C6A9638E20D5B78B2BE932D8 /* Pods_Runner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +69,7 @@
 		472360CCD15B488683571DC9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB09A64D25139BD80052250A /* libsqlite3.tbd */,
 				222F4A949C2E28210CB4133B /* Pods_Runner.framework */,
 			);
 			name = Frameworks;

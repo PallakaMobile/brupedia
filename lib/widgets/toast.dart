@@ -46,7 +46,8 @@ class Toast extends StatelessWidget {
                 style: TextStyles.text.copyWith(color: textColor),
                 textAlign: TextAlign.center,
                 maxLines: 5,
-              )
+                softWrap: true,
+              ),
             ],
           ),
         ),
