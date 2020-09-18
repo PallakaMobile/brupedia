@@ -9,10 +9,10 @@ import 'package:brupedia/widgets/parent.dart';
 import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
+import 'package:flutter_share/flutter_share.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf_flutter/pdf_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:flutter_share/flutter_share.dart';
 
 ///*********************************************
 /// Created by ukietux on 30/08/20 with ♥
@@ -97,13 +97,12 @@ class _SopListDocumentsDetailState extends State<SopListDocumentsDetail> {
     return Platform.isAndroid ? "/storage/emulated/0/Download" : directory.path;
   }
 
-  Future<void> share() async {
+  Future<void> _share() async {
     await FlutterShare.share(
-        title: Strings.a,
-        text: 'Example share text',
-        linkUrl: 'https://flutter.dev/',
-        chooserTitle: 'Example Chooser Title'
-    );
+        title: Strings.appName,
+        text: Strings.downloadHere,
+        linkUrl: widget.url,
+        chooserTitle: Strings.bagikan);
   }
 
   @override
@@ -136,7 +135,9 @@ class _SopListDocumentsDetailState extends State<SopListDocumentsDetail> {
               ),
             ),
           ),
-          SizedBox(height: dp8(context),),
+          SizedBox(
+            height: dp8(context),
+          ),
           Flexible(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -146,13 +147,16 @@ class _SopListDocumentsDetailState extends State<SopListDocumentsDetail> {
                   width: widthInPercent(40, context),
                   color: Colors.blue,
                   fontSize: Dimens.fontNormal,
-                  title: "Share",
+                  title: Strings.share,
+                  onPressed: () async {
+                    await _share();
+                  },
                 ),
                 Button(
                   width: widthInPercent(40, context),
                   color: Colors.green,
                   fontSize: Dimens.fontNormal,
-                  title: "Download",
+                  title: Strings.download,
                   onPressed: () async {
                     var taskId = await FlutterDownloader.enqueue(
                         url: widget.url,
