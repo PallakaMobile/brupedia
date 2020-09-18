@@ -12,6 +12,7 @@ import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf_flutter/pdf_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:flutter_share/flutter_share.dart';
 
 ///*********************************************
 /// Created by ukietux on 30/08/20 with ♥
@@ -65,7 +66,7 @@ class _SopListDocumentsDetailState extends State<SopListDocumentsDetail> {
 
   _prepareData() async {
     await _checkPermission();
-    _localPath = (await _findLocalPath()) + Platform.pathSeparator + 'Download';
+    _localPath = (await _findLocalPath());
 
     final savedDir = Directory(_localPath);
     bool hasExisted = await savedDir.exists();
@@ -92,10 +93,17 @@ class _SopListDocumentsDetailState extends State<SopListDocumentsDetail> {
   }
 
   Future<String> _findLocalPath() async {
-    final directory = Platform.isAndroid
-        ? await getExternalStorageDirectory()
-        : await getApplicationDocumentsDirectory();
-    return directory.path;
+    final directory = await getApplicationDocumentsDirectory();
+    return Platform.isAndroid ? "/storage/emulated/0/Download" : directory.path;
+  }
+
+  Future<void> share() async {
+    await FlutterShare.share(
+        title: Strings.a,
+        text: 'Example share text',
+        linkUrl: 'https://flutter.dev/',
+        chooserTitle: 'Example Chooser Title'
+    );
   }
 
   @override
@@ -111,7 +119,7 @@ class _SopListDocumentsDetailState extends State<SopListDocumentsDetail> {
             style: TextStyles.primaryBold.copyWith(fontSize: Dimens.fontLarge),
           ),
           Expanded(
-            flex: 5,
+            flex: 6,
             child: MeasureSize(
               onChange: (value) {
                 setState(() {
@@ -128,10 +136,11 @@ class _SopListDocumentsDetailState extends State<SopListDocumentsDetail> {
               ),
             ),
           ),
-          Expanded(
-            flex: 1,
+          SizedBox(height: dp8(context),),
+          Flexible(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Button(
                   width: widthInPercent(40, context),
