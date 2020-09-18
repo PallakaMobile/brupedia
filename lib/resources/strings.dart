@@ -44,4 +44,8 @@ class Strings {
   static String belum = "belum".toTextDictionary();
   static String readMore = "read_more".toTextDictionary();
   static String fileDisimpan = "file_disimpan_di".toTextDictionary();
+  static String bagikan = "bagikan".toTextDictionary();
+  static String downloadHere = "download_here".toTextDictionary();
+  static String download = "download".toTextDictionary();
+  static String share = "share".toTextDictionary();
 }
