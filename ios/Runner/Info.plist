@@ -55,7 +55,19 @@
 	</dict>
 	<key>FDMaximumConcurrentTasks</key>
 	<integer>10</integer>
+	<key>NSContactsUsageDescription</key>
+	<string>Application need to get email address</string>
 	<key>FDAllFilesDownloadedMessage</key>
 	<string>All files have been downloaded</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Description</string>
+	<key>NSAppleMusicUsageDescription </key>
+	<string>Description</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Description</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Description</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Description</string>
 </dict>
 </plist>
