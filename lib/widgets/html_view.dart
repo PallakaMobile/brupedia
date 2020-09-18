@@ -1,3 +1,4 @@
+import 'package:brupedia/di/di.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:brupedia/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class HtmlView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Html(data: htmlString, style: {
+    return Html(data: htmlString.replaceAll("..", API.BASE_URL), style: {
       "body":
           Style(fontSize: FontSize.medium, color: color ?? Palette.colorText)
     }).margin(edgeInsets: EdgeInsets.only(bottom: dp20(context)));
