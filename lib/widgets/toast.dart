@@ -41,16 +41,19 @@ class Toast extends StatelessWidget {
               SizedBox(
                 width: 16,
               ),
-              Text(
-                message,
-                style: TextStyles.text.copyWith(color: textColor),
-                textAlign: TextAlign.center,
-                maxLines: 5,
-                softWrap: true,
+              Container(
+                constraints: BoxConstraints(maxWidth: 250.w),
+                child: Text(
+                  message,
+                  style: TextStyles.text.copyWith(color: textColor),
+                  textAlign: TextAlign.start,
+                  maxLines: 5,
+                  softWrap: true,
+                ),
               ),
             ],
           ),
-        ),
+        )
       ],
     );
   }
