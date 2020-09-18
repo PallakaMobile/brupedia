@@ -70,7 +70,7 @@ class _JobKnowledgeListVideosDetailState
               Text(
                 widget.fileName ?? "Test",
                 style:
-                TextStyles.primaryBold.copyWith(fontSize: Dimens.fontLarge),
+                    TextStyles.primaryBold.copyWith(fontSize: Dimens.fontLarge),
                 textAlign: TextAlign.start,
               ),
               Expanded(child: Center(child: player))

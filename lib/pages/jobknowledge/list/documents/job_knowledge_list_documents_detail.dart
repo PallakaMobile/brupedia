@@ -41,7 +41,7 @@ class _JobKnowledgeListDocumentsDetailState
   @override
   void initState() {
     super.initState();
-    "test".toToastLoading();
+
     IsolateNameServer.registerPortWithName(
         _port.sendPort, 'downloader_send_port');
     _port.listen((dynamic data) {
