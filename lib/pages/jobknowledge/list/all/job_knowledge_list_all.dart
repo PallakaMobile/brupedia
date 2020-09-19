@@ -24,6 +24,9 @@ class JobKnowledgeListAll extends StatefulWidget {
 class _JobKnowledgeListAllState extends State<JobKnowledgeListAll> {
   var _listMediaFilter = List<Data>();
 
+  var _video = "Link Video";
+  var _document = "Dokumen";
+
   @override
   void initState() {
     super.initState();
@@ -69,7 +72,7 @@ class _JobKnowledgeListAllState extends State<JobKnowledgeListAll> {
                       itemBuilder: (context, index) {
                         return InkWell(
                           onTap: () {
-                            if (_listMediaFilter[index].type == "url") {
+                            if (_listMediaFilter[index].type == _video) {
                               context.goTo(JobKnowledgeListVideosDetail(
                                 fileName: _listMediaFilter[index].nama,
                                 url: _listMediaFilter[index].link,
@@ -86,7 +89,7 @@ class _JobKnowledgeListAllState extends State<JobKnowledgeListAll> {
                               CircleAvatar(
                                 backgroundColor: Palette.bgJobKnowledge,
                                 child: SvgPicture.network(
-                                  _listMediaFilter[index].type == "url"
+                                  _listMediaFilter[index].type == _video
                                       ? "ic_list_videos".toIconDictionary()
                                       : "ic_list_document".toIconDictionary(),
                                   height: dp16(context),
@@ -113,7 +116,7 @@ class _JobKnowledgeListAllState extends State<JobKnowledgeListAll> {
                               Spacer(),
                               Visibility(
                                   visible:
-                                      _listMediaFilter[index].type == "file",
+                                      _listMediaFilter[index].type == _document,
                                   child: Text(
                                       _listMediaFilter[index].fileSize ?? ""))
                             ],

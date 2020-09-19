@@ -30,6 +30,8 @@ class _JobKnowledgeListPageState extends State<JobKnowledgeListPage> {
   var _listFragment = List<Widget>();
 
   PageController _pageController = new PageController();
+  var _video = "Link Video";
+  var _document ="Dokumen";
 
   @override
   void initState() {
@@ -76,11 +78,11 @@ class _JobKnowledgeListPageState extends State<JobKnowledgeListPage> {
                 MediaResponse _response = state.data;
 
                 var _listVideo = _response.data
-                    .where((element) => element.type == "url")
+                    .where((element) => element.type == _video)
                     .toList(growable: true);
 
                 List<Data> _listDocument = _response.data
-                    .where((element) => element.type == "file")
+                    .where((element) => element.type == _document)
                     .toList(growable: true);
                 _listFragment = [
                   JobKnowledgeListAll(

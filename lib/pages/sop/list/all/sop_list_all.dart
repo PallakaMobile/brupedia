@@ -32,6 +32,9 @@ class _SopListAllState extends State<SopListAll> {
   String _query = "";
   ScrollController _scrollController = new ScrollController();
 
+  var _video = "Link Video";
+  var _document = "Dokumen";
+
   @override
   void initState() {
     super.initState();
@@ -114,7 +117,7 @@ class _SopListAllState extends State<SopListAll> {
                                       ? InkWell(
                                           onTap: () {
                                             if (_listMediaFilter[index].type ==
-                                                "url") {
+                                                _video) {
                                               context.goTo(SopListVideosDetail(
                                                 fileName:
                                                     _listMediaFilter[index]
@@ -140,7 +143,7 @@ class _SopListAllState extends State<SopListAll> {
                                                 child: SvgPicture.network(
                                                   _listMediaFilter[index]
                                                               .type ==
-                                                          "url"
+                                                      _video
                                                       ? "ic_list_videos"
                                                           .toIconDictionary()
                                                       : "ic_list_document"
@@ -178,12 +181,12 @@ class _SopListAllState extends State<SopListAll> {
                                               Spacer(),
                                               Visibility(
                                                   visible:
-                                                      _listMediaFilter[index]
-                                                              .type ==
-                                                          "Dokumen",
+                                                  _listMediaFilter[index]
+                                                      .type ==
+                                                      _document,
                                                   child: Text(
                                                       _listMediaFilter[index]
-                                                              .fileSize ??
+                                                          .fileSize ??
                                                           ""))
                                             ],
                                           ),

@@ -123,6 +123,9 @@ class _JobKnowledgeListJabatanPageState
                                     child: JobKnowledgeListPage(
                                       name:
                                           _listJabatanFilter[index].namaJabatan,
+                                      id: _listJabatanFilter[index]
+                                          .id
+                                          .toString(),
                                     )));
                               },
                               child: Row(

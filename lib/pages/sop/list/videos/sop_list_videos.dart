@@ -32,6 +32,8 @@ class _SopListVideosState extends State<SopListVideos> {
   String _query = "";
   ScrollController _scrollController = new ScrollController();
 
+  var _video = "Link Video";
+
   @override
   void initState() {
     super.initState();
@@ -113,38 +115,19 @@ class _SopListVideosState extends State<SopListVideos> {
                                   return index < _listMediaFilter.length
                                       ? InkWell(
                                           onTap: () {
-                                            if (_listMediaFilter[index].type ==
-                                                "url") {
-                                              context.goTo(SopListVideosDetail(
-                                                fileName:
-                                                    _listMediaFilter[index]
-                                                        .nama,
-                                                url: _listMediaFilter[index]
-                                                    .link,
-                                              ));
-                                            } else {
-                                              context
-                                                  .goTo(SopListDocumentsDetail(
-                                                fileName:
-                                                    _listMediaFilter[index]
-                                                        .nama,
-                                                url: _listMediaFilter[index]
-                                                    .link,
-                                              ));
-                                            }
+                                            context.goTo(SopListVideosDetail(
+                                              fileName:
+                                                  _listMediaFilter[index].nama,
+                                              url: _listMediaFilter[index].link,
+                                            ));
                                           },
                                           child: Row(
                                             children: [
                                               CircleAvatar(
                                                 backgroundColor: Palette.bgSop,
                                                 child: SvgPicture.network(
-                                                  _listMediaFilter[index]
-                                                              .type ==
-                                                          "url"
-                                                      ? "ic_list_videos"
-                                                          .toIconDictionary()
-                                                      : "ic_list_document"
-                                                          .toIconDictionary(),
+                                                  "ic_list_videos"
+                                                      .toIconDictionary(),
                                                   height: dp16(context),
                                                   color: Palette.textSop,
                                                 ),
@@ -176,15 +159,6 @@ class _SopListVideosState extends State<SopListVideos> {
                                                 ],
                                               ),
                                               Spacer(),
-                                              Visibility(
-                                                  visible:
-                                                      _listMediaFilter[index]
-                                                              .type ==
-                                                          "file",
-                                                  child: Text(
-                                                      _listMediaFilter[index]
-                                                              .fileSize ??
-                                                          ""))
                                             ],
                                           ),
                                         ).padding(
