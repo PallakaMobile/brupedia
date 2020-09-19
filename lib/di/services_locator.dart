@@ -13,7 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'di.dart';
 
-GetIt sl = GetIt.instance;
+var sl = GetIt.instance;
 
 Future<void> serviceLocator() async {
   sl.registerFactory<API>(() => API());
@@ -34,17 +34,6 @@ Future<void> serviceLocator() async {
 Future<void> initPrefManager() async {
   var _initPrefManager = await SharedPreferences.getInstance();
   sl.registerLazySingleton<PrefManager>(() => PrefManager(_initPrefManager));
-}
-
-registerUser() async {
-  //register response to reuse
-  try {
-    print("text sl :${sl<PrefManager>().getUser()}");
-    User _user = User.fromJson(json.decode(sl<PrefManager>().getUser()));
-    sl.registerLazySingleton(() => _user);
-  } catch (e) {
-    print(e);
-  }
 }
 
 registerDictionaryTexts() async {
