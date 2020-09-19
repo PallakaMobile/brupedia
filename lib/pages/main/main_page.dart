@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:brupedia/blocs/blocs.dart';
 import 'package:brupedia/data/models/helper/DataSelected.dart';
 import 'package:brupedia/data/models/responses/diagnostic_response.dart';
@@ -34,11 +36,14 @@ class _MainPageState extends State<MainPage> {
   LogoutBloc _logoutBloc;
   String _currentOpen = Strings.mainMenu;
 
+  User _user;
+
   @override
   void initState() {
     super.initState();
     //register user on DI
-    registerUser();
+    _user = User.fromJson(json.decode(sl<PrefManager>().getUser()));
+
     _logoutBloc = BlocProvider.of<LogoutBloc>(context);
     _drawerBloc = BlocProvider.of<NavDrawerBloc>(context);
     _dataMenus = [
@@ -49,7 +54,6 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    var user = sl<User>();
     return WillPopScope(
       onWillPop: () async {
         context.logs("onBackPress");
@@ -181,7 +185,7 @@ class _MainPageState extends State<MainPage> {
                                       children: [
                                         CircleAvatar(
                                           backgroundColor: Colors.white,
-                                          backgroundImage: NetworkImage(user
+                                          backgroundImage: NetworkImage(_user
                                                   .profile.avatar ??
                                               "https://avatars0.githubusercontent.com/u/1531684?s=400&u=e01e622a1c219bb04c8d69fb0cc06f14231ebbcd&v=4"),
                                           radius: 30.h,
@@ -194,12 +198,12 @@ class _MainPageState extends State<MainPage> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(user.name,
+                                            Text(_user.name,
                                                 style: TextStyles.whiteBold),
                                             Row(
                                               children: [
                                                 Text(
-                                                  user.profile.jabatan,
+                                                  _user.profile.jabatan,
                                                   style:
                                                       TextStyles.white.copyWith(
                                                     fontSize: Dimens.fontSmall,
@@ -209,7 +213,7 @@ class _MainPageState extends State<MainPage> {
                                                   width: dp4(context),
                                                 ),
                                                 Text(
-                                                  user.profile.bidang,
+                                                  _user.profile.bidang,
                                                   style:
                                                       TextStyles.white.copyWith(
                                                     fontSize: Dimens.fontSmall,

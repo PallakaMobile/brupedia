@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:brupedia/data/models/responses/login_response.dart';
 import 'package:brupedia/di/di.dart';
 import 'package:brupedia/resources/resources.dart';
@@ -17,7 +19,7 @@ class UserCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var user = sl<User>();
+    User _user = User.fromJson(json.decode(sl<PrefManager>().getUser()));
     return Center(
       child: Container(
         width: widthInPercent(100, context),
@@ -46,7 +48,7 @@ class UserCard extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     backgroundColor: Colors.white,
-                    backgroundImage: NetworkImage(user.profile.avatar ??
+                    backgroundImage: NetworkImage(_user.profile.avatar ??
                         "https://avatars0.githubusercontent.com/u/1531684?s=400&u=e01e622a1c219bb04c8d69fb0cc06f14231ebbcd&v=4"),
                     radius: 30.h,
                   ),
@@ -54,16 +56,16 @@ class UserCard extends StatelessWidget {
                     height: dp8(context),
                   ),
                   Text(
-                    user.name,
+                    _user.name,
                     style: TextStyles.whiteBold
                         .copyWith(fontSize: Dimens.fontLarge1),
                   ),
                   Text(
-                    user.profile.jabatan,
+                    _user.profile.jabatan,
                     style: TextStyles.white,
                   ),
                   Text(
-                    user.profile.bidang,
+                    _user.profile.bidang,
                     style: TextStyles.white.copyWith(
                       fontSize: Dimens.fontSmall,
                     ),
