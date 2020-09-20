@@ -32,8 +32,6 @@ class _SopListVideosState extends State<SopListVideos> {
   String _query = "";
   ScrollController _scrollController = new ScrollController();
 
-  var _video = "Link Video";
-
   @override
   void initState() {
     super.initState();
@@ -118,7 +116,7 @@ class _SopListVideosState extends State<SopListVideos> {
                                             context.goTo(SopListVideosDetail(
                                               fileName:
                                                   _listMediaFilter[index].nama,
-                                              url: _listMediaFilter[index].link,
+                                              url: _listMediaFilter[index].url,
                                             ));
                                           },
                                           child: Row(

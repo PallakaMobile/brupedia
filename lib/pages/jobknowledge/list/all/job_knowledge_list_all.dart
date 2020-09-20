@@ -75,12 +75,12 @@ class _JobKnowledgeListAllState extends State<JobKnowledgeListAll> {
                             if (_listMediaFilter[index].type == _video) {
                               context.goTo(JobKnowledgeListVideosDetail(
                                 fileName: _listMediaFilter[index].nama,
-                                url: _listMediaFilter[index].link,
+                                url: _listMediaFilter[index].url,
                               ));
                             } else {
                               context.goTo(JobKnowledgeListDocumentsDetail(
                                 fileName: _listMediaFilter[index].nama,
-                                url: _listMediaFilter[index].link,
+                                url: _listMediaFilter[index].url,
                               ));
                             }
                           },

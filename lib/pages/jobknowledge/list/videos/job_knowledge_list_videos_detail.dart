@@ -28,9 +28,8 @@ class _JobKnowledgeListVideosDetailState
   @override
   void initState() {
     super.initState();
-    var ytId = widget.url.split("=");
     _controller = YoutubePlayerController(
-      initialVideoId: ytId[1],
+      initialVideoId: YoutubePlayer.convertUrlToId(widget.url),
       flags: const YoutubePlayerFlags(
         mute: false,
         autoPlay: true,
@@ -62,6 +61,7 @@ class _JobKnowledgeListVideosDetailState
       builder: (_, player) {
         return Parent(
           appBar: context.appBar(),
+          isScroll: false,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,

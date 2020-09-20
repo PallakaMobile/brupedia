@@ -123,7 +123,7 @@ class _SopListAllState extends State<SopListAll> {
                                                     _listMediaFilter[index]
                                                         .nama,
                                                 url: _listMediaFilter[index]
-                                                    .link,
+                                                    .url,
                                               ));
                                             } else {
                                               context
@@ -132,7 +132,7 @@ class _SopListAllState extends State<SopListAll> {
                                                     _listMediaFilter[index]
                                                         .nama,
                                                 url: _listMediaFilter[index]
-                                                    .link,
+                                                    .url,
                                               ));
                                             }
                                           },

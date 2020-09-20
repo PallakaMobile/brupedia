@@ -41,9 +41,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(
-      context,
-      width: 375,
-      height: 812,
+      designSize: Size(375, 812),
       allowFontScaling: false,
     );
     return Scaffold(

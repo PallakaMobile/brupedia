@@ -69,7 +69,7 @@ class _JobKnowledgeListDocumentsState extends State<JobKnowledgeListDocuments> {
                           onTap: () {
                             context.goTo(JobKnowledgeListDocumentsDetail(
                               fileName: _listMediaFilter[index].nama,
-                              url: _listMediaFilter[index].link,
+                              url: _listMediaFilter[index].url,
                             ));
                           },
                           child: Row(

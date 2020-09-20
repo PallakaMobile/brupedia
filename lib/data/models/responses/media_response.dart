@@ -41,7 +41,7 @@ class Data {
   int bidangId;
   String nama;
   String file;
-  String link;
+  String url;
   String createdAt;
   String updatedAt;
   String fileSize;
@@ -52,7 +52,7 @@ class Data {
       this.bidangId,
       this.nama,
       this.file,
-      this.link,
+      this.url,
       this.createdAt,
       this.updatedAt,
       this.fileSize,
@@ -63,7 +63,7 @@ class Data {
     bidangId = json['bidang_id'];
     nama = json['nama'];
     file = json['file'];
-    link = json['link'];
+    url = json['url'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     fileSize = json['file_size'];
@@ -76,7 +76,7 @@ class Data {
     data['bidang_id'] = this.bidangId;
     data['nama'] = this.nama;
     data['file'] = this.file;
-    data['link'] = this.link;
+    data['url'] = this.url;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
     data['file_size'] = this.fileSize;

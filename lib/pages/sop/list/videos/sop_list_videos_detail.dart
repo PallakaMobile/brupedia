@@ -25,9 +25,8 @@ class _SopListVideosDetailState extends State<SopListVideosDetail> {
   @override
   void initState() {
     super.initState();
-    var ytId = widget.url.split("=");
     _controller = YoutubePlayerController(
-      initialVideoId: ytId[1],
+      initialVideoId: YoutubePlayer.convertUrlToId(widget.url),
       flags: const YoutubePlayerFlags(
         mute: false,
         autoPlay: true,

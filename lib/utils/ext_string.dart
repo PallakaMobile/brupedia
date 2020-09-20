@@ -41,6 +41,30 @@ extension StringExtension on String {
     }
   }
 
+  /* Future<String> getTitle() async {
+    String embedUrl = "https://www.youtube.com/oembed?url=$this&format=json";
+
+    //store http request response to res variable
+    var res = await Dio().get(embedUrl);
+
+    try {
+      if (res.statusCode == 200) {
+        if (this == null || this.isEmpty)
+          return res.data["title"];
+        else
+          return this;
+      } else {
+        //return null if status code other than 200
+        return Strings;
+      }
+    } on FormatException catch (e) {
+      print('invalid JSON' + e.toString());
+      //return null if error
+      return null;
+    }
+    return "test";
+  }*/
+
   toToastSuccess() {
     try {
       var message = (this == null || this.isEmpty) ? "success" : this;

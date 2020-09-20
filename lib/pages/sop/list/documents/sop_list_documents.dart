@@ -116,7 +116,7 @@ class _SopListDocumentsState extends State<SopListDocuments> {
                                             context.goTo(SopListDocumentsDetail(
                                               fileName:
                                                   _listMediaFilter[index].nama,
-                                              url: _listMediaFilter[index].link,
+                                              url: _listMediaFilter[index].url,
                                             ));
                                           },
                                           child: Row(

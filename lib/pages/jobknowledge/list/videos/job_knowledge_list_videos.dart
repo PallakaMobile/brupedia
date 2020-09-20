@@ -67,7 +67,7 @@ class _JobKnowledgeListVideosState extends State<JobKnowledgeListVideos> {
                         return InkWell(
                           onTap: () {
                             context.goTo(JobKnowledgeListVideosDetail(
-                              url: _listMediaFilter[index].link,
+                              url: _listMediaFilter[index].url,
                             ));
                           },
                           child: Row(
