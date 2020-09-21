@@ -257,44 +257,56 @@ class _TroubleshootingListPageState extends State<TroubleshootingListPage> {
                                               children: [
                                                 Row(
                                                   children: [
-                                                    Text(
-                                                      _listTroubleshootingFilter[
-                                                              index]
-                                                          .dataTindakan[
-                                                              indexContent]
-                                                          .judul,
-                                                      style: TextStyles.text,
-                                                    ),
-                                                    Spacer(),
-                                                    SvgPicture.network(
+                                                    Expanded(
+                                                      flex: 8,
+                                                      child: Text(
                                                         _listTroubleshootingFilter[
-                                                                        index]
-                                                                    .dataTindakan[
-                                                                        indexContent]
-                                                                    .status ==
-                                                                1
-                                                            ? "ic_check"
-                                                                .toIconDictionary()
-                                                            : "ic_uncheck"
-                                                                .toIconDictionary()),
-                                                    SizedBox(
-                                                      width: dp4(context),
+                                                                index]
+                                                            .dataTindakan[
+                                                                indexContent]
+                                                            .judul,
+                                                        style: TextStyles.text,
+                                                      ),
                                                     ),
-                                                    Text(
-                                                      _listTroubleshootingFilter[
-                                                                      index]
-                                                                  .dataTindakan[
-                                                                      indexContent]
-                                                                  .status ==
-                                                              1
-                                                          ? "selesai"
-                                                              .toTextDictionary()
-                                                          : "belum"
-                                                              .toTextDictionary(),
-                                                      style: TextStyles.primary
-                                                          .copyWith(
-                                                              fontSize: Dimens
-                                                                  .fontSmall),
+                                                    Expanded(
+                                                      flex: 2,
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .end,
+                                                        children: [
+                                                          SvgPicture.network(_listTroubleshootingFilter[
+                                                                          index]
+                                                                      .dataTindakan[
+                                                                          indexContent]
+                                                                      .status ==
+                                                                  1
+                                                              ? "ic_check"
+                                                                  .toIconDictionary()
+                                                              : "ic_uncheck"
+                                                                  .toIconDictionary()),
+                                                          SizedBox(
+                                                            width: dp4(context),
+                                                          ),
+                                                          Text(
+                                                            _listTroubleshootingFilter[
+                                                                            index]
+                                                                        .dataTindakan[
+                                                                            indexContent]
+                                                                        .status ==
+                                                                    1
+                                                                ? "selesai"
+                                                                    .toTextDictionary()
+                                                                : "belum"
+                                                                    .toTextDictionary(),
+                                                            style: TextStyles
+                                                                .primary
+                                                                .copyWith(
+                                                                    fontSize: Dimens
+                                                                        .fontSmall),
+                                                          )
+                                                        ],
+                                                      ),
                                                     )
                                                   ],
                                                 ),
