@@ -23,6 +23,7 @@ class SearchLabel<T> extends StatefulWidget {
 
 class _SearchLabelState<T> extends State<SearchLabel> {
   bool _isSearch = false;
+  var _fnSearch = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +60,7 @@ class _SearchLabelState<T> extends State<SearchLabel> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: TextF(
+                          curFocusNode: _fnSearch,
                           keyboardType: TextInputType.text,
                           hint: Strings.search,
                           onChanged: widget.onChanged,
@@ -119,6 +121,7 @@ class _SearchLabelState<T> extends State<SearchLabel> {
               setState(() {
                 _isSearch = !_isSearch;
                 if (!_isSearch) widget.onChanged("");
+                if (_isSearch) _fnSearch.requestFocus();
               });
             },
           ),
