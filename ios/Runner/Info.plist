@@ -2,10 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Brupedia</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -22,8 +22,31 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>FDAllFilesDownloadedMessage</key>
+	<string>All files have been downloaded</string>
+	<key>FDMaximumConcurrentTasks</key>
+	<integer>10</integer>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Description</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Description</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Application need to get email address</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Description</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Description</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Description</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
@@ -50,26 +73,5 @@
 	<false/>
 	<key>io.flutter.embedded_views_preview</key>
 	<true/>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
-	<key>FDMaximumConcurrentTasks</key>
-	<integer>10</integer>
-	<key>NSContactsUsageDescription</key>
-	<string>Application need to get email address</string>
-	<key>FDAllFilesDownloadedMessage</key>
-	<string>All files have been downloaded</string>
-	<key>NSCalendarsUsageDescription</key>
-	<string>Description</string>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>Description</string>
-	<key>NSMotionUsageDescription</key>
-	<string>Description</string>
-	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>Description</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Description</string>
 </dict>
 </plist>
