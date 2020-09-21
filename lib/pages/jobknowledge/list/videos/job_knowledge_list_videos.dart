@@ -68,6 +68,7 @@ class _JobKnowledgeListVideosState extends State<JobKnowledgeListVideos> {
                           onTap: () {
                             context.goTo(JobKnowledgeListVideosDetail(
                               url: _listMediaFilter[index].url,
+                              fileName: _listMediaFilter[index].nama,
                             ));
                           },
                           child: Row(
