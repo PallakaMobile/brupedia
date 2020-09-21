@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 /// github : https://www.github.com/ukieTux <(’_’<)
 ///*********************************************
 /// © 2020 | All Right Reserved
-class SearchLabel<T> extends StatefulWidget {
+class SearchLabel extends StatefulWidget {
   SearchLabel({
     Key key,
     @required this.label,
@@ -21,7 +21,7 @@ class SearchLabel<T> extends StatefulWidget {
   _SearchLabelState createState() => _SearchLabelState();
 }
 
-class _SearchLabelState<T> extends State<SearchLabel> {
+class _SearchLabelState extends State<SearchLabel> {
   bool _isSearch = false;
   var _fnSearch = FocusNode();
 
