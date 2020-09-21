@@ -30,14 +30,17 @@ class _SearchLabelState<T> extends State<SearchLabel> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
+        // Handle Animated Change view for Title and TextField Search
         Expanded(
             flex: 85,
             child: AnimatedSwitcher(
               duration: Duration(milliseconds: 350),
               transitionBuilder: (Widget child, Animation<double> animation) {
+                //animated from right to left
                 final inAnimation = Tween<Offset>(
                         begin: Offset(1.0, 0.0), end: Offset(0.0, 0.0))
                     .animate(animation);
+                //animated from left to right
                 final outAnimation = Tween<Offset>(
                         begin: Offset(-1.0, 0.0), end: Offset(0.0, 0.0))
                     .animate(animation);
@@ -83,15 +86,18 @@ class _SearchLabelState<T> extends State<SearchLabel> {
                       ),
                     ),
             )),
+        // Handle Animated Change view for Search Icon and Close Icon
         Expanded(
           flex: 10,
           child: IconButton(
             icon: AnimatedSwitcher(
               duration: Duration(milliseconds: 350),
               transitionBuilder: (Widget child, Animation<double> animation) {
+                //animated from top to bottom
                 final inAnimation = Tween<Offset>(
                         begin: Offset(0.0, 1.0), end: Offset(0.0, 0.0))
                     .animate(animation);
+                //animated from bottom to top
                 final outAnimation = Tween<Offset>(
                         begin: Offset(0.0, -1.0), end: Offset(0.0, 0.0))
                     .animate(animation);
