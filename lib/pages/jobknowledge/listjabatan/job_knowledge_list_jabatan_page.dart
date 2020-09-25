@@ -112,12 +112,6 @@ class _JobKnowledgeListJabatanPageState
                           itemBuilder: (context, index) {
                             return InkWell(
                               onTap: () {
-                                /*context.goTo(BlocProvider(
-                            create: (context) => JobDescriptionBloc(),
-                            child: JobDescDetailJabatanPage(
-                              id: _listJabatanFilter[index].id.toString(),
-                            ),
-                          ));*/
                                 context.goTo(BlocProvider(
                                     create: (context) => JobKnowledgeBloc(),
                                     child: JobKnowledgeListPage(
@@ -140,11 +134,12 @@ class _JobKnowledgeListJabatanPageState
                                   SizedBox(
                                     width: dp4(context),
                                   ),
-                                  Text(
-                                    _listJabatanFilter[index].namaJabatan,
-                                    style: TextStyles.text,
+                                  Expanded(
+                                    child: Text(
+                                      _listJabatanFilter[index].namaJabatan,
+                                      style: TextStyles.text,
+                                    ),
                                   ),
-                                  Spacer(),
                                   Icon(
                                     Icons.arrow_forward_ios,
                                     size: dp16(context),
