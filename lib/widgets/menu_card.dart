@@ -18,6 +18,7 @@ class MenuCard extends StatelessWidget {
   final String title;
   final String subTitle;
   final TypeMenu type;
+  final bool isCenter;
 
   const MenuCard({
     Key key,
@@ -26,6 +27,7 @@ class MenuCard extends StatelessWidget {
     @required this.title,
     @required this.subTitle,
     @required this.type,
+    this.isCenter = false,
   }) : super(key: key);
 
   @override
@@ -64,7 +66,8 @@ class MenuCard extends StatelessWidget {
         color: Colors.transparent,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment:
+              isCenter ? CrossAxisAlignment.center : CrossAxisAlignment.start,
           children: [
             SvgPicture.network(
               imageUrl,

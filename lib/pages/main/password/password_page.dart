@@ -25,6 +25,10 @@ class _PasswordPageState extends State<PasswordPage> {
   var _conNewPassword = TextEditingController();
   var _conNewPasswordRepeat = TextEditingController();
 
+  var _isHideOldPassword = true;
+  var _isHideNewPassword = true;
+  var _isHideNewPasswordRepeat = true;
+
   var _fnOldPassword = FocusNode();
   var _fnNewPassword = FocusNode();
   var _fnNewPasswordRepeat = FocusNode();
@@ -95,6 +99,20 @@ class _PasswordPageState extends State<PasswordPage> {
                   controller: _conOldPassword,
                   curFocusNode: _fnOldPassword,
                   nextFocusNode: _fnNewPassword,
+                  obscureText: _isHideOldPassword,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      !_isHideOldPassword
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                      color: Palette.colorPrimary,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _isHideOldPassword = !_isHideOldPassword;
+                      });
+                    },
+                  ),
                   validator: (value) =>
                       value.isEmpty ? Strings.errorEmpty : null,
                 ),
@@ -108,6 +126,20 @@ class _PasswordPageState extends State<PasswordPage> {
                   controller: _conNewPassword,
                   curFocusNode: _fnNewPassword,
                   nextFocusNode: _fnNewPasswordRepeat,
+                  obscureText: _isHideNewPassword,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      !_isHideNewPassword
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                      color: Palette.colorPrimary,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _isHideNewPassword = !_isHideNewPassword;
+                      });
+                    },
+                  ),
                   validator: (value) =>
                       value.isEmpty ? Strings.errorEmpty : null,
                 ),
@@ -120,6 +152,20 @@ class _PasswordPageState extends State<PasswordPage> {
                   textInputAction: TextInputAction.done,
                   controller: _conNewPasswordRepeat,
                   curFocusNode: _fnNewPasswordRepeat,
+                  obscureText: _isHideNewPasswordRepeat,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      !_isHideNewPasswordRepeat
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                      color: Palette.colorPrimary,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _isHideNewPasswordRepeat = !_isHideNewPasswordRepeat;
+                      });
+                    },
+                  ),
                   validator: (value) =>
                       value.isEmpty ? Strings.errorEmpty : null,
                 ),

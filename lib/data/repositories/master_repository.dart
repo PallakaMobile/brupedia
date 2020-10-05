@@ -66,7 +66,9 @@ class MasterRepository {
             data: DiagnosticResponse.fromJson(_responseUpdatePassword.data));
       } else {
         return Resources.error(
-            Diagnostic.fromJson(_responseUpdatePassword.data).message);
+            DiagnosticResponse.fromJson(_responseUpdatePassword.data)
+                .diagnostic
+                .message);
       }
     } catch (e) {
       return Resources.error(e.toString());
