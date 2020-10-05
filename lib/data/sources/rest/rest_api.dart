@@ -25,4 +25,5 @@ abstract class RestAPI {
 
   Future<Response> listTroubleshoot(Map<String, String> _params);
 
+  Future<Response> updatePassword(Map<String, String> _params);
 }

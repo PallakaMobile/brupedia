@@ -48,4 +48,11 @@ class Strings {
   static String downloadHere = "download_here".toTextDictionary();
   static String download = "download".toTextDictionary();
   static String share = "share".toTextDictionary();
+  static String changePassword = "change_password".toTextDictionary();
+  static String oldPassword = "old_password".toTextDictionary();
+  static String newPassword = "new_password".toTextDictionary();
+  static String newPasswordRepeat = "new_password_repeat".toTextDictionary();
+  static String save = "save".toTextDictionary();
+  static String errorEmpty = "error_empty".toTextDictionary();
+  static String errorNotMatch = "error_not_match".toTextDictionary();
 }

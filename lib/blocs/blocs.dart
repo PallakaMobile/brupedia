@@ -9,3 +9,5 @@ export 'navdrawer/navdrawer_bloc.dart';
 export 'resources.dart';
 export 'sop/sop_bloc.dart';
 export 'troubleshoot/troubleshoot_bloc.dart';
+export 'password/password_bloc.dart';
+export 'about/about_bloc.dart';
