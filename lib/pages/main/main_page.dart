@@ -48,7 +48,8 @@ class _MainPageState extends State<MainPage> {
     _drawerBloc = BlocProvider.of<NavDrawerBloc>(context);
     _dataMenus = [
       DataSelected(title: Strings.mainMenu, isSelected: true),
-      DataSelected(title: Strings.about, isSelected: false)
+      DataSelected(title: Strings.password, isSelected: false),
+      DataSelected(title: Strings.about, isSelected: false),
     ];
   }
 
@@ -262,6 +263,9 @@ class _MainPageState extends State<MainPage> {
                                       if (value.title == Strings.mainMenu)
                                         _drawerBloc
                                             .add(NavigationEvents.HomePage);
+                                      else if (value.title == Strings.password)
+                                        _drawerBloc
+                                            .add(NavigationEvents.Password);
                                       else
                                         _drawerBloc
                                             .add(NavigationEvents.AboutPage);

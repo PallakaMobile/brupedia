@@ -31,7 +31,7 @@ class _JobKnowledgeListPageState extends State<JobKnowledgeListPage> {
 
   PageController _pageController = new PageController();
   var _video = "Link Video";
-  var _document ="Dokumen";
+  var _document = "Dokumen";
 
   @override
   void initState() {

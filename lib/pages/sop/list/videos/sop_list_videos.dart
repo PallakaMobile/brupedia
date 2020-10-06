@@ -131,32 +131,33 @@ class _SopListVideosState extends State<SopListVideos> {
                                                 ),
                                               ),
                                               SizedBox(
-                                                width: dp4(context),
+                                                width: dp8(context),
                                               ),
-                                              Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    _listMediaFilter[index]
-                                                            .nama ??
-                                                        "Untitled",
-                                                    style: TextStyles.text,
-                                                  ),
-                                                  Text(
-                                                    _listMediaFilter[index]
-                                                        .updatedAt
-                                                        .toDate(),
-                                                    style: TextStyles.textAlt
-                                                        .copyWith(
-                                                            fontSize: Dimens
-                                                                .fontSmall),
-                                                  ),
-                                                ],
+                                              Expanded(
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      _listMediaFilter[index]
+                                                              .nama ??
+                                                          "Untitled",
+                                                      style: TextStyles.text,
+                                                    ),
+                                                    Text(
+                                                      _listMediaFilter[index]
+                                                          .updatedAt
+                                                          .toDate(),
+                                                      style: TextStyles.textAlt
+                                                          .copyWith(
+                                                              fontSize: Dimens
+                                                                  .fontSmall),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
-                                              Spacer(),
                                             ],
                                           ),
                                         ).padding(

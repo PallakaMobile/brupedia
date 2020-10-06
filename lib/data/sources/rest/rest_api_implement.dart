@@ -47,4 +47,8 @@ class RestApiImpl with RestAPI {
   @override
   Future<Response> listTroubleshoot(Map<String, String> _params) async =>
       await _dio.get("/api/troubleshoot", queryParameters: _params);
+
+  @override
+  Future<Response> updatePassword(Map<String, String> _params) async =>
+      await _dio.post("/api/password/change", data: _params);
 }

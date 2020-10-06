@@ -39,7 +39,7 @@ class Toast extends StatelessWidget {
                 color: textColor,
               ),
               SizedBox(
-                width: 16,
+                width: 4.w,
               ),
               Container(
                 constraints: BoxConstraints(maxWidth: 250.w),

@@ -122,8 +122,8 @@ class _SopListAllState extends State<SopListAll> {
                                                 fileName:
                                                     _listMediaFilter[index]
                                                         .nama,
-                                                url: _listMediaFilter[index]
-                                                    .url,
+                                                url:
+                                                    _listMediaFilter[index].url,
                                               ));
                                             } else {
                                               context
@@ -131,8 +131,8 @@ class _SopListAllState extends State<SopListAll> {
                                                 fileName:
                                                     _listMediaFilter[index]
                                                         .nama,
-                                                url: _listMediaFilter[index]
-                                                    .url,
+                                                url:
+                                                    _listMediaFilter[index].url,
                                               ));
                                             }
                                           },
@@ -143,7 +143,7 @@ class _SopListAllState extends State<SopListAll> {
                                                 child: SvgPicture.network(
                                                   _listMediaFilter[index]
                                                               .type ==
-                                                      _video
+                                                          _video
                                                       ? "ic_list_videos"
                                                           .toIconDictionary()
                                                       : "ic_list_document"
@@ -153,41 +153,46 @@ class _SopListAllState extends State<SopListAll> {
                                                 ),
                                               ),
                                               SizedBox(
-                                                width: dp4(context),
+                                                width: dp8(context),
                                               ),
-                                              Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    _listMediaFilter[index]
-                                                            .nama ??
-                                                        "Untitled",
-                                                    style: TextStyles.text,
-                                                  ),
-                                                  Text(
-                                                    _listMediaFilter[index]
-                                                        .updatedAt
-                                                        .toDate(),
-                                                    style: TextStyles.textAlt
-                                                        .copyWith(
-                                                            fontSize: Dimens
-                                                                .fontSmall),
-                                                  ),
-                                                ],
-                                              ),
-                                              Spacer(),
-                                              Visibility(
-                                                  visible:
-                                                  _listMediaFilter[index]
-                                                      .type ==
-                                                      _document,
-                                                  child: Text(
+                                              Expanded(
+                                                flex: 8,
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
                                                       _listMediaFilter[index]
-                                                          .fileSize ??
-                                                          ""))
+                                                              .nama ??
+                                                          "Untitled",
+                                                      style: TextStyles.text,
+                                                    ),
+                                                    Text(
+                                                      _listMediaFilter[index]
+                                                          .updatedAt
+                                                          .toDate(),
+                                                      style: TextStyles.textAlt
+                                                          .copyWith(
+                                                              fontSize: Dimens
+                                                                  .fontSmall),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Expanded(
+                                                flex: 2,
+                                                child: Visibility(
+                                                    visible:
+                                                        _listMediaFilter[index]
+                                                                .type ==
+                                                            _document,
+                                                    child: Text(
+                                                        _listMediaFilter[index]
+                                                                .fileSize ??
+                                                            "")),
+                                              )
                                             ],
                                           ),
                                         ).padding(

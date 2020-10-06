@@ -82,25 +82,33 @@ class _JobKnowledgeListDocumentsState extends State<JobKnowledgeListDocuments> {
                                 ),
                               ),
                               SizedBox(
-                                width: dp4(context),
+                                width: dp8(context),
                               ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    _listMediaFilter[index].nama ?? "Untitled",
-                                    style: TextStyles.text,
-                                  ),
-                                  Text(
-                                    _listMediaFilter[index].updatedAt.toDate(),
-                                    style: TextStyles.textAlt
-                                        .copyWith(fontSize: Dimens.fontSmall),
-                                  ),
-                                ],
+                              Expanded(
+                                flex: 8,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      _listMediaFilter[index].nama ??
+                                          "Untitled",
+                                      style: TextStyles.text,
+                                    ),
+                                    Text(
+                                      _listMediaFilter[index]
+                                          .updatedAt
+                                          .toDate(),
+                                      style: TextStyles.textAlt
+                                          .copyWith(fontSize: Dimens.fontSmall),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              Spacer(),
-                              Text(_listMediaFilter[index].fileSize ?? "")
+                              Expanded(
+                                  flex: 2,
+                                  child: Text(
+                                      _listMediaFilter[index].fileSize ?? ""))
                             ],
                           ),
                         ).padding(

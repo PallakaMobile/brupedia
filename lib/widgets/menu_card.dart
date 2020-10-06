@@ -64,7 +64,7 @@ class MenuCard extends StatelessWidget {
         color: Colors.transparent,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SvgPicture.network(
               imageUrl,
@@ -81,7 +81,7 @@ class MenuCard extends StatelessWidget {
               subTitle,
               style: TextStyle(
                 color: _textColor,
-                fontSize: Dimens.fontSmall,
+                fontSize: Dimens.fontNormal,
               ),
             )
           ],

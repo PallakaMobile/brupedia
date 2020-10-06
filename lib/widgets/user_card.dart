@@ -23,7 +23,7 @@ class UserCard extends StatelessWidget {
     return Center(
       child: Container(
         width: widthInPercent(100, context),
-        height: Dimens.height30,
+        height: Dimens.height35,
         decoration: BoxDecorations.primary,
         child: Stack(
           children: [
@@ -63,7 +63,10 @@ class UserCard extends StatelessWidget {
                   Text(
                     _user.profile.jabatan,
                     style: TextStyles.white,
-                  ),
+                    textAlign: TextAlign.center,
+                  ).padding(
+                      edgeInsets:
+                          EdgeInsets.symmetric(horizontal: dp12(context))),
                   Text(
                     _user.profile.bidang,
                     style: TextStyles.white.copyWith(
