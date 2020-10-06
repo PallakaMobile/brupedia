@@ -52,7 +52,6 @@ class _HomePageState extends State<HomePage> {
               childAspectRatio: 2 / 1.5,
               children: [
                 MenuCard(
-                    isCenter: true,
                     onPressed: () {
                       context.goTo(BlocProvider(
                         create: (context) => ListBidangBloc(),
@@ -64,7 +63,6 @@ class _HomePageState extends State<HomePage> {
                     subTitle: Strings.description,
                     type: TypeMenu.JOB_DESC),
                 MenuCard(
-                    isCenter: true,
                     onPressed: () {
                       context.goTo(BlocProvider(
                         create: (context) => ListBidangBloc(),
@@ -76,7 +74,6 @@ class _HomePageState extends State<HomePage> {
                     subTitle: "",
                     type: TypeMenu.SOP),
                 MenuCard(
-                    isCenter: true,
                     onPressed: () {
                       context.goTo(BlocProvider(
                         create: (context) => ListBidangBloc(),
@@ -88,7 +85,6 @@ class _HomePageState extends State<HomePage> {
                     subTitle: Strings.knowledge,
                     type: TypeMenu.JOB_KNOW),
                 MenuCard(
-                    isCenter: true,
                     onPressed: () {
                       context.goTo(BlocProvider(
                         create: (context) => ListBidangBloc(),
