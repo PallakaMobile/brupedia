@@ -76,6 +76,7 @@ class MenuCard extends StatelessWidget {
             Text(
               title,
               style: TextStyle(color: _textColor, fontSize: Dimens.fontNormal),
+              textAlign: TextAlign.center,
             ),
             Text(
               subTitle,
@@ -83,6 +84,7 @@ class MenuCard extends StatelessWidget {
                 color: _textColor,
                 fontSize: Dimens.fontNormal,
               ),
+              textAlign: TextAlign.center,
             )
           ],
         ),
