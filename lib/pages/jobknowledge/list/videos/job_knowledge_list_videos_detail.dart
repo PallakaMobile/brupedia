@@ -4,12 +4,6 @@ import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-///*********************************************
-/// Created by ukietux on 30/08/20 with ♥
-/// (>’_’)> email : ukie.tux@gmail.com
-/// github : https://www.github.com/ukieTux <(’_’<)
-///*********************************************
-/// © 2020 | All Right Reserved
 class JobKnowledgeListVideosDetail extends StatefulWidget {
   JobKnowledgeListVideosDetail({Key key, this.url, this.fileName})
       : super(key: key);

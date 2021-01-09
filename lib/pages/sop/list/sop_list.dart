@@ -7,12 +7,6 @@ import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-///*********************************************
-/// Created by ukietux on 26/08/20 with ♥
-/// (>’_’)> email : ukie.tux@gmail.com
-/// github : https://www.github.com/ukieTux <(’_’<)
-///*********************************************
-/// © 2020 | All Right Reserved
 class SopListPage extends StatefulWidget {
   SopListPage({Key key, this.id, this.name}) : super(key: key);
   final String id;

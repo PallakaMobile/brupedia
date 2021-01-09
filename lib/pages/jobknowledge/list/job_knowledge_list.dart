@@ -9,12 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../jobknowledge.dart';
 
-///*********************************************
-/// Created by ukietux on 26/08/20 with ♥
-/// (>’_’)> email : ukie.tux@gmail.com
-/// github : https://www.github.com/ukieTux <(’_’<)
-///*********************************************
-/// © 2020 | All Right Reserved
 class JobKnowledgeListPage extends StatefulWidget {
   JobKnowledgeListPage({Key key, this.id, this.name}) : super(key: key);
   final String id;

@@ -1,18 +1,9 @@
 import 'package:brupedia/blocs/about/about_bloc.dart';
 import 'package:brupedia/blocs/blocs.dart';
-import 'package:brupedia/resources/dimens.dart';
-import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_html/flutter_html.dart';
 
-///*********************************************
-/// Created by ukietux on 25/08/20 with ♥
-/// (>’_’)> email : ukie.tux@gmail.com
-/// github : https://www.github.com/ukieTux <(’_’<)
-///*********************************************
-/// © 2020 | All Right Reserved
 class AboutPage extends StatefulWidget {
   AboutPage({Key key}) : super(key: key);
 

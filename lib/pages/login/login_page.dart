@@ -15,13 +15,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:oktoast/oktoast.dart';
 
-///*********************************************
-/// Created by ukietux on 24/08/20 with ♥
-/// (>’_’)> email : ukie.tux@gmail.com
-/// github : https://www.github.com/ukieTux <(’_’<)
-///*********************************************
-/// © 2020 | All Right Reserved
-
 enum Category { REGISTER, FORGOT }
 
 class LoginPage extends StatefulWidget {

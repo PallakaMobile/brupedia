@@ -9,12 +9,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../sop.dart';
 
-///*********************************************
-/// Created by ukietux on 30/08/20 with ♥
-/// (>’_’)> email : ukie.tux@gmail.com
-/// github : https://www.github.com/ukieTux <(’_’<)
-///*********************************************
-/// © 2020 | All Right Reserved
 class SopListVideos extends StatefulWidget {
   SopListVideos({Key key, this.idBidang, this.name}) : super(key: key);
   final String idBidang;

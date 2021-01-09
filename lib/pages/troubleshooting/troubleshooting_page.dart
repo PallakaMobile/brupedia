@@ -8,12 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oktoast/oktoast.dart';
 
-///*********************************************
-/// Created by ukietux on 26/08/20 with ♥
-/// (>’_’)> email : ukie.tux@gmail.com
-/// github : https://www.github.com/ukieTux <(’_’<)
-///*********************************************
-/// © 2020 | All Right Reserved
 class TroubleshootingPage extends StatefulWidget {
   TroubleshootingPage({Key key}) : super(key: key);
 

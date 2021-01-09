@@ -1,3 +1,4 @@
+export 'about/about_bloc.dart';
 export 'dictionary/dictionary_bloc.dart';
 export 'job_description/job_description_bloc.dart';
 export 'job_knowledge/job_knowledge_bloc.dart';
@@ -6,8 +7,7 @@ export 'list_jabatan/list_jabatan_bloc.dart';
 export 'login/login_bloc.dart';
 export 'logout/logout_bloc.dart';
 export 'navdrawer/navdrawer_bloc.dart';
+export 'password/password_bloc.dart';
 export 'resources.dart';
 export 'sop/sop_bloc.dart';
 export 'troubleshoot/troubleshoot_bloc.dart';
-export 'password/password_bloc.dart';
-export 'about/about_bloc.dart';

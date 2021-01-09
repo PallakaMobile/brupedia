@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:brupedia/data/models/responses/dictionary_response.dart';
-import 'package:brupedia/data/models/responses/login_response.dart';
 import 'package:brupedia/data/repositories/job_description_repository.dart';
 import 'package:brupedia/data/repositories/job_knowledge_repository.dart';
 import 'package:brupedia/data/repositories/login_repository.dart';
@@ -18,7 +17,6 @@ var sl = GetIt.instance;
 Future<void> serviceLocator() async {
   sl.registerFactory<API>(() => API());
   sl.registerFactory<RestApiImpl>(() => RestApiImpl());
-  sl.registerFactory<DbHelper>(() => DbHelper());
 
   //register  Repositories
   sl.registerLazySingleton(() => SplashScreenRepository());

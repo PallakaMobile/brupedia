@@ -3,13 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-///*********************************************
-/// Created by ukietux on 26/08/20 with ♥
-/// (>’_’)> email : ukie.tux@gmail.com
-/// github : https://www.github.com/ukieTux <(’_’<)
-///*********************************************
-/// © 2020 | All Right Reserved
-
 enum TypeMenu { JOB_DESC, SOP, JOB_KNOW, TROUBLE }
 
 class MenuCard extends StatelessWidget {

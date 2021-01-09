@@ -7,12 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oktoast/oktoast.dart';
 
-///*********************************************
-/// Created by ukietux on 05/10/20 with ♥
-/// (>’_’)> email : ukie.tux@gmail.com
-/// github : https://www.github.com/ukieTux <(’_’<)
-///*********************************************
-/// © 2020 | All Right Reserved
 class PasswordPage extends StatefulWidget {
   PasswordPage({Key key}) : super(key: key);
 

@@ -3,12 +3,6 @@ import 'package:brupedia/utils/utils.dart';
 import 'package:brupedia/widgets/copy_right_text.dart';
 import 'package:flutter/material.dart';
 
-///*********************************************
-/// Created by ukietux on 24/08/20 with ♥
-/// (>’_’)> email : ukie.tux@gmail.com
-/// github : https://www.github.com/ukieTux <(’_’<)
-///*********************************************
-/// © 2020 | All Right Reserved
 class Parent extends StatefulWidget {
   final Widget child;
   final bool isCopyRightShow;

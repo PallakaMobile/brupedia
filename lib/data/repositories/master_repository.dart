@@ -61,12 +61,9 @@ class MasterRepository {
       var _response = await _restApi.updatePassword(_params);
       var _responseUpdatePassword = DiagnosticResponse.fromJson(_response.data);
       if (_response.statusCode == 200) {
-        return Resources.success(
-            data: _responseUpdatePassword);
+        return Resources.success(data: _responseUpdatePassword);
       } else {
-        return Resources.error(
-            _responseUpdatePassword.diagnostic
-                .message);
+        return Resources.error(_responseUpdatePassword.diagnostic.message);
       }
     } catch (e) {
       return Resources.error(e.toString());

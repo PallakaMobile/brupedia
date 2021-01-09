@@ -3,12 +3,6 @@ import 'package:brupedia/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-///*********************************************
-/// Created by ukietux on 25/06/20 with ♥
-/// (>’_’)> email : ukie.tux@gmail.com
-/// github : https://www.github.com/ukieTux <(’_’<)
-///*********************************************
-/// © 2020 | All Right Reserved
 class Empty extends StatelessWidget {
   final String errorMessage;
 

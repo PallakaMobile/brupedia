@@ -16,12 +16,6 @@ import 'package:flutter_screenutil/size_extension.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:oktoast/oktoast.dart';
 
-///*********************************************
-/// Created by ukietux on 25/08/20 with ♥
-/// (>’_’)> email : ukie.tux@gmail.com
-/// github : https://www.github.com/ukieTux <(’_’<)
-///*********************************************
-/// © 2020 | All Right Reserved
 class MainPage extends StatefulWidget {
   MainPage({Key key}) : super(key: key);
 

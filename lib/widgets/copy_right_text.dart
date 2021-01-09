@@ -3,12 +3,6 @@ import 'package:brupedia/resources/dimens.dart';
 import 'package:brupedia/resources/resources.dart';
 import 'package:flutter/material.dart';
 
-///*********************************************
-/// Created by ukietux on 24/08/20 with ♥
-/// (>’_’)> email : ukie.tux@gmail.com
-/// github : https://www.github.com/ukieTux <(’_’<)
-///*********************************************
-/// © 2020 | All Right Reserved
 class CopyRightText extends StatelessWidget {
   final Color color;
 

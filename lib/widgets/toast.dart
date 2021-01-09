@@ -2,12 +2,6 @@ import 'package:brupedia/resources/resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/size_extension.dart';
 
-///*********************************************
-/// Created by ukietux on 11/09/20 with ♥
-/// (>’_’)> email : ukie.tux@gmail.com
-/// github : https://www.github.com/ukieTux <(’_’<)
-///*********************************************
-/// © 2020 | All Right Reserved
 class Toast extends StatelessWidget {
   final IconData icon;
   final Color bgColor;

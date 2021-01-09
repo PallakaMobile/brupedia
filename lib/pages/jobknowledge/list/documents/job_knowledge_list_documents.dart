@@ -6,12 +6,6 @@ import 'package:brupedia/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-///*********************************************
-/// Created by ukietux on 30/08/20 with ♥
-/// (>’_’)> email : ukie.tux@gmail.com
-/// github : https://www.github.com/ukieTux <(’_’<)
-///*********************************************
-/// © 2020 | All Right Reserved
 class JobKnowledgeListDocuments extends StatefulWidget {
   JobKnowledgeListDocuments({Key key, this.listMedia, this.name})
       : super(key: key);

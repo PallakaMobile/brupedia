@@ -3,12 +3,6 @@ import 'package:brupedia/widgets/html_view.dart';
 import 'package:brupedia/widgets/parent.dart';
 import 'package:flutter/material.dart';
 
-///*********************************************
-/// Created by ukietux on 30/08/20 with ♥
-/// (>’_’)> email : ukie.tux@gmail.com
-/// github : https://www.github.com/ukieTux <(’_’<)
-///*********************************************
-/// © 2020 | All Right Reserved
 class TroubleshootingDetail extends StatelessWidget {
   final String data;
 
